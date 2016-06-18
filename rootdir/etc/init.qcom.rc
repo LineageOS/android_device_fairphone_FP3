@@ -66,6 +66,9 @@ on early-boot
     write /sys/kernel/boot_slpi/boot 1
     exec u:r:qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
 
+    # Update dm-verity state and set partition.*.verified properties
+    verity_update_state
+
     # for backward compatibility
     chown system system /persist/sensors
     chown system system /persist/sensors/registry
