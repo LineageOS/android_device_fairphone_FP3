@@ -183,6 +183,12 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_OLD_MNC_FORMAT := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
+# Enable sensor multi HAL
+USE_SENSOR_MULTI_HAL := true
+
+#Enable peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
