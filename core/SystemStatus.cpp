@@ -34,8 +34,8 @@
 #include <string.h>
 #include <sys/time.h>
 #include <pthread.h>
-#include <platform_lib_log_util.h>
-#include <MsgTask.h>
+#include <loc_pla.h>
+#include <log_util.h>
 #include <loc_nmea.h>
 #include <DataItemsFactoryProxy.h>
 #include <SystemStatus.h>
@@ -1694,9 +1694,7 @@ bool SystemStatus::eventConnectionStatus(bool connected, int8_t type)
 
         // send networkinof dataitem to systemstatus observer clients
         SystemStatusNetworkInfo s(type, "", "", false, connected, false);
-        list<IDataItemCore*> dl(0);
-        dl.push_back(&s);
-        mSysStatusObsvr.notify(dl);
+        mSysStatusObsvr.notify({&s});
     }
     return true;
 }
