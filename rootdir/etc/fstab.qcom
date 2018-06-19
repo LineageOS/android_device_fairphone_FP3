@@ -7,7 +7,7 @@
 
 #<src>					<mnt_point>		<type>	<mnt_flags and options>								<fs_mgr_flags>
 /dev/block/bootdevice/by-name/system		/		ext4	ro,barrier=1,discard								wait,slotselect,verify
-/dev/block/bootdevice/by-name/userdata       /data        f2fs    rw,discard,nosuid,nodev,noatime,nodiratime,nobarrier,inline_xattr,inline_data,reserve_root=32768,resgid=1065   wait,check,formattable,fileencryption=ice,quota,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata       /data        f2fs    rw,discard,nosuid,nodev,noatime,nodiratime,nobarrier,inline_xattr,inline_data,reserve_root=32768,resgid=1065   wait,check,formattable,latemount,fileencryption=ice,quota,reservedsize=128M
 /devices/platform/soc/7864900.sdhci/mmc_host*		auto		auto	nosuid,nodev					wait,voldmanaged=sdcard1:auto,encryptable=userdata
 /dev/block/zram0				none		swap	defaults									zramsize=1073741824
 /devices/*/xhci-hcd.*.auto/usb*			auto		auto	defaults									voldmanaged=usb:auto
