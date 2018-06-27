@@ -236,8 +236,7 @@ public:
     NetworkInfoDataItemBase(
     NetworkType initialType, int32_t type, string typeName, string subTypeName,
     bool available, bool connected, bool roaming ):
-            mAllTypes((initialType >= TYPE_UNKNOWN || initialType < TYPE_MOBILE) ?
-                      0 : (1<<initialType)),
+            mAllTypes(typeToAllTypes(initialType)),
             mType(type),
             mTypeName(typeName),
             mSubTypeName(subTypeName),
@@ -263,7 +262,9 @@ public:
     bool mRoaming;
 protected:
     DataItemId mId;
-
+    inline uint64_t typeToAllTypes(NetworkType type) {
+        return (type >= TYPE_UNKNOWN || type < TYPE_MOBILE) ?  0 : (1<<type);
+    }
 };
 
 class ServiceStatusDataItemBase : public IDataItemCore {
@@ -313,24 +314,42 @@ protected:
 
 class RilServiceInfoDataItemBase : public IDataItemCore {
 public:
-    RilServiceInfoDataItemBase() :
-        mId(RILSERVICEINFO_DATA_ITEM_ID) {}
-    virtual ~RilServiceInfoDataItemBase() {}
+    inline RilServiceInfoDataItemBase() :
+            mData(nullptr), mId(RILSERVICEINFO_DATA_ITEM_ID) {}
+    inline virtual ~RilServiceInfoDataItemBase() { if (nullptr != mData) free(mData); }
     inline virtual DataItemId getId() { return mId; }
     virtual void stringify(string& /*valueStr*/) {}
     virtual int32_t copy(IDataItemCore* /*src*/, bool* /*dataItemCopied = NULL*/) {return 1;}
+    inline RilServiceInfoDataItemBase(const RilServiceInfoDataItemBase& peer) :
+            RilServiceInfoDataItemBase() {
+        peer.setPeerData(*this);
+    }
+    inline virtual bool operator==(const RilServiceInfoDataItemBase& other) const {
+        return other.mData == mData;
+    }
+    inline virtual void setPeerData(RilServiceInfoDataItemBase& /*peer*/) const {}
+    void* mData;
 protected:
     DataItemId mId;
 };
 
 class RilCellInfoDataItemBase : public IDataItemCore {
 public:
-    RilCellInfoDataItemBase() :
-        mId(RILCELLINFO_DATA_ITEM_ID) {}
-    virtual ~RilCellInfoDataItemBase() {}
+    inline RilCellInfoDataItemBase() :
+            mData(nullptr), mId(RILCELLINFO_DATA_ITEM_ID) {}
+    inline virtual ~RilCellInfoDataItemBase() { if (nullptr != mData) free(mData); }
     inline virtual DataItemId getId() { return mId; }
     virtual void stringify(string& /*valueStr*/) {}
     virtual int32_t copy(IDataItemCore* /*src*/, bool* /*dataItemCopied = NULL*/) {return 1;}
+    inline RilCellInfoDataItemBase(const RilCellInfoDataItemBase& peer) :
+            RilCellInfoDataItemBase() {
+        peer.setPeerData(*this);
+    }
+    inline virtual bool operator==(const RilCellInfoDataItemBase& other) const {
+        return other.mData == mData;
+    }
+    inline virtual void setPeerData(RilCellInfoDataItemBase& /*peer*/) const {}
+    void* mData;
 protected:
     DataItemId mId;
 };

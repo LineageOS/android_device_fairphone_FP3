@@ -466,7 +466,6 @@ public:
             int32_t type=0,
             std::string typeName="",
             string subTypeName="",
-            bool available=false,
             bool connected=false,
             bool roaming=false) :
             NetworkInfoDataItemBase(
@@ -474,7 +473,7 @@ public:
                     type,
                     typeName,
                     subTypeName,
-                    available,
+                    connected && (!roaming),
                     connected,
                     roaming),
             mSrcObjPtr(nullptr) {}
@@ -484,15 +483,7 @@ public:
         mType = itemBase.getType();
     }
     inline bool equals(const SystemStatusNetworkInfo& peer) {
-        if ((mAllTypes == peer.mAllTypes) &&
-            (mTypeName == peer.mTypeName) &&
-            (mSubTypeName == peer.mSubTypeName) &&
-            (mAvailable == peer.mAvailable) &&
-            (mConnected == peer.mConnected) &&
-            (mRoaming == peer.mRoaming)) {
-            return true;
-        }
-        return false;
+        return (mAllTypes == peer.mAllTypes);
     }
     inline virtual SystemStatusItemBase& collate(SystemStatusItemBase& curInfo) {
         uint64_t allTypes = (static_cast<SystemStatusNetworkInfo&>(curInfo)).mAllTypes;
@@ -523,8 +514,9 @@ public:
             RilServiceInfoDataItemBase() {}
     inline SystemStatusServiceInfo(const RilServiceInfoDataItemBase& itemBase) :
             RilServiceInfoDataItemBase(itemBase) {}
-    inline bool equals(const SystemStatusServiceInfo& /*peer*/) {
-        return true;
+    inline bool equals(const SystemStatusServiceInfo& peer) {
+        return static_cast<const RilServiceInfoDataItemBase&>(peer) ==
+                static_cast<const RilServiceInfoDataItemBase&>(*this);
     }
 };
 
@@ -536,8 +528,9 @@ public:
             RilCellInfoDataItemBase() {}
     inline SystemStatusRilCellInfo(const RilCellInfoDataItemBase& itemBase) :
             RilCellInfoDataItemBase(itemBase) {}
-    inline bool equals(const SystemStatusRilCellInfo& /*peer*/) {
-        return true;
+    inline bool equals(const SystemStatusRilCellInfo& peer) {
+        return static_cast<const RilCellInfoDataItemBase&>(peer) ==
+                static_cast<const RilCellInfoDataItemBase&>(*this);
     }
 };
 
