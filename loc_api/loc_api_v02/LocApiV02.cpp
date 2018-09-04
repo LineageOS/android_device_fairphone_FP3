@@ -2459,33 +2459,39 @@ void LocApiV02 :: reportPosition (
 
                 locationExtended.flags |= GPS_LOCATION_EXTENDED_HAS_GNSS_SV_USED_DATA;
                 // Set of used_in_fix SV ID
-                for (idx = 0; idx < gnssSvUsedList_len; idx++)
-                {
-                    gnssSvIdUsed = location_report_ptr->gnssSvUsedList[idx];
-                    if (gnssSvIdUsed <= GPS_SV_PRN_MAX)
+                bool reported = LocApiBase::needReport(location,
+                                                       eQMI_LOC_SESS_STATUS_IN_PROGRESS_V02 ?
+                                                       LOC_SESS_INTERMEDIATE : LOC_SESS_SUCCESS,
+                                                       tech_Mask);
+                if (reported) {
+                    for (idx = 0; idx < gnssSvUsedList_len; idx++)
                     {
-                        locationExtended.gnss_sv_used_ids.gps_sv_used_ids_mask |=
-                                                    (1 << (gnssSvIdUsed - GPS_SV_PRN_MIN));
-                    }
-                    else if ((gnssSvIdUsed >= GLO_SV_PRN_MIN) && (gnssSvIdUsed <= GLO_SV_PRN_MAX))
-                    {
-                        locationExtended.gnss_sv_used_ids.glo_sv_used_ids_mask |=
-                                                    (1 << (gnssSvIdUsed - GLO_SV_PRN_MIN));
-                    }
-                    else if ((gnssSvIdUsed >= BDS_SV_PRN_MIN) && (gnssSvIdUsed <= BDS_SV_PRN_MAX))
-                    {
-                        locationExtended.gnss_sv_used_ids.bds_sv_used_ids_mask |=
-                                                    (1 << (gnssSvIdUsed - BDS_SV_PRN_MIN));
-                    }
-                    else if ((gnssSvIdUsed >= GAL_SV_PRN_MIN) && (gnssSvIdUsed <= GAL_SV_PRN_MAX))
-                    {
-                        locationExtended.gnss_sv_used_ids.gal_sv_used_ids_mask |=
-                                                    (1 << (gnssSvIdUsed - GAL_SV_PRN_MIN));
-                    }
-                    else if ((gnssSvIdUsed >= QZSS_SV_PRN_MIN) && (gnssSvIdUsed <= QZSS_SV_PRN_MAX))
-                    {
-                        locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask |=
-                                                    (1 << (gnssSvIdUsed - QZSS_SV_PRN_MIN));
+                        gnssSvIdUsed = location_report_ptr->gnssSvUsedList[idx];
+                        if (gnssSvIdUsed <= GPS_SV_PRN_MAX)
+                        {
+                            locationExtended.gnss_sv_used_ids.gps_sv_used_ids_mask |=
+                                (1 << (gnssSvIdUsed - GPS_SV_PRN_MIN));
+                        }
+                        else if ((gnssSvIdUsed >= GLO_SV_PRN_MIN) && (gnssSvIdUsed <= GLO_SV_PRN_MAX))
+                        {
+                            locationExtended.gnss_sv_used_ids.glo_sv_used_ids_mask |=
+                                (1 << (gnssSvIdUsed - GLO_SV_PRN_MIN));
+                        }
+                        else if ((gnssSvIdUsed >= BDS_SV_PRN_MIN) && (gnssSvIdUsed <= BDS_SV_PRN_MAX))
+                        {
+                            locationExtended.gnss_sv_used_ids.bds_sv_used_ids_mask |=
+                                (1 << (gnssSvIdUsed - BDS_SV_PRN_MIN));
+                        }
+                        else if ((gnssSvIdUsed >= GAL_SV_PRN_MIN) && (gnssSvIdUsed <= GAL_SV_PRN_MAX))
+                        {
+                            locationExtended.gnss_sv_used_ids.gal_sv_used_ids_mask |=
+                                (1 << (gnssSvIdUsed - GAL_SV_PRN_MIN));
+                        }
+                        else if ((gnssSvIdUsed >= QZSS_SV_PRN_MIN) && (gnssSvIdUsed <= QZSS_SV_PRN_MAX))
+                        {
+                            locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask |=
+                                (1 << (gnssSvIdUsed - QZSS_SV_PRN_MIN));
+                        }
                     }
                 }
             }
