@@ -57,18 +57,15 @@ static int current_power_profile = PROFILE_BALANCED;
 static int profile_high_performance[] = {
     SCHED_BOOST_ON_V3, 0x1,
     ALL_CPUS_PWR_CLPS_DIS_V3, 0x1,
-    CPUS_ONLINE_MIN_BIG, 0x4,
     MIN_FREQ_BIG_CORE_0, 0xFFF,
     MIN_FREQ_LITTLE_CORE_0, 0xFFF,
     GPU_MIN_POWER_LEVEL, 0x1,
     SCHED_PREFER_IDLE_DIS_V3, 0x1,
-    SCHED_SMALL_TASK, 0x1,
     SCHED_MOSTLY_IDLE_NR_RUN, 0x1,
     SCHED_MOSTLY_IDLE_LOAD, 0x1,
 };
 
 static int profile_power_save[] = {
-    CPUS_ONLINE_MAX_BIG, 0x1,
     MAX_FREQ_BIG_CORE_0, 0x3bf,
     MAX_FREQ_LITTLE_CORE_0, 0x300,
 };
@@ -79,7 +76,6 @@ static int profile_bias_power[] = {
 };
 
 static int profile_bias_performance[] = {
-    CPUS_ONLINE_MAX_BIG, 0x4,
     MIN_FREQ_BIG_CORE_0, 0x540,
 };
 
