@@ -154,6 +154,7 @@ typedef enum
 */
 typedef union
 {
+   void* pReqData;
    const qmiLocInformClientRevisionReqMsgT_v02* pInformClientRevisionReq;
    /**< Notifies the service about the revision the client is using.
 
@@ -1805,6 +1806,20 @@ extern bool locClientGetSizeByRespIndId(
 extern bool locClientRegisterEventMask(
     locClientHandleType clientHandle,
     locClientEventMaskType eventRegMask);
+
+/**  validateRequest
+  @brief validates the input request
+  @param [in] reqId       request ID
+  @param [in] reqPayload  Union of pointers to message payload
+  @param [out] ppOutData  Pointer to void *data if successful
+  @param [out] pOutLen    Pointer to length of data if succesful.
+  @return false on failure, true on Success
+*/
+extern bool validateRequest(
+    uint32_t                    reqId,
+    const locClientReqUnionType reqPayload,
+    void                        **ppOutData,
+    uint32_t                    *pOutLen );
 
 /*=============================================================================*/
 /** @} */ /* end_addtogroup operation_functions */
