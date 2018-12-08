@@ -4392,6 +4392,13 @@ getBestAvailableZppFix(LocGpsLocation &zppLoc, GpsLocationExtended & location_ex
             if (zpp_ind.technologyMask_valid) {
                 tech_mask = zpp_ind.technologyMask;
             }
+            struct timespec time_info;
+            uint64_t  time_since_boot;
+            clock_gettime(CLOCK_BOOTTIME, &time_info);
+            time_since_boot = time_info.tv_sec * 1000000000;
+            time_since_boot += time_info.tv_nsec;
+            location_extended.flags |=  GPS_LOCATION_EXTENDED_HAS_ELAPSED_TIME;
+            location_extended.elapsedTime = time_since_boot;
         }
     }
 
@@ -4732,8 +4739,8 @@ locClientStatusEnumType LocApiV02::locSyncSendReq(uint32_t req_id,
     if (eLOC_CLIENT_FAILURE_ENGINE_BUSY == status ||
             (eLOC_CLIENT_SUCCESS == status && nullptr != ind_payload_ptr &&
             eLOC_CLIENT_FAILURE_ENGINE_BUSY == *((locClientStatusEnumType*)ind_payload_ptr))) {
-        if (mResenders.empty()) {
-            registerEventMask(mQmiMask | QMI_LOC_EVENT_MASK_ENGINE_STATE_V02);
+        if (mResenders.empty() && ((mQmiMask & QMI_LOC_EVENT_MASK_ENGINE_STATE_V02) == 0)) {
+            locClientRegisterEventMask(clientHandle, mQmiMask | QMI_LOC_EVENT_MASK_ENGINE_STATE_V02);
         }
         LOC_LOGD("%s:%d]: Engine busy, cache req: %d", __func__, __LINE__, req_id);
         mResenders.push_back([=](){
