@@ -420,6 +420,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libtinyxml2
 
+# Trust HAL
+PRODUCT_PACKAGES += \
+    vendor.lineage.trust@1.0-service
+
 # Update engine
 PRODUCT_PACKAGES += brillo_update_payload
 
