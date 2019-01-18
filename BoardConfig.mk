@@ -62,6 +62,9 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/config.fs
 
+# Display
+TARGET_SCREEN_DENSITY := 480
+
 # Kernel
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_PAGESIZE    := 2048
