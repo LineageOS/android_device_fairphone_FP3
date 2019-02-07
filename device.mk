@@ -37,6 +37,7 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo \
     system \
+    vbmeta \
     vendor
 
 # Default A/B configuration.
