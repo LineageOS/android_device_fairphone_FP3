@@ -437,8 +437,7 @@ LocApiV02 :: open(LOC_API_ADAPTER_EVENT_MASK_T mask)
     registerEventMask(newMask);
   }
   /*Set the SV Measurement Constellation when Measurement Report or Polynomial report is set*/
-  if( (qmiMask & QMI_LOC_EVENT_MASK_GNSS_MEASUREMENT_REPORT_V02) ||
-      (qmiMask & QMI_LOC_EVENT_MASK_GNSS_SV_POLYNOMIAL_REPORT_V02) )
+  if(mGnssMeasurementSupported == sup_yes)
   {
      setSvMeasurementConstellation( eQMI_SYSTEM_GPS_V02 |
                                     eQMI_SYSTEM_GLO_V02 |
