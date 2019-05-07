@@ -20,6 +20,14 @@ BOARD_VENDOR := Fairphone
 
 TARGET_ENFORCE_QSSI := true
 
+# A/B updater
+AB_OTA_UPDATER := true
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    system \
+    vendor
+
 # APEX image
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
