@@ -779,14 +779,14 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libquipc_os_api.so
 
 # Radio
--vendor/app/datastatusnotification/datastatusnotification.apk|9e21f9a695951c3bc9ef39fcd4e73ec58b13415c
+-vendor/app/datastatusnotification/datastatusnotification.apk|f73d163acf4a9748e27a666fabb382d341150e8e
 -app/QtiTelephonyService/QtiTelephonyService.apk:vendor/app/QtiTelephonyService/QtiTelephonyService.apk
 etc/permissions/qcrilhook.xml:vendor/etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml:vendor/etc/permissions/telephonyservice.xml
 framework/qcrilhook.jar:vendor/framework/qcrilhook.jar
-framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
+framework/qti-telephony-common.jar|e529711775c31da38c9ecd1ab94b27ee15570dc4
 framework/QtiTelephonyServicelibrary.jar:vendor/framework/QtiTelephonyServicelibrary.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|d1d3adfe6eff32a3013e146317324029181e3c4a
 framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 vendor/bin/ATFWD-daemon
 vendor/bin/ipacm-diag
