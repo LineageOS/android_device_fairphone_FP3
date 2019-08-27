@@ -494,6 +494,7 @@
         <int name="smsToMmsTextThreshold" value="6" />
     </carrier_config>
     <carrier_config mcc="404">
+        <boolean name="carrier_volte_available_bool" value="true" />
         <int name="maxImageHeight" value="1944" />
         <int name="maxImageWidth" value="2592" />
         <int name="recipientLimit" value="20" />
