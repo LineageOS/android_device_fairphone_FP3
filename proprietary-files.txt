@@ -70,9 +70,9 @@ vendor/etc/acdbdata/TAS/TAS_WCD9335_Hdmi_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Headset_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Speaker_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_workspaceFile.qwsp
-vendor/lib/libaudioparsers.so
+-vendor/lib/libaudioparsers.so
 vendor/lib/libaudio_log_utils.so
-vendor/lib64/libaudioparsers.so
+-vendor/lib64/libaudioparsers.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib/libsmwrapper.so
 vendor/lib64/soundfx/libqcbassboost.so
