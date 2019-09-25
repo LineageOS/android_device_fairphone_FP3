@@ -74,7 +74,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 TARGET_KERNEL_CONFIG := lineageos_FP3_defconfig
 TARGET_KERNEL_SOURCE := kernel/fairphone/sdm632
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_USES_UNCOMPRESSED_KERNEL := false
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78af000
