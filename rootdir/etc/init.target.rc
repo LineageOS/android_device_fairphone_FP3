@@ -283,7 +283,6 @@ on property:init.svc.zygote=restarting
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    load_system_props
     setprop sys.usb.configfs 1
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage,adb
