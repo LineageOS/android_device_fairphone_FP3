@@ -79,11 +79,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/platform/soc/c0c4000.sdhci/by-name/frp
-
-# NFC
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.nfc.port=I2C
+    ro.frp.pst=/dev/block/platform/soc/7824900.sdhci/by-name/frp
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -183,11 +179,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Time daemon
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.delta_time.enable=true
-
-# USB
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config.extra=none
+    persist.timed.enable=true
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
