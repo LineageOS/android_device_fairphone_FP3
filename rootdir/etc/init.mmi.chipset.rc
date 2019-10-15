@@ -1,0 +1,71 @@
+# Moto Mods
+import /vendor/etc/init/hw/init.mods.rc
+
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules exfat utags watchdogtest sensors_class mmi_annotate mmi_info tzlog_dump mmi_sys_temp
+
+# Chipset-specific init settings
+on boot
+    # Change permission for type C params
+    chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
+    chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
+    # Change ownership and permission for AMPS factory testing
+    chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/enable
+    chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/enable
+    chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+    chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+
+    # Change permission for fingerprint sensor
+    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/nav
+    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/clk_enable
+    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/dev_enable
+    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq
+    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq_cnt
+    chmod 0440 /sys/bus/spi/devices/spi8.0/irq_cnt
+
+on post-fs-data
+    #setup folder for WLAN WAPI
+    chmod 0770 /data/wapi_certificate
+
+    # This dir only for preinstall app so libs
+    mkdir /data/app-lib2 0771 system system
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group fingerp
+
+on property:sys.boot_completed=1
+    # For cross-reboot FFU script tracking (unencrypted case)
+    mkdir /data/vendor/ffu 0750 shell shell
+    start emmc_ffu
+
+
+service emmc_ffu /vendor/bin/emmc_ffu.sh
+    user root
+    class late_start
+    oneshot
+    disabled
+
+on property:vendor.need_ffu=1
+    setprop sys.dbg.ffu_start 1
+
+on moto-charger
+    setprop ro.board.platform msm8953
+    load_system_props
+    trigger firmware_mounts_complete
+    setprop sys.usb.configfs 1
+    setprop sys.usb.config charging
+    start  qcom-post-boot
+    start vendor.hvdcp_opti
+    start gbmodinstall
+    start vendor.charge_only_mode
+    start vendor.batt_health
+    start vendor.thermal-com
+
+# Set hub drive strength to +5%
+on property:ro.bootmode=normal
+   write /sys/module/usb3813_hub/parameters/boost_val 3
+
+on property:ro.vendor.build.motfactory=1
+    write /sys/class/power_supply/battery/device/factory_image_mode 1

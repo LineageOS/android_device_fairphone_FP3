@@ -1,0 +1,18 @@
+[
+  {
+    "repository": "android_kernel_motorola_sdm632",
+    "target_path": "kernel/motorola/sdm632"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
+  },
+  {
+    "repository": "android_external_bson",
+    "target_path": "external/bson"
+  },
+  {
+    "repository": "android_system_qcom",
+    "target_path": "system/qcom"
+  }
+]

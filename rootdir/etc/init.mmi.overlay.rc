@@ -1,0 +1,60 @@
+import init.hidl.sensor.rc
+
+# Egis fps
+import /vendor/etc/init/init.ets.rc
+
+service capsense_reset /system/vendor/bin/capsense_reset
+   class core
+   user system
+   group system input
+   disabled
+
+on property:sys.boot_completed=1
+    start capsense_reset
+
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules cirrus_madera-core cirrus_irq-madera cirrus_madera extcon-madera aov_trigger madera-ldo1 madera-micsupp cirrus_wm_adsp cirrus_cs47l35 cirrus_cs35l41 cirrus_playback tps61280 ets_fps_mmi drv2624_mmi aw869x sx933x_sar
+
+on init
+
+   # Change ownership for for HBM feature
+   chown system system /sys/class/graphics/fb0/hbm
+   # Change ownership for for cabc feature
+   chown system system /sys/class/graphics/fb0/cabc
+   setprop sys.usb.ffs.aio_compat 1
+
+on boot
+   # change permission for capsensor
+   chown system system /sys/class/capsense/reset
+
+
+    # Change permission for fingerprint sensor
+    chown system mot_tcmd /sys/devices/platform/soc/soc:fpc_fpc1020/nav
+    chown system mot_tcmd /sys/devices/platform/soc/soc:fpc_fpc1020/dev_enable
+    chown system mot_tcmd /sys/devices/platform/soc/soc:fpc_fpc1020/irq
+    chown system mot_tcmd /sys/devices/platform/soc/soc:fpc_fpc1020/irq_cnt
+    chmod 0440 /sys/devices/platform/soc/soc:fpc_fpc1020/irq_cnt
+
+   # Change the ownership of display TE files for tcmds
+   chown root mot_tcmd /sys/class/graphics/fb0/te_test
+   chown root mot_tcmd /sys/class/graphics/fb0/te_enable
+   chown root mot_tcmd /sys/class/graphics/fb0/frame_counter
+
+   # Change group for himax TP factory testing
+   chown root mot_tcmd /proc/android_touch/self_test
+
+   # Change ownership and permission for vibrator awinic with extra functions
+   chown system system /sys/class/leds/vibrator/seq
+   chmod 0660 /sys/class/leds/vibrator/seq
+   chown system system /sys/class/leds/vibrator/extra
+   chmod 0660 /sys/class/leds/vibrator/extra
+
+# Change own to system to allow Runin APK to control charging.
+on property:ro.build.motfactory=1
+    chown system system /d/regmap/spmi0-02/address
+    chown system system /d/regmap/spmi0-02/count
+    chown system system /d/regmap/spmi0-02/data
+
+# Turn on led to indicate device on in factory mode
+on property:ro.bootmode=mot-factory
+    write /sys/class/leds/charging/brightness 10
