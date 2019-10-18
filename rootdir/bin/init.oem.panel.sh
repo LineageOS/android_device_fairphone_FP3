@@ -3,13 +3,13 @@
 PATH=/sbin:/vendor/sbin:/vendor/bin:/vendor/xbin
 export PATH
 
-while getopts s: op;
-do
-	case $op in
-		s)  supplier=$OPTARG;;
-	esac
-done
-shift $(($OPTIND-1))
+get_panel_supplier()
+{
+    supplier=""
+    supplier=$(cat /sys/devices/virtual/graphics/fb0/panel_supplier 2> /dev/null)
+    [ -z "$supplier" ] && return 1
+    return 0
+}
 
 scriptname=${0##*/}
 
@@ -19,6 +19,7 @@ notice()
 	echo "$scriptname: $*" > /dev/kmsg
 }
 
+get_panel_supplier
 notice "panel supplier is [$supplier]"
 case $supplier in
 	boe | tianmah)
