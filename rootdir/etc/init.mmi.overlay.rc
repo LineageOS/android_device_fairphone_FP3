@@ -1,4 +1,4 @@
-import init.hidl.sensor.rc
+import /vendor/etc/init/hw/init.hidl.sensor.rc
 
 # Egis fps
 import /vendor/etc/init/init.ets.rc
@@ -48,13 +48,3 @@ on boot
    chmod 0660 /sys/class/leds/vibrator/seq
    chown system system /sys/class/leds/vibrator/extra
    chmod 0660 /sys/class/leds/vibrator/extra
-
-# Change own to system to allow Runin APK to control charging.
-on property:ro.build.motfactory=1
-    chown system system /d/regmap/spmi0-02/address
-    chown system system /d/regmap/spmi0-02/count
-    chown system system /d/regmap/spmi0-02/data
-
-# Turn on led to indicate device on in factory mode
-on property:ro.bootmode=mot-factory
-    write /sys/class/leds/charging/brightness 10

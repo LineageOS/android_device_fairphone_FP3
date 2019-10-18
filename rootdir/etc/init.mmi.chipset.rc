@@ -1,6 +1,3 @@
-# Moto Mods
-import /vendor/etc/init/hw/init.mods.rc
-
 on early-init
     exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules exfat utags watchdogtest sensors_class mmi_annotate mmi_info tzlog_dump mmi_sys_temp
 
@@ -30,33 +27,13 @@ on post-fs-data
     # This dir only for preinstall app so libs
     mkdir /data/app-lib2 0771 system system
 
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
-    group fingerp
-
-on property:sys.boot_completed=1
-    # For cross-reboot FFU script tracking (unencrypted case)
-    mkdir /data/vendor/ffu 0750 shell shell
-    start emmc_ffu
-
-
-service emmc_ffu /vendor/bin/emmc_ffu.sh
-    user root
-    class late_start
-    oneshot
-    disabled
-
-on property:vendor.need_ffu=1
-    setprop sys.dbg.ffu_start 1
-
 on moto-charger
     setprop ro.board.platform msm8953
     load_system_props
     trigger firmware_mounts_complete
     setprop sys.usb.configfs 1
     setprop sys.usb.config charging
-    start  qcom-post-boot
+    start qcom-post-boot
     start vendor.hvdcp_opti
     start gbmodinstall
     start vendor.charge_only_mode
@@ -66,6 +43,3 @@ on moto-charger
 # Set hub drive strength to +5%
 on property:ro.bootmode=normal
    write /sys/module/usb3813_hub/parameters/boost_val 3
-
-on property:ro.vendor.build.motfactory=1
-    write /sys/class/power_supply/battery/device/factory_image_mode 1

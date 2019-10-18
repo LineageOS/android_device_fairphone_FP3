@@ -211,18 +211,21 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.mmi.ramdump.rc \
-    init.mmi.usb.rc \
-    init.mmi.usb.sh \
-    init.qcom.rc \
-    init.power.rc \
     init.class_main.sh \
+    init.mmi.usb.sh \
+    init.oem.panel.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
     init.qti.qseecomd.sh \
+    init.hidl.sensor.rc \
+    init.mmi.chipset.rc \
+    init.mmi.overlay.rc \
+    init.mmi.rc \
+    init.qcom.rc \
+    init.target.rc \
+    fstab.qcom \
     ueventd.qcom.rc
 
 # IPACM

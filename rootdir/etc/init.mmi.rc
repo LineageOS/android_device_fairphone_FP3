@@ -6,28 +6,9 @@ import /vendor/etc/init/hw/init.mmi.overlay.rc
 
 # Moto USB configuration
 import /vendor/etc/init/hw/init.mmi.usb.rc
-# Moto debugging
-import /vendor/etc/init/hw/init.mmi.debug.rc
-
-# Moto diag_mdlog configuration
-import /vendor/etc/init/hw/init.mmi.diag_mdlog.rc
-
-import /vendor/etc/init/hw/init.oem.rc
-import /vendor/etc/init/hw/init.mmi.common.rc
-import /vendor/etc/init/hw/init.mmi.nonab.rc
-
-# Moto verified boot extension
-import /vendor/etc/init/hw/init.mmi.hab.rc
-
-# Test commands
-import /vendor/etc/init/hw/init.mmi.tcmd.rc
 
 # Carrier specific script
 import /vendor/etc/init/carrier/init.${ro.boot.carrier}.rc
-
-on early-boot
-    write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
-    write /proc/sys/kernel/poweroff_cmd "/system/bin/reboot -p"
 
 on early-init
     insmod /vendor/lib/modules/cci_intf.ko
@@ -39,34 +20,6 @@ on init
     chmod 0640 /sys/fs/pstore/annotate-ramoops-0
     chown system log /sys/fs/pstore/dmesg-ramoops-0
     chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
-
-on fs
-    wait /dev/block/bootdevice/by-name/hw
-    exec_start vendor.oem-hw-sh
-
-    # Make sure ro.boot.product.hardware.sku is set before hwservicemanager startup.
-    setprop ro.boot.product.hardware.sku ${ro.vendor.product.hardware.sku.variant}
-
-    # Map oem properties, this must follow
-    # execution of vendor.oem-hw-sh to set
-    # required properties.
-    setprop ro.vendor.hw.radio ${ro.boot.radio}
-    setprop ro.carrier ${ro.boot.carrier}
-    setprop ro.sf.lcd_density ${ro.boot.lcd_density}
-    setprop ro.vendor.fsg-id ${ro.boot.fsg-id}
-    setprop ro.vendor.hw.device ${ro.boot.device}
-    setprop ro.vendor.hw.hwrev ${ro.boot.hwrev}
-    setprop ro.vendor.hw.modelno ${ro.boot.modelno}
-    setprop ro.vendor.hw.revision ${ro.boot.revision}
-    setprop ro.vendor.hw.nav_keys ${ro.boot.nav_keys}
-    setprop ro.product.vendor.device ${ro.vendor.product.device}
-    setprop ro.product.vendor.name ${ro.vendor.product.name}
-    setprop ro.product.vendor.model ${ro.vendor.product.model}
-    setprop ro.vendor.boot.cid ${ro.boot.cid}
-    setprop ro.vendor.boot.powerup_reason ${ro.boot.powerup_reason}
-    setprop ro.vendor.boot.bl_state ${ro.boot.bl_state}
-    setprop ro.vendor.boot.serialno ${ro.boot.serialno}
-    setprop ro.vendor.zygote ${ro.zygote}
 
 on post-fs
     mkdir /mnt/vendor/persist/camera 0755 mot_tcmd mot_tcmd
@@ -120,16 +73,11 @@ on post-fs
     swapon_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/page-cluster 0 
 
-    # Set dm-verity property for system partition
-    verity_update_state
-
     # Set capsensor calibration sysfs for MDMCTBK
     chown radio radio /sys/class/capsense/calibrate
     chmod 0660 /sys/class/capsense/calibrate
 
 on post-fs-data
-    setprop ro.vendor.build.fingerprint ${ro.product.vendor.brand}/${ro.product.vendor.name}/${ro.product.vendor.device}:${ro.vendor.build.version.release}/${ro.vendor.build.id}/${ro.vendor.build.version.incremental}:${ro.vendor.build.type}/${ro.vendor.build.tags}
-
     # Setup folders for security
     mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
     mkdir /data/vendor/dbvc 0750 mot_tcmd shell
@@ -142,25 +90,6 @@ on post-fs-data
     mkdir /data/vendor/power_supply_logger 0750 mot_pwric log
     # Create directory power_supply_logger used by memtest and batt_health
     mkdir /data/vendor_de/power_supply_logger 0770 root log
-
-    # Permissions for Factory Test of Charging Paths
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_auto_enable
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_ibatt
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_itrick
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_iusb
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_idc
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_suspend
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_fail_clear
-    chown mot_pwric mot_pwric /sys/class/power_supply/battery/device/force_chg_usb_otg_ctl
-
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_auto_enable
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_ibatt
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_itrick
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_iusb
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_idc
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_usb_suspend
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_fail_clear
-    chown mot_pwric mot_pwric /sys/class/power_supply/mmi_battery/device/force_chg_usb_otg_ctl
 
     chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_start_soc
     chown root mot_mod /sys/module/qpnp_smbcharger_mmi/parameters/eb_rechrg_stop_soc
@@ -226,70 +155,35 @@ on post-fs-data
     mkdir /data/vendor/.fps 0770 system fingerp
 
 on boot
-   # restore default console_loglevel to KERN_DEBUG
-   # restore default_message_loglevel to KERN_WARNING
-   write /proc/sys/kernel/printk "7 4 1 7"
-
     # MOTO, NJH348, IKHALFMWK-1864, change system max tcp buffer sizes based on RAT changes
     # Define system changable TCP buffer max values
     chown system system /proc/sys/net/core/rmem_max
     chown system system /proc/sys/net/core/wmem_max
 
- # Change ownership and permission for leds backlight
-   chmod 0664 /sys/class/leds/lcd-backlight/brightness
-   chown system system /sys/class/leds/charging/brightness
-   chmod 0664 /sys/class/leds/charging/brightness
+    # Change ownership and permission for vibrator
+    chown system system /sys/class/timed_output/vibrator/enable
+    chmod 0660 /sys/class/timed_output/vibrator/enable
+    chown system system /sys/class/leds/vibrator/state
+    chmod 0660 /sys/class/leds/vibrator/state
+    chown system system /sys/class/leds/vibrator/activate
+    chmod 0660 /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/duration
+    chmod 0660 /sys/class/leds/vibrator/duration
+    chown root mot_mod /sys/bus/i2c/devices/2-005a/reduce
 
-   # change permission of red leds
-   chown system system /sys/class/leds/red/brightness
-   chmod 0664 /sys/class/leds/red/brightness
+    # Change ownership of aov related sysfs entries
+    chown audio audio /sys/kernel/aov/trigger
+    chown audio audio /sys/kernel/aov/register
+    chown audio audio /sys/kernel/aov/event
 
-   # Change ownership and permission for vibrator
-   chown system system /sys/class/timed_output/vibrator/enable
-   chmod 0660 /sys/class/timed_output/vibrator/enable
-   chown system system /sys/class/leds/vibrator/state
-   chmod 0660 /sys/class/leds/vibrator/state
-   chown system system /sys/class/leds/vibrator/activate
-   chmod 0660 /sys/class/leds/vibrator/activate
-   chown system system /sys/class/leds/vibrator/duration
-   chmod 0660 /sys/class/leds/vibrator/duration
-   chown root mot_mod /sys/bus/i2c/devices/2-005a/reduce
+    # Quiet binder logs
+    write /sys/module/binder/parameters/debug_mask 0x5
 
-   # Change ownership of aov related sysfs entries
-   chown audio audio /sys/kernel/aov/trigger
-   chown audio audio /sys/kernel/aov/register
-   chown audio audio /sys/kernel/aov/event
-
-   # Quiet binder logs
-   write /sys/module/binder/parameters/debug_mask 0x5
-
-   # Clear cooldown state
-   mkdir /mnt/vendor/persist/chargeonly 0770 system system
-   write /mnt/vendor/persist/chargeonly/cooldown n
-   chown system system /mnt/vendor/persist/chargeonly/cooldown
-   chmod 0660 /mnt/vendor/persist/chargeonly/cooldown
-
-service vendor.mmi-block-perm /vendor/bin/init.mmi.block_perm.sh
-    class main
-    user root
-    oneshot
-
-on nonencrypted
-    setprop ro.vendor.kick.logcopy ${ro.vendor.bootreason}
-
-on property:vold.decrypt=trigger_restart_framework
-    setprop ro.vendor.kick.logcopy ${ro.vendor.bootreason}
-
-service vendor.pstore_annotate /vendor/bin/pstore_annotate.sh build
-    class main
-    group log
-    oneshot
-
-service vendor.apanic_copy /vendor/bin/apanic_copy.sh
-    class late_start
-    group log
-    oneshot
-    disabled
+    # Clear cooldown state
+    mkdir /mnt/vendor/persist/chargeonly 0770 system system
+    write /mnt/vendor/persist/chargeonly/cooldown n
+    chown system system /mnt/vendor/persist/chargeonly/cooldown
+    chmod 0660 /mnt/vendor/persist/chargeonly/cooldown
 
 on charger
     trigger early-fs
@@ -301,132 +195,12 @@ on charger
     class_stop main
     class_stop late_start
 
-service vendor.apanic_annotate /vendor/bin/apanic_save.sh build
-    class late_start
-    group log
-    oneshot
-    disabled
-
-service vendor.batt_health /vendor/bin/batt_health
-    class late_start
-    user mot_pwric
-    group mot_pwric cache net_admin log
-    disabled
-
-on property:sys.boot_completed=1
-    start vendor.batt_health
-
-on property:ro.vendor.kick.logcopy=coldboot
-    start vendor.apanic_copy
-
-on property:ro.vendor.bootreason=watchdog
-    stop surfaceflinger
-    stop zygote
-    stop zygote_secondary
-    stop sensors
-    start vendor.apanic_annotate
-
-on property:ro.vendor.bootreason=pmic_watchdog
-    stop surfaceflinger
-    stop zygote
-    stop zygote_secondary
-    stop sensors
-    start vendor.apanic_annotate
-
-on property:ro.vendor.bootreason=kernel_panic
-    stop surfaceflinger
-    stop zygote
-    stop zygote_secondary
-    stop sensors
-    start vendor.apanic_annotate
-
-on property:persist.vendor.log.aplogd.enable=1
-    start vendor.aplogd
-
-on property:persist.vendor.log.aplogd.enable=0
-    stop vendor.aplogd
-
-service vendor.aplogd /vendor/bin/aplogd
-    class late_start
-    #user log
-    #group log system sdcard_rw sdcard_r media_rw mount
-    # The user and group definitions above are intentionally disabled and left
-    # only as documentation. It actually starts as root and immediately drops
-    # to log plus those groups after preserving CAP_SYS_ADMIN, which is required
-    # for kernel logging.
-    disabled
-
-# from P onwards aplogd cannot read vold.post_fs_data_done so a new property
-# shall be used to allow aplogd checking if FBE has finished /data decryption
-on property:vold.post_fs_data_done=*
-     setprop vendor.vold.post_fs_data_done ${vold.post_fs_data_done}
-
-service vendor.mmi-boot-sh /vendor/bin/init.mmi.boot.sh
-    class core
-    user root
-    oneshot
-
-# translate to qcom property name in order to keep the consistent with
-# our legacy property
-on property:persist.vendor.qc.sub.rdump.on=*
-    setprop persist.vendor.ssr.enable_ramdumps ${persist.vendor.qc.sub.rdump.on}
-
 # translate MMI property in order to keep the consistent with QCOM
 on property:ro.vendor.hw.dualsim=true
-   setprop persist.radio.multisim.config dsds
-
-on property:persist.vendor.qc.sub.rdump.on=*
-   setprop persist.vendor.ssr.enable_ramdumps ${persist.vendor.qc.sub.rdump.on}
+    setprop persist.radio.multisim.config dsds
 
 on property:ro.vendor.hw.dualsim=false
-   setprop persist.radio.multisim.config ""
-
-service vendor.mbm_spy /vendor/bin/mbm_spy
-    class late_start
-    user system
-    group system
-    oneshot
-
-service vendor.hw_revs /vendor/bin/hardware_revisions.sh
-    class late_start
-    user system
-    group system
-    oneshot
-
-service vendor.mmi-touch-sh /vendor/bin/init.mmi.touch.sh
-    class core
-    user root
-    oneshot
-
-service vendor.oem-hw-sh /vendor/bin/init.oem.hw.sh
-    class core
-    user root
-    oneshot
-    disabled
-
-service vendor.touch-dead-sh /vendor/bin/init.oem.hw.sh -f
-    class main
-    user root
-    oneshot
-    disabled
-
-service vendor.touch-ready-sh /vendor/bin/init.oem.hw.sh -r
-    class main
-    user root
-    oneshot
-    disabled
-
-service vendor.oem-hw-config-sh /vendor/bin/init.oem.hw.sh -p
-    class main
-    user root
-    oneshot
-    disabled
-
-on property:vendor.hw.touch.status="dead"
-    start vendor.touch-dead-sh
-
-on property:vendor.hw.touch.status="ready"
-    start vendor.touch-ready-sh
+    setprop persist.radio.multisim.config ""
 
 service vendor.charge_only_mode /vendor/bin/charge_only_mode
     user root
@@ -439,33 +213,16 @@ service vendor.thermal-com /vendor/bin/thermal-engine --minimode
     disabled
 
 service vendor.adspd /vendor/bin/adspd
-   class main
-   socket adspdsock stream 0660 system audio
-   user audio
-   group audio input diag
-
-# bugreport is triggered by holding down volume down, volume up and power
-service bugreport /system/bin/dumpstate -d -p -B -z \
-        -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
-    disabled
-    oneshot
-    keycodes 114 115 116
-
+    socket adspdsock stream 0660 system audio
+    user audio
+    group audio input diag
 
 on property:vendor.wifi.tethering=false
     write /sys/module/wlan/parameters/sar_mhs disabled
 
 on property:vendor.wifi.tethering=true
     write /sys/module/wlan/parameters/sar_mhs enabled
-
-# Override the AOSP sensor HAL service definition to add input group access
-service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
-    class hal
-    user system
-    group system input wakelock
-    capabilities BLOCK_SUSPEND
-    rlimit rtprio 10 10
 
 #Override fwpath string when wpa_supplicant server was killed
 on property:vendor.wifi.station=true

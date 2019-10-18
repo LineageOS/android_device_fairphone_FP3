@@ -1,5 +1,0 @@
-on boot && property:ro.boot.adb_early=1
-    start vendor.mmi-usb-sh
-
-on post-fs && property:ro.boot.force_aplogd_enable=1
-    setprop persist.vendor.log.aplogd.enable 1

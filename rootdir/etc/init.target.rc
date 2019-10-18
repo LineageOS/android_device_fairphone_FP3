@@ -27,7 +27,7 @@
 #
 #
 
-import init.carrier.rc
+#import init.carrier.rc
 import /vendor/etc/init/hw/init.mmi.rc
 
 on early-init
