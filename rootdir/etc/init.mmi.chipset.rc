@@ -4,20 +4,20 @@ on early-init
 # Chipset-specific init settings
 on boot
     # Change permission for type C params
-    chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
-    chown root mot_tcmd /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
+    chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/CC_state
+    chown root oem_5004 /sys/devices/soc/78b6000.i2c/i2c-2/2-0022/enable_vconn
     # Change ownership and permission for AMPS factory testing
-    chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/enable
+    chown root oem_5004 /sys/class/i2c-adapter/i2c-2/2-002d/enable
     chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/enable
-    chown root mot_tcmd /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
+    chown root oem_5004 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
     chmod 0660 /sys/class/i2c-adapter/i2c-2/2-002d/hsic_vdd
 
     # Change permission for fingerprint sensor
-    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/nav
-    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/clk_enable
-    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/dev_enable
-    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq
-    chown system mot_tcmd /sys/bus/spi/devices/spi8.0/irq_cnt
+    chown system oem_5004 /sys/bus/spi/devices/spi8.0/nav
+    chown system oem_5004 /sys/bus/spi/devices/spi8.0/clk_enable
+    chown system oem_5004 /sys/bus/spi/devices/spi8.0/dev_enable
+    chown system oem_5004 /sys/bus/spi/devices/spi8.0/irq
+    chown system oem_5004 /sys/bus/spi/devices/spi8.0/irq_cnt
     chmod 0440 /sys/bus/spi/devices/spi8.0/irq_cnt
 
 on post-fs-data

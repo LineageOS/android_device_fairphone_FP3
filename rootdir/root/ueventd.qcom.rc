@@ -401,7 +401,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/esfp0                0660   system     system
 
 #DTV
-/dev/isdbt                 0660 mot_dtv  mot_dtv
+/dev/isdbt                 0660 oem_5019  oem_5019
 
 # LED class vibrator
 /sys/class/leds/vibrator state        0660    system    system
