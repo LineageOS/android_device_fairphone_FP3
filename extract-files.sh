@@ -59,6 +59,28 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function blob_fixup() {
+    case "${1}" in
+
+    vendor/lib64/libmdmcutback.so)
+        patchelf --add-needed libqsap_shim.so "${2}"
+        ;;
+
+    vendor/etc/permissions/qcrilhook.xml)
+        sed -i "s|/system/framework/qcrilhook.jar|/vendor/framework/qcrilhook.jar|g" "${2}"
+        ;;
+
+    vendor/etc/permissions/telephonyservice.xml)
+        sed -i "s|/system/framework/QtiTelephonyServicelibrary.jar|/vendor/framework/QtiTelephonyServicelibrary.jar|g" "${2}"
+        ;;
+
+    vendor/etc/permissions/qti_libpermissions.xml)
+        sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" "${2}"
+        ;;
+
+    esac
+}
+
 # Initialize the helper for common device
 setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
 
