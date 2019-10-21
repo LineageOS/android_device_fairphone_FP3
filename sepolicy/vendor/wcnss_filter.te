@@ -3,4 +3,3 @@ r_dir_file(wcnss_filter, firmware_file)
 
 allow wcnss_filter bluetooth_data_file:dir rw_dir_perms;
 allow wcnss_filter bluetooth_data_file:file rw_file_perms;
-get_prop(wcnss_filter, bluetooth_prop)
