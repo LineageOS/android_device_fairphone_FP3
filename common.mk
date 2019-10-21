@@ -42,7 +42,6 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo \
     system \
-    vbmeta \
     vendor
 
 AB_OTA_POSTINSTALL_CONFIG += \
