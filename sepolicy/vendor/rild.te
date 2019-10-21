@@ -1,0 +1,8 @@
+allow rild vendor_file:file rx_file_perms;
+allow rild fwk_sensor_hwservice:hwservice_manager find;
+allow rild system_server:binder { call transfer };
+allow rild mnt_vendor_file:dir search;
+allow rild mnt_vendor_file:file rw_file_perms;
+allow rild proc:file r_file_perms;
+allow rild vendor_default_prop:property_service set;
+allow rild system_file:file execute_no_trans;
