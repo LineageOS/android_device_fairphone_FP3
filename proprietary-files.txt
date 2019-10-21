@@ -473,13 +473,10 @@ vendor/lib64/libscvePanorama_lite.so
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-ets
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-ets.rc
-vendor/lib64/vendor.egistec.hardware.fingerprint@2.0_vendor.so
-vendor/lib/vendor.egistec.hardware.fingerprint@2.0_vendor.so
+vendor/etc/init/init.ets.rc
+vendor/lib64/vendor.egistec.hardware.fingerprint@2.0.so
 vendor/lib64/libets_fp_et5.so
 vendor/lib64/libets_teeclient.so
-vendor/lib/libets_fp_et5.so
-vendor/lib/libets_teeclient.so
-vendor/etc/init/init.ets.rc
 
 # FM
 lib/fm_helium.so
@@ -497,10 +494,10 @@ vendor/lib/vendor.qti.hardware.fm@1.0.so
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
-vendor/lib/hw/gatekeeper.sdm660.so
+vendor/lib/hw/gatekeeper.msm8953.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
-vendor/lib64/hw/gatekeeper.sdm660.so
+vendor/lib64/hw/gatekeeper.msm8953.so
 
 # GPS
 vendor/bin/hw/vendor.qti.gnss@1.0-service
@@ -637,12 +634,12 @@ vendor/bin/ipacm-diag
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
-vendor/lib/hw/keystore.sdm660.so
+vendor/lib/hw/keystore.msm8953.so
 vendor/lib/libkeymasterdeviceutils.so
 vendor/lib/libkeymasterprovision.so
 vendor/lib/libkeymasterutils.so
 vendor/lib/libqtikeymaster4.so
-vendor/lib64/hw/keystore.sdm660.so
+vendor/lib64/hw/keystore.msm8953.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
@@ -702,7 +699,7 @@ vendor/lib64/libmm-color-convertor.so
 vendor/lib64/libvpplibrary.so
 
 # Moto Permissions
-etc/permissions/com.motorola.moto.xml:vendor/etc/permissions/com.motorola.moto.xml
+etc/permissions/com.motorola.moto-uirefresh.xml:vendor/etc/permissions/com.motorola.moto-uirefresh.xml
 etc/permissions/com.motorola.motodisplay.xml:vendor/etc/permissions/com.motorola.motodisplay.xml
 etc/permissions/com.motorola.camera2.denali.xml:vendor/etc/permissions/com.motorola.camera2.denali.xml
 
