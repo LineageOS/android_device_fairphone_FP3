@@ -53,6 +53,7 @@ vendor/lib/libactuator_dw9763.so
 vendor/lib/libactuator_dw9767.so
 vendor/lib/libactuator_lc898217xh.so
 vendor/lib/libflash_pmic.so
+vendor/lib/libgralloc1.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
@@ -62,7 +63,11 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmlib2d_interface.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
+vendor/lib/libmot_afd.so
 vendor/lib/libmot_gpu_mapper.so
+vendor/lib/libmot_lux_standardization.so
+vendor/lib/libmotimager_utils.so
+vendor/lib/lib_motsensorlistener.so
 vendor/lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
@@ -529,6 +534,7 @@ vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_externalDr.so
+vendor/lib64/libloc_externalDrcore.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblowi_client.so
