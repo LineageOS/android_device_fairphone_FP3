@@ -372,7 +372,7 @@ PRODUCT_PACKAGES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libqsapshim
+    libqsap_shim
 
 # Telephony
 PRODUCT_PACKAGES += \
