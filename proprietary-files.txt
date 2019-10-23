@@ -711,6 +711,7 @@ etc/permissions/com.motorola.camera2.denali.xml:vendor/etc/permissions/com.motor
 
 # Offmode charging
 vendor/bin/charge_only_mode
+vendor/bin/hvdcp_opti
 
 # Perf
 lib/libqti_performance.so
@@ -935,6 +936,7 @@ lib64/vendor.qti.imsrtpservice@1.0.so
 vendor/bin/ims_rtp_daemon
 vendor/bin/imsdatadaemon
 vendor/bin/imsqmidaemon
+vendor/bin/imsrcsd
 vendor/lib/lib-imsdpl.so
 vendor/lib/lib-imsqimf.so
 vendor/lib/lib-imsxml.so
@@ -977,6 +979,7 @@ vendor/lib64/libsensorndkbridge.so
 vendor/lib/libsensorndkbridge.so
 
 # Sensors
+vendor/bin/capsense_reset
 vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib/libsensor1.so
@@ -1008,6 +1011,7 @@ vendor/bin/time_daemon
 
 # Wi-Fi
 vendor/bin/cnss-daemon
+vendor/bin/wcnss_service
 
 # Wi-Fi Display - from daisy - PKQ1.180917.001
 bin/wfdservice|edeb291221024401cbae69c2fa4e58733b7efc4c
