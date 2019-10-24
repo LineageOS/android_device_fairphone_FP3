@@ -453,6 +453,7 @@ PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg \
     libwifi-hal-qcom \
     libwpa_client \
+    wcnss_service \
     wificond \
     wifilogd \
     wpa_supplicant \
