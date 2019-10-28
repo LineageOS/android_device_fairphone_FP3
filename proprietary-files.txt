@@ -996,19 +996,17 @@ vendor/lib/libsensorndkbridge.so
 vendor/bin/capsense_reset
 vendor/bin/sensors.qti
 vendor/lib/hw/activity_recognition.msm8953.so
-vendor/lib/libsensor1.so
-vendor/lib/sensors.rp.so
 vendor/lib/libsensor_reg.so
 vendor/lib/libsensor1.so
 vendor/lib/sensor_calibrate.so
+vendor/lib/sensors.hal.tof.so
 vendor/lib/sensors.rp.so
 vendor/lib/sensors.ssc.so
 vendor/lib64/hw/activity_recognition.msm8953.so
-vendor/lib64/libsensor1.so
-vendor/lib64/sensors.rp.so
 vendor/lib64/libsensor_reg.so
 vendor/lib64/libsensor1.so
 vendor/lib64/sensor_calibrate.so
+vendor/lib64/sensors.hal.tof.so
 vendor/lib64/sensors.rp.so
 vendor/lib64/sensors.ssc.so
 
