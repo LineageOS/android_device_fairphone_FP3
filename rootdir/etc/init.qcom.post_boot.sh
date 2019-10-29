@@ -484,7 +484,7 @@ function sdm660_sched_schedutil_dcvs() {
     echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 
     echo "0:1401600" > /sys/module/cpu_boost/parameters/input_boost_freq
-    echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
+    echo 120 > /sys/module/cpu_boost/parameters/input_boost_ms
 
     # sched_load_boost as -6 is equivalent to target load as 85. It is per cpu tunable.
     echo -6 >  /sys/devices/system/cpu/cpu0/sched_load_boost
