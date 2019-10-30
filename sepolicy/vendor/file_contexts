@@ -1,10 +1,10 @@
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0            u:object_r:gpt_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p2[1234]    u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p3[67]      u:object_r:modem_efs_partition_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p[54][67]   u:object_r:ab_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p5[89]      u:object_r:ab_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p6[23]      u:object_r:system_block_device:s0
-/dev/block/platform/soc/c0c4000\.sdhci/mmcblk0p[12]       u:object_r:xbl_block_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0            u:object_r:gpt_block_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p1[78]      u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p3[01]      u:object_r:modem_efs_partition_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p3[67]      u:object_r:ab_block_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p50         u:object_r:ab_block_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p6[23]      u:object_r:system_block_device:s0
+/dev/block/platform/soc/7824900\.sdhci/mmcblk0p34         u:object_r:frp_block_device:s0
 
 /dev/mmi_sys_temp            u:object_r:thermal_device:s0
 /dev/socket/perfd            u:object_r:perfd_socket:s0
@@ -33,6 +33,7 @@
 
 /sys/devices/soc/c900000\.qcom,mdss_mdp/c900000\.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight(/.*)?                  u:object_r:sysfs_leds:s0
 /sys/devices/soc/800f000\.qcom,spmi/spmi-0/spmi0-03/800f000\.qcom,spmi:qcom,pm660l@3:qcom,leds@d000/leds/charging(/.*)?        u:object_r:sysfs_leds:s0
+/sys/devices/platform/soc/78b6000\.i2c/i2c-2/2-005b/leds/vibrator(/.*)?                                                        u:object_r:sysfs_leds:s0
 
 /sys/kernel/debug/rmt_storage(/.*)?                           u:object_r:debugfs_rmts:s0
 /sys/kernel/boot_wlan(/.*)?                                   u:object_r:sysfs_wifi:s0
@@ -53,3 +54,10 @@
 /(vendor|system/vendor)/bin/wlan_carrier_bin\.sh            u:object_r:init_wifi_exec:s0
 
 /(vendor|system/vendor)/bin/charge_only_mode             u:object_r:charge_only_exec:s0
+
+/(vendor|system/vendor)/bin/capsense_reset              u:object_r:capsense_reset_exec:s0
+/sys/class/capsense(/.*)?                               u:object_r:sysfs_sensor:s0
+
+/(vendor|system/vendor)/bin/init\.oem\.panel\.sh        u:object_r:init-oem-panel-sh_exec:s0
+
+/data/vendor/misc/cutback(/.*)?                         u:object_r:vendor_radio_data_file:s0
