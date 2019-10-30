@@ -14,3 +14,5 @@ genfscon sysfs /devices/bt_wcn3990/rfkill/rfkill0/type                        u:
 genfscon sysfs /devices/bt_wcn3990/extldo                                     u:object_r:sysfs_bluetooth_writable:s0
 
 genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.qcom,spmi:qcom,pm8953@0:qcom,pm8953_rtc/rtc u:object_r:sysfs_rtc:s0
+
+genfscon sysfs /devices/platform/egis_input               u:object_r:sysfs_fingerprint:s0
