@@ -11,8 +11,10 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-    androidx.core_core \
-    androidx.preference_preference
+    android-support-v7-appcompat \
+    android-support-v7-preference \
+    android-support-v7-recyclerview \
+    android-support-v14-preference
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
@@ -28,3 +30,5 @@ endif
 include frameworks/base/packages/SettingsLib/common.mk
 
 include $(BUILD_PACKAGE)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
