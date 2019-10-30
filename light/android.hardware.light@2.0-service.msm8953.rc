@@ -8,17 +8,9 @@ on boot
     chmod 0664 /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/leds/charging/brightness
     chmod 0664 /sys/class/leds/charging/brightness
-    chown system system /sys/class/leds/charging/blink
-    chmod 660 /sys/class/leds/charging/blink
-    chown system system /sys/class/leds/charging/pause_lo
-    chmod 660 /sys/class/leds/charging/pause_lo
-    chown system system /sys/class/leds/charging/pause_hi
-    chmod 660 /sys/class/leds/charging/pause_hi
-    chown system system /sys/class/leds/charging/blink
-    chmod 660 /sys/class/leds/charging/blink
-    chown system system /sys/class/leds/charging/ramp_step_ms
-    chmod 660 /sys/class/leds/charging/ramp_step_ms
-    chown system system /sys/class/leds/charging/duty_pcts
-    chmod 660 /sys/class/leds/charging/duty_pcts
-    chown system system /sys/class/leds/charging/start_idx
-    chmod 660 /sys/class/leds/charging/start_idx
+    chown system system /sys/class/leds/charging/breath
+    chmod 660 /sys/class/leds/charging/breath
+    chown system system /sys/class/leds/charging/delay_off
+    chmod 660 /sys/class/leds/charging/delay_off
+    chown system system /sys/class/leds/charging/delay_on
+    chmod 660 /sys/class/leds/charging/delay_on
