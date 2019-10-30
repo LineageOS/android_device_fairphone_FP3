@@ -55,7 +55,6 @@
 /(vendor|system/vendor)/bin/charge_only_mode             u:object_r:charge_only_exec:s0
 
 /(vendor|system/vendor)/bin/capsense_reset              u:object_r:capsense_reset_exec:s0
-/sys/class/capsense(/.*)?                               u:object_r:sysfs_sensor:s0
 
 /(vendor|system/vendor)/bin/init\.oem\.panel\.sh        u:object_r:init-oem-panel-sh_exec:s0
 
