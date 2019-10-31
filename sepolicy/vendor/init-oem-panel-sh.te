@@ -14,7 +14,7 @@ allow init-oem-panel-sh self:capability sys_module;
 allow init-oem-panel-sh vendor_file:system module_load;
 
 # Write to /dev/kmsg
-allow charge_only kmsg_device:chr_file rw_file_perms;
+allow init-oem-panel-sh kmsg_device:chr_file rw_file_perms;
 
 set_prop(init-oem-panel-sh, ctl_default_prop)
 
