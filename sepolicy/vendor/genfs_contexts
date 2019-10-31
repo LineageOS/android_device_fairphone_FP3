@@ -17,3 +17,5 @@ genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.q
 
 genfscon sysfs /devices/platform/egis_input               u:object_r:sysfs_fingerprint:s0
 genfscon sysfs /class/capsense                            u:object_r:sysfs_sensor:s0
+
+genfscon sysfs /devices/platform/soc/78b6000.i2c/i2c-2/2-005b/leds/vibrator     u:object_r:sysfs_leds:s0
