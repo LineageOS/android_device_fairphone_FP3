@@ -11,3 +11,6 @@ ro.boot.dualsim            u:object_r:moto_boot_prop:s0
 ro.vendor.hw.dualsim       u:object_r:moto_boot_prop:s0
 ro.vendor.hw.device        u:object_r:moto_boot_prop:s0
 ro.vendor.hw.radio         u:object_r:moto_boot_prop:s0
+
+# property related to aov
+vendor.hw.aov.                    u:object_r:vendor_aov_prop:s0
