@@ -411,25 +411,6 @@
         <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
     <bool name="config_cellBroadcastAppLinks">true</bool>
 
-    <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
-
-    <!-- Boolean indicating whether the wifi chipset supports background scanning mechanism.
-         This mechanism allows the host to remain in suspend state and the dongle to actively
-         scan and wake the host when a configured SSID is detected by the dongle. This chipset
-         capability can provide power savings when wifi needs to be always kept on. -->
-    <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
-
-    <!-- Wifi driver supports batched scan -->
-    <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
-
-    <!-- Boolean indicating whether or not to revert to default country code when cellular
-         radio is unable to find any MCC information to infer wifi country code from -->
-    <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
-
-    <!-- Boolean indicating whether or not wifi should turn off when emergency call is made -->
-    <bool translatable="false" name="config_wifi_turn_off_during_emergency_call">true</bool>
-
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">false</bool>
 
