@@ -35,6 +35,13 @@ case $supplier in
 		insmod /vendor/lib/modules/synaptics_tcm_device.ko
 		insmod /vendor/lib/modules/synaptics_tcm_reflash.ko
 		insmod /vendor/lib/modules/synaptics_tcm_testing.ko
+		insmod /vendor/lib/modules/ilitek_mmi.ko
+		;;
+	ofilm)
+		insmod /vendor/lib/modules/focaltech_mmi.ko
+		;;
+	csot)
+		insmod /vendor/lib/modules/nova_mmi.ko
 		;;
 	*)
 		notice "$supplier not supported"
