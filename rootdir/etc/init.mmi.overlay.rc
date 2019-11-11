@@ -12,9 +12,6 @@ service capsense_reset /system/vendor/bin/capsense_reset
 on property:sys.boot_completed=1
     start capsense_reset
 
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules cirrus_madera-core cirrus_irq-madera cirrus_madera extcon-madera aov_trigger madera-ldo1 madera-micsupp cirrus_wm_adsp cirrus_cs47l35 cirrus_cs35l41 cirrus_playback tps61280 ets_fps_mmi drv2624_mmi aw869x sx933x_sar
-
 on init
 
    # Change ownership for for HBM feature

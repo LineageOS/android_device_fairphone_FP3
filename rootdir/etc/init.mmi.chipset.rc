@@ -1,6 +1,3 @@
-on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules exfat utags watchdogtest sensors_class mmi_annotate mmi_info tzlog_dump mmi_sys_temp
-
 # Chipset-specific init settings
 on boot
     # Change permission for type C params
