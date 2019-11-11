@@ -475,14 +475,6 @@ vendor/lib64/libscveObjectTracker_stub.so
 vendor/lib64/libscvePanorama.so
 vendor/lib64/libscvePanorama_lite.so
 
-# Fingerprint
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-ets
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-ets.rc
-vendor/etc/init/init.ets.rc
-vendor/lib64/vendor.egistec.hardware.fingerprint@2.0.so
-vendor/lib64/libets_fp_et5.so
-vendor/lib64/libets_teeclient.so
-
 # FM
 lib/fm_helium.so
 lib/libfm-hci.so
