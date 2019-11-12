@@ -1024,6 +1024,12 @@ vendor/bin/time_daemon
 
 # Wi-Fi
 vendor/bin/cnss-daemon
+vendor/etc/wifi/WCNSS_qcom_wlan_nv.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_Argentina.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_Brazil.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_epa.bin
+vendor/etc/wifi/WCNSS_qcom_wlan_nv_India.bin
+vendor/etc/wifi/WCNSS_wlan_dictionary.dat
 
 # Wi-Fi Display - from daisy - PKQ1.180917.001
 bin/wfdservice|edeb291221024401cbae69c2fa4e58733b7efc4c
