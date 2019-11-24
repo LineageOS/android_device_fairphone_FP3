@@ -261,13 +261,13 @@ static int process_video_encode_hint(void *metadata)
     }
 
     if (video_encode_metadata.state == 1) {
-        if (is_interactive_governor(governor)) {
+        if (is_interactive_governor(governor) || is_schedutil_governor(governor)) {
             video_encode_handle = perf_hint_enable(
                     VIDEO_ENCODE_HINT, 0);
             return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
-        if (is_interactive_governor(governor)) {
+        if (is_interactive_governor(governor) || is_schedutil_governor(governor)) {
             release_request(video_encode_handle);
             return HINT_HANDLED;
         }
