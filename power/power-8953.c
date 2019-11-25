@@ -65,8 +65,6 @@ static int profile_high_performance[] = {
     MIN_FREQ_LITTLE_CORE_0, 0xFFF,
     GPU_MIN_POWER_LEVEL, 0x1,
     SCHED_PREFER_IDLE_DIS_V3, 0x1,
-    SCHED_MOSTLY_IDLE_NR_RUN, 0x1,
-    SCHED_MOSTLY_IDLE_LOAD, 0x1,
 };
 
 static int profile_power_save[] = {
