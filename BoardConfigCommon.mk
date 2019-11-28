@@ -198,6 +198,10 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# NFC / ODM
+ODM_MANIFEST_SKUS := nfc
+ODM_MANIFEST_NFC_FILES := device/motorola/sdm632-common/odm_manifest_nfc.xml
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072                  # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608

@@ -29,6 +29,7 @@
 
 #import init.carrier.rc
 import /vendor/etc/init/hw/init.mmi.rc
+import /vendor/etc/init/hw/init.${ro.boot.device}.rc
 
 on early-init
     write /proc/sys/kernel/sched_boost 1
