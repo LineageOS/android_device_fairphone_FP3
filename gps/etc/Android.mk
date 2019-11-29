@@ -42,10 +42,30 @@ include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 
+LOCAL_MODULE := lowi.conf
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/
+LOCAL_SRC_FILES := lowi.conf
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+
 LOCAL_MODULE := sap.conf
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/
 LOCAL_SRC_FILES := sap.conf
+
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := xtwifi.conf
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/etc/
+LOCAL_SRC_FILES := xtwifi.conf
 
 include $(BUILD_PREBUILT)
