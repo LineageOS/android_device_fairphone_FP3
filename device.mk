@@ -443,20 +443,24 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
     libgnss \
+    libgnsspps \
+    libsynergy_loc_api \
+    libwifi-hal-ctrl \
     libgps.utils
-    # liblocation_api
-    # libgnsspps \
-    # libvehiclenetwork-native \
-
 
 PRODUCT_PACKAGES += \
     apdr.conf \
     flp.conf \
     gps.conf \
     izat.conf \
-    sap.conf
+    lowi.conf \
+    sap.conf \
+    xtwifi.conf
 
 # gps/location secuity configuration file
 PRODUCT_COPY_FILES += \
