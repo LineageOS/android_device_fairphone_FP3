@@ -529,7 +529,9 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Framework Detect
 PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect
+    libqti_vndfwk_detect \
+    libvndfwk_detect_jni.qti \
+    libqti_vndfwk_detect.vendor
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.vendor.qti.va_aosp.support=1
