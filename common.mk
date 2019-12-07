@@ -287,9 +287,6 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1-service \
     android.hardware.secure_element@1.1-service-disabled
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/odm_manifest_nfc.xml:$(TARGET_COPY_OUT_VENDOR)/odm/etc/vintf/manifest_nfc.xml
-
 # Perf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
