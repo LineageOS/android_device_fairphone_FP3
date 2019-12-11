@@ -20,6 +20,7 @@ ro.vendor.boot.radio       u:object_r:moto_boot_prop:s0
 ro.vendor.boot.hwrev       u:object_r:moto_boot_prop:s0
 ro.vendor.carrier          u:object_r:moto_boot_prop:s0
 ro.vendor.fsg-id           u:object_r:moto_boot_prop:s0
+ro.vendor.zygote           u:object_r:moto_boot_prop:s0
 
 # property related to aov
 vendor.hw.aov.                    u:object_r:vendor_aov_prop:s0

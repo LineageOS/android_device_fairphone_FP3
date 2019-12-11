@@ -46,6 +46,7 @@ on init
     setprop ro.vendor.boot.radio ${ro.boot.radio}
     setprop ro.vendor.fsg-id ${ro.boot.fsg-id}
     setprop ro.vendor.boot.hwrev ${ro.boot.hwrev}
+    setprop ro.vendor.zygote ${ro.zygote}
 
 on property:ro.vendor.hw.dualsim=true
     setprop persist.radio.multisim.config dsds
