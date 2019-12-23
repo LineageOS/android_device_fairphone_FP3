@@ -51,10 +51,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.camera2=true \
-    persist.vendor.camera.expose.aux=1 \
-    persist.vendor.camera.is_type=3 \
-    persist.vendor.camera.max.previewfps=60 \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.vendor.camera.preview.ubwc=0 \
     vendor.video.disable.ubwc=1
