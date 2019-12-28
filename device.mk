@@ -27,12 +27,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # A/B related defines
 AB_OTA_UPDATER := true
-# Full A/B partiton update set
-# AB_OTA_PARTITIONS := xbl rpm tz hyp pmic modem abl boot keymaster cmnlib cmnlib64 system bluetooth
-# Baseline
-# AB_OTA_PARTITIONS := aboot cmnlib64 cmnlib devcfg dsp dtbo keymaster lksecapp mdtp modem rpm sbl1 tz vbmeta boot system vendor product
-# Subset A/B partitions for Android-only image update
-# AB_OTA_PARTITIONS ?= boot system
 
 AB_OTA_PARTITIONS += \
     boot \
@@ -41,21 +35,25 @@ AB_OTA_PARTITIONS += \
     vbmeta \
     vendor
 
-# Default A/B configuration.
-ENABLE_AB ?= true
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.msm8953.recovery
 
-ifeq ($(ENABLE_AB),true)
-#A/B related packages
-PRODUCT_PACKAGES += update_engine \
-                   update_engine_client \
-                   update_verifier \
-                   bootctrl.msm8953 \
-                   brillo_update_payload \
-                   android.hardware.boot@1.0-impl \
-                   android.hardware.boot@1.0-service
-#Boot control HAL test app
-PRODUCT_PACKAGES_DEBUG += bootctl
-endif
+PRODUCT_PACKAGES += \
+    update_engine \
+    update_verifier \
+    bootctrl.msm8953 \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service
+
+PRODUCT_HOST_PACKAGES += \
+    brillo_update_payload
+
+
+# Boot control HAL test app
+PRODUCT_PACKAGES_DEBUG += \
+    bootctl \
+    update_engine_client
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
@@ -66,12 +64,6 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     otapreopt_script \
     update_engine_sideload
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    libcutils \
-    bootctrl.msm8953 \
-    libgptutils \
-    libz
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
