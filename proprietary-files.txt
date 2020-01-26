@@ -621,11 +621,6 @@ vendor/firmware/a530v3_gpmu.fw2
 vendor/firmware/a530v3_seq.fw2
 vendor/firmware/a540_gpmu.fw2
 
-# HotwordEnrollment
--priv-app/HotwordEnrollmentOKGoogleCS47L35/HotwordEnrollmentOKGoogleCS47L35.apk
--priv-app/HotwordEnrollmentTGoogleCS47L35/HotwordEnrollmentTGoogleCS47L35.apk
--priv-app/HotwordEnrollmentXGoogleCS47L35/HotwordEnrollmentXGoogleCS47L35.apk
-
 # IPA
 vendor/bin/ipacm-diag
 
@@ -644,7 +639,6 @@ vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
 # Listen
-vendor/lib/hw/sound_trigger.primary.default.so
 vendor/lib/libgcs-calwrapper.so
 vendor/lib/libgcs-ipc.so
 vendor/lib/libgcs-osal.so
@@ -655,16 +649,6 @@ vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
-
-# Moto ADSP Hal - (Listen Dependencies)
-vendor/bin/hw/motorola.hardware.audio.adspd@1.0-service
-vendor/etc/init/motorola.hardware.audio.adspd@1.0-service.rc
-vendor/lib/motorola.hardware.audio.adspd@1.0-impl.so
-vendor/lib/motorola.hardware.audio.adspd@1.0_vendor.so
-vendor/lib/motorola.hardware.audio.adspd@1.0.so
-vendor/lib64/vndk/libtinyalsa.so
-vendor/lib64/motorola.hardware.audio.adspd@1.0-impl.so
-vendor/lib64/motorola.hardware.audio.adspd@1.0.so
 
 # Media
 vendor/lib/libAlacSwDec.so
