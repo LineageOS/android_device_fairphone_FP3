@@ -269,3 +269,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.iwlan.enable=true \
     persist.dbg.wfc_avail_ovr=1
 
+# Enable TDES support when KM4 is enabled
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore_desede=true
