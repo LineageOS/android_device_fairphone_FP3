@@ -32,6 +32,7 @@ AB_OTA_UPDATER := true
 # AB_OTA_PARTITIONS := aboot cmnlib64 cmnlib devcfg dsp dtbo keymaster lksecapp mdtp modem rpm sbl1 tz vbmeta boot system vendor product
 # Subset A/B partitions for Android-only image update
 # AB_OTA_PARTITIONS ?= boot system
+
 AB_OTA_PARTITIONS += \
     boot \
     dtbo \
@@ -87,19 +88,29 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-	gralloc.msm8953 \
-	copybit.msm8953 \
-	hwcomposer.msm8953 \
-	memtrack.msm8953 \
-	android.hardware.graphics.allocator@2.0-impl \
-	android.hardware.graphics.allocator@2.0-service \
-	android.hardware.graphics.composer@2.1-impl \
-	android.hardware.graphics.composer@2.1-service \
-	android.hardware.graphics.mapper@2.0-impl \
-	android.hardware.memtrack@1.0-impl \
-	android.hardware.memtrack@1.0-service \
-	libdisplayconfig \
-	libqdMetaData.system
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
+    copybit.msm8953 \
+    gralloc.msm8953 \
+    hwcomposer.msm8953 \
+    memtrack.msm8953 \
+    libdisplayconfig \
+    libgenlock \
+    liboverlay \
+    libqdMetaData.system \
+    libvulkan \
+    libtinyxml
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    lights.msm8953
 
 #INIT
 PRODUCT_PACKAGES += \
