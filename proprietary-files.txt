@@ -34,17 +34,30 @@ vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/bin/btnvtool
 vendor/bin/hci_qcomm_init
 vendor/bin/wcnss_filter
-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
+-vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbt-hidlclient.so
 vendor/lib64/libbtnv.so
-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
+-vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib/libbtnv.so
 vendor/lib/libbt-hidlclient.so
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
 
 # Bluetooth (shared dependencies)
-vendor/lib64/com.qualcomm.qti.ant@1.0.so
+# -lib/com.qualcomm.qti.bluetooth_audio@1.0.so
+# -lib64/com.qualcomm.qti.bluetooth_audio@1.0.so
+# vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so
 vendor/lib/com.qualcomm.qti.ant@1.0.so
+vendor/lib64/com.qualcomm.qti.ant@1.0.so
+
+# BT- qcom opensource( bluetooth, bluetooth_ext, system/bt, hardware/qcom/bt)
+# TODO This also requires vendor/qcom/proprietary/bluetooth/ and  vendor/qcom/proprietary/interfaces/bluetooth_audio
+# disable this for now
+# lib/libbluetooth_qti.so
+# lib64/libbluetooth_qti.so
+# vendor/lib/libbthost_if.so
+# vendor/lib64/libbthost_if.so
+# etc/bluetooth/bt_profile.conf
+# etc/bluetooth/interop_database.conf
 
 # # Camera
 # vendor/lib/hw/camera.msm8953.so
