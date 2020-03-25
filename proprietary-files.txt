@@ -766,6 +766,8 @@ vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libquipc_os_api.so
+vendor/lib/libmdmdetect.so
+-vendor/lib/libqmiservices.so
 vendor/lib64/libdiag.so
 -vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
@@ -782,6 +784,8 @@ vendor/lib64/libqmi_client_qmux.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libquipc_os_api.so
+vendor/lib64/libmdmdetect.so
+-vendor/lib64/libqmiservices.so
 
 # Radio
 # -vendor/app/datastatusnotification/datastatusnotification.apk|f73d163acf4a9748e27a666fabb382d341150e8e not found
@@ -804,10 +808,8 @@ vendor/lib64/libquipc_os_api.so
 # vendor/etc/data/dsi_config.xml
 # vendor/etc/data/netmgr_config.xml
 # vendor/etc/init/qcrild.rc
-# vendor/lib/libmdmdetect.so
 # vendor/lib/libpdmapper.so
 # vendor/lib/libpdnotifier.so
-# -vendor/lib/libqmiservices.so
 # vendor/lib/com.qualcomm.qti.uceservice@2.0.so
 # vendor/lib/vendor.qti.hardware.data.connection@1.0.so
 # vendor/lib/vendor.qti.hardware.radio.am@1.0.so
@@ -830,7 +832,6 @@ vendor/lib64/libquipc_os_api.so
 # vendor/lib/libconfigdb.so
 # vendor/lib64/liblqe.so
 # vendor/lib/liblqe.so
-# vendor/lib64/libmdmdetect.so
 # vendor/lib64/libnetmgr.so
 # vendor/lib/libnetmgr.so
 # vendor/lib64/libnlnetmgr.so
@@ -839,7 +840,6 @@ vendor/lib64/libquipc_os_api.so
 # vendor/lib64/libnetmgr_rmnet_ext.so
 # vendor/lib64/libpdmapper.so
 # vendor/lib64/libpdnotifier.so
-# -vendor/lib64/libqmiservices.so
 # vendor/lib64/libril-qc-ltedirectdisc.so
 # vendor/lib64/libril-qc-qmi-1.so
 # vendor/lib/libril-qc-qmi-1.so
