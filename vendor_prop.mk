@@ -272,3 +272,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable TDES support when KM4 is enabled
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.keystore_desede=true
+
+# NFC
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.nfc_nci=nqx.default

@@ -192,6 +192,9 @@ VENDOR_SECURITY_PATCH := "2018-08-05"
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := false
 
+# NFC
+TARGET_USES_NQ_NFC := true
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
