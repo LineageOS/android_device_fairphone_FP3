@@ -365,6 +365,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Doze
 
+# LiveDisplay
+PRODUCT_PACKAGES += \
+    vendor.lineage.livedisplay@2.0-service-sdm \
+    vendor.lineage.livedisplay@2.0-service-sysfs
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
