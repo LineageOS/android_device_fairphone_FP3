@@ -111,6 +111,7 @@ ro.com.google.clientidbase.yt=android-uniscope
 # System property for cabl
 ro.qualcomm.cabl=2
 ro.vendor.display.cabl=2
+vendor.gralloc.disable_ahardware_buffer=1
 
 # RIL
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
