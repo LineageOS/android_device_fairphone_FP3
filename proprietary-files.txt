@@ -2971,7 +2971,7 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/hw/audio.bluetooth_qti.default.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
-vendor/lib64/hw/fingerprint.default.so
+vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.FP3.so
 vendor/lib64/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/keystore.msm8953.so
 vendor/lib64/hw/sound_trigger.primary.msm8953.so
