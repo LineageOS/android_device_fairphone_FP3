@@ -16,8 +16,6 @@
 
 DEVICE_PATH := device/fairphone/FP3
 
-BOARD_VENDOR := Fairphone
-
 TARGET_ENFORCES_QSSI := true
 
 # A/B updater
