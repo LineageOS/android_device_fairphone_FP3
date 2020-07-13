@@ -74,6 +74,11 @@ function blob_fixup() {
     product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
         sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
         ;;
+
+    # Change soname for fingerprint.default.so.
+    vendor/lib64/hw/fingerprint.FP3.so)
+        "${PATCHELF}" --set-soname "fingerprint.FP3.so" "${2}"
+        ;;
     esac
 }
 
