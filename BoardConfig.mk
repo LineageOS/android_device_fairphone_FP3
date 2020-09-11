@@ -66,8 +66,8 @@ BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 an
 BOARD_KERNEL_CMDLINE += androidboot.bootdevice=7824900.sdhci earlycon=msm_serial_dm,0x78af000 firmware_class.path=/vendor/firmware_mnt/image androidboot.usbconfigfs=true loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 #BOARD_KERNEL_SEPARATED_DT := true #TODO
-BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_VERSION := 4.9
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc \
@@ -120,6 +120,20 @@ TARGET_HW_DISK_ENCRYPTION := false
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+
+# Treble
+BOARD_VNDK_VERSION := current
+
+BOARD_AVB_ENABLE := true
+
+# When AVB 2.0 is enabled, dm-verity is enabled differently,
+# below definitions are only required for AVB 1.0
+ifeq ($(BOARD_AVB_ENABLE),false)
+# dm-verity definitions
+    PRODUCT_SUPPORTS_VERITY := true
+    PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
+    PRODUCT_VENDOR_VERITY_PARTITION=/dev/block/bootdevice/by-name/vendor
+endif
 
 # INIT
 # TARGET_INIT_VENDOR_LIB := libinit_msm #Important
