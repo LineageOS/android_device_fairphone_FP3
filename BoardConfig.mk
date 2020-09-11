@@ -127,6 +127,9 @@ VENDOR_SECURITY_PATCH := "2018-08-05"
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := false
 
+# SELinux
+include device/qcom/sepolicy/sepolicy.mk
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
