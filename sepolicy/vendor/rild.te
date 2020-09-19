@@ -1,0 +1,1 @@
+allow rild hostapd_data_file:dir search;
