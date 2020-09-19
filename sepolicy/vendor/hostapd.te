@@ -1,0 +1,1 @@
+allow hostapd hal_wifi_hostapd_default:unix_dgram_socket sendto;
