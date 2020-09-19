@@ -1,0 +1,2 @@
+allow hal_wifi_hostapd_default hostapd:unix_dgram_socket sendto;
+allow hal_wifi_hostapd_default wifi_vendor_data_file:dir { remove_name write };
