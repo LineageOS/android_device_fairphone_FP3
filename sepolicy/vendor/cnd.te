@@ -1,1 +1,1 @@
-add_hwservice(cnd, hal_datafactory_hwservice)
+allow cnd hostapd:process sigkill;
