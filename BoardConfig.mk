@@ -59,7 +59,6 @@ TARGET_HAS_NO_SELECT_BUTTON := true
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-ODM_MANIFEST_FILES := $(DEVICE_PATH)/odm_manifest.xml
 TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/config.fs
 
