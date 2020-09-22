@@ -189,9 +189,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 # Vendor Security Patch Level
 VENDOR_SECURITY_PATCH := "2018-08-05"
 
-# Encryption
-TARGET_HW_DISK_ENCRYPTION := false
-
 # NFC
 TARGET_USES_NQ_NFC := true
 
