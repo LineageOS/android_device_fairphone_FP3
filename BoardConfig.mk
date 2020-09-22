@@ -100,6 +100,10 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 TARGET_NO_RECOVERY := true
 BOARD_USES_RECOVERY_AS_BOOT := true
 TARGET_COPY_OUT_VENDOR := vendor
+# BOARD_USES_PRODUCTIMAGE := true
+BOARD_PRODUCTIMAGE_PARTITION_SIZE := 134217728
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_PRODUCT := product
 
 # Graphics
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -145,7 +149,8 @@ ifeq ($(BOARD_AVB_ENABLE),false)
 # dm-verity definitions
     PRODUCT_SUPPORTS_VERITY := true
     PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
-    PRODUCT_VENDOR_VERITY_PARTITION=/dev/block/bootdevice/by-name/vendor
+    PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/bootdevice/by-name/vendor
+    $(call inherit-product, build/target/product/verity.mk)
 endif
 
 # INIT
