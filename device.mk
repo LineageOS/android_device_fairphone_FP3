@@ -97,6 +97,10 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libtinyxml
 
+# Disable skip validate
+PRODUCT_PROPERTY_OVERRIDES += \
+	vendor.display.disable_skip_validate=1
+
 # LED packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.msm8953
