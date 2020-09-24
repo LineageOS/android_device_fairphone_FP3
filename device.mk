@@ -493,6 +493,10 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
+#vendor prop to disable advanced network scanning
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.vendor.radio.enableadvancedscan=false
+
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
