@@ -195,6 +195,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
     # $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml \
 
+# Dalvik
+PRODUCT_PROPERTY_OVERRIDES += \
+           dalvik.vm.heapminfree=4m \
+           dalvik.vm.heapstartsize=16m \
+           vendor.vidc.disable.split.mode=1
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl \
