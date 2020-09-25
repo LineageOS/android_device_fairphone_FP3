@@ -300,6 +300,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
