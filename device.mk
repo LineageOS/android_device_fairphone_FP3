@@ -277,6 +277,10 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
+# Weaver
+PRODUCT_PACKAGES += \
+    android.hardware.weaver@1.0
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0 \
