@@ -258,6 +258,15 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# RenderScript
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+
+# Enable vndk-sp Libraries
+PRODUCT_PACKAGES += \
+    libgui_vendor \
+    vndk_package
+
 # Disable Vulkan feature level 1
 TARGET_NOT_SUPPORT_VULKAN_FEATURE_LEVEL_1 := true
 
