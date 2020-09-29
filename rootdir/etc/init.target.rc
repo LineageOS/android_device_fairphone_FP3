@@ -32,7 +32,6 @@
 import init.arima.simtrigger.rc
 
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_apr audio_adsp_loader audio_q6_notifier audio_q6 audio_usf audio_native audio_pinctrl_wcd audio_swr audio_platform audio_swr_ctrl audio_hdmi audio_wcd9xxx audio_wcd_core audio_wsa881x_analog audio_wsa881x audio_mbhc audio_stub audio_digital_cdc audio_analog_cdc audio_wcd_cpe audio_cpe_lsm audio_wcd9335 audio_machine_sdm450 audio_machine_ext_sdm450
     write /proc/sys/kernel/sched_boost 1
     mkdir /firmware 0771 system system
     symlink /data/tombstones /tombstones
@@ -52,11 +51,8 @@ on fs
 
     #write /sys/kernel/boot_adsp/boot 1
 
-    wait /dev/block/bootdevice/by-name/oem
-    mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
-
-    # [8901][SDCard][akenhsu] Support exfat and on SDCard via Tuxera 20190313
-    insmod /vendor/lib/texfat.ko
+    #wait /dev/block/bootdevice/by-name/oem
+    #mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
 
 on post-fs
     start vendor.qseecomd
@@ -73,8 +69,8 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-    mkdir /persist/data/sfs 0700 system system
-    mkdir /persist/data/tz 0700 system system
+    mkdir /mnt/vendor/persist/data/sfs 0700 system system
+    mkdir /mnt/vendor/persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
 # [Arima_8901][allen_yu] remove improve touch hbtp 20181109 begin
 #    mkdir /data/vendor/hbtp 0750 system system
