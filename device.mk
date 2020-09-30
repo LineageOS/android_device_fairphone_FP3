@@ -107,11 +107,9 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libtinyxml
 
-# Lights
+# LED packages
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl \
-    android.hardware.light@2.0-service \
-    lights.msm8953
+    android.hardware.light@2.0-service.msm8953
 
 #INIT
 PRODUCT_PACKAGES += \
