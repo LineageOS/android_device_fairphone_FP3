@@ -17,6 +17,12 @@
 
 set -e
 
+# Required!
+export DEVICE=FP3
+export VENDOR=fairphone
+
+export DEVICE_BRINGUP_YEAR=2020
+
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
@@ -82,7 +88,7 @@ function blob_fixup() {
 }
 
 # Initialize the helper for common device
-setup_vendor "${DEVICE_COMMON}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${LINEAGE_ROOT}" true "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
@@ -96,6 +102,6 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
             "${KANG}" --section "${SECTION}"
 fi
 
-COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE_COMMON}/proprietary"
+COMMON_BLOB_ROOT="${LINEAGE_ROOT}/vendor/${VENDOR}/${DEVICE}/proprietary"
 
 "${MY_DIR}/setup-makefiles.sh"

@@ -1,2 +1,0 @@
-#============= vold ==============
-allow vold system_data_file:file { ioctl open };

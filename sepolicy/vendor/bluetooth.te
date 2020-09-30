@@ -1,1 +1,0 @@
-allow bluetooth vendor_file:file read;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (c) 2014, The Linux Foundation. All rights reserved.
+    Copyright (c) 2015, The Linux Foundation. All rights reserved.
 
     Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions are
@@ -28,35 +28,34 @@
     IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 -->
 
-<resources>
-   <!-- Indicate whether to allow the device to suspend when the screen is off
-   due to the proximity sensor.  This resource should only be set to true
-   if the sensor HAL correctly handles the proximity sensor as a wake-up source.
-   Otherwise, the device may fail to wake out of suspend reliably.
-   The default is false. -->
-   <!-- TODO -->
-   <bool name="config_suspendWhenScreenOffDueToProximity">false</bool>
-
-   <!-- Should the device show AM/PM in unlock screen -->
-  <!-- <bool name="config_show_ampm_in_unlock_screen">true</bool> -->
-
-   <!-- List of regexpressions describing the interface (if any) that represent tetherable
-          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
-          should be empty.  An example would be "softap.*" -->
-   <string-array translatable="false" name="config_tether_wifi_regexs">
-       <item>"wigig0"</item>
-       <item>"wlan0"</item>
-   </string-array>
-
-   <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
-        autodetected from the Configuration. -->
-   <bool name="config_showNavigationBar">true</bool>
-
-   <!-- Enable ACS (auto channel selection) for Wifi hotspot (SAP) -->
-   <bool translatable="false" name="config_wifi_softap_acs_supported">false</bool>
-
-   <!-- Enable 802.11ac for Wifi hotspot (SAP) -->
-   <bool translatable="false" name="config_wifi_softap_ieee80211ac_supported">false</bool>
-
-
-</resources>
+<device name="Android">
+  <item name="screen.on">63</item>
+  <item name="screen.full">261</item>
+ <!-- Different CPU speeds as reported in
+       /sys/devices/system/cpu/cpu0/cpufreq/stats/time_in_state -->
+  <array name="cpu.speeds">
+      <value>200000</value> <!-- 200 MHz CPU speed -->
+      <value>499200</value> <!-- 499 MHz CPU speed -->
+      <value>533333</value> <!-- 533 MHz CPU speed -->
+      <value>800000</value> <!-- 800 MHz CPU speed -->
+      <value>998400</value> <!-- 998 MHz CPU speed -->
+      <value>1094400</value> <!-- 1094 MHz CPU speed -->
+      <value>1209600</value> <!-- 1209 MHz CPU speed -->
+  </array>
+  <!-- Current at each CPU speed, as per 'cpu.speeds' -->
+  <array name="cpu.active">
+      <value>151</value>
+      <value>169</value>
+      <value>177</value>
+      <value>195</value>
+      <value>259</value>
+      <value>307</value>
+      <value>353</value>
+  </array>
+  <!-- Current when CPU is awake -->
+  <item name="cpu.awake">1.6</item>
+  <!-- Current when CPU is idle -->
+  <item name="cpu.idle">1.6</item>
+  <!-- This is the battery capacity in mAh (measured at nominal voltage) -->
+  <item name="battery.capacity">2000</item>
+</device>
