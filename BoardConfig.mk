@@ -250,7 +250,6 @@ BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Disable verity and descriptor checking
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
 # When AVB 2.0 is enabled, dm-verity is enabled differently,
 # below definitions are only required for AVB 1.0
