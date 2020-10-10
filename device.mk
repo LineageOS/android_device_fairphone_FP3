@@ -39,8 +39,7 @@ AB_OTA_PARTITIONS += \
     dtbo \
     system \
     vbmeta \
-    vendor \
-    product
+    vendor
 
 # Default A/B configuration.
 ENABLE_AB ?= true
