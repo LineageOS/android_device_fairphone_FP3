@@ -29,6 +29,22 @@
 
 export PATH=/vendor/bin
 
+target_type=`getprop ro.hardware.type`
+if [ "$target_type" == "automotive" ]; then
+    cd /sys/devices/system/memory/
+    n=1
+    addr=`cat aligned_blocks_addr | cut -d ',' -f $n`
+    num=`cat aligned_blocks_num | cut -d ',' -f $n`
+    while [ -n "$addr" ]
+    do
+        echo $addr > probe
+        echo online > memory$num/state
+        let n++
+        addr=`cat aligned_blocks_addr | cut -d ',' -f $n`
+        num=`cat aligned_blocks_num | cut -d ',' -f $n`
+    done
+fi
+
 # Set platform variables
 if [ -f /sys/devices/soc0/hw_platform ]; then
     soc_hwplatform=`cat /sys/devices/soc0/hw_platform` 2> /dev/null
@@ -53,6 +69,14 @@ if [ -f /sys/class/drm/card0-DSI-1/modes ]; then
         fb_width=${line%%x*};
         break;
     done < $mode_file
+elif [ -f /sys/class/drm/card0-DP-1/modes ]; then
+    echo "detect" > /sys/class/drm/card0-DP-1/status
+    is_dp_mode=1
+    mode_file=/sys/class/drm/card0-DP-1/modes
+    while read line; do
+        fb_width=${line%%x*};
+        break;
+    done < $mode_file
 elif [ -f /sys/class/graphics/fb0/virtual_size ]; then
     res=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
     fb_width=${res%,*}
@@ -71,6 +95,9 @@ fi
 function set_density_by_fb() {
     #put default density based on width
     if [ -z $fb_width ]; then
+        if [ $is_dp_mode -eq 1 ]; then
+            return;
+        fi
         setprop vendor.display.lcd_density 320
     else
         if [ $fb_width -ge 1600 ]; then
@@ -107,7 +134,26 @@ case "$target" in
                 ;;
         esac
         ;;
-
+     "sm6150")
+         case "$soc_hwplatform" in
+             "ADP")
+                 setprop vendor.display.lcd_density 160
+                 ;;
+         esac
+         case "$soc_hwid" in
+             365|366)
+                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
+                 setprop vendor.media.target.version 1
+                 if [ $sku_ver -eq 1 ]; then
+                     setprop vendor.media.target.version 2
+                 fi
+                 ;;
+             355|369|377|384)
+                 setprop vendor.chre.enabled 0
+                 ;;
+             *)
+         esac
+         ;;
     "msm8660")
         case "$soc_hwplatform" in
             "Fluid")
@@ -116,30 +162,6 @@ case "$target" in
             "Dragon")
                 setprop ro.sound.alsa "WM8903"
                 ;;
-        esac
-        ;;
-
-    "sm6150")
-        case "$soc_hwplatform" in
-            "ADP")
-                setprop vendor.display.lcd_density 160
-                ;;
-        esac
-        case "$soc_hwid" in
-            365|366)
-                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
-                if [ $sku_ver -eq 1 ]; then
-                    setprop vendor.media.sdmmagpie.version 1
-                fi
-                ;;
-            355)
-                setprop vendor.media.sm6150.version 1
-                setprop vendor.chre.enabled 0
-                ;;
-            369|377|384)
-                setprop vendor.chre.enabled 0
-                ;;
-            *)
         esac
         ;;
 
@@ -263,7 +285,7 @@ case "$target" in
                 setprop vendor.opengles.version 196610
                 if [ $soc_hwid = 354 ]
                 then
-                    setprop vendor.media.msm8937.version 1
+                    setprop vendor.media.target.version 1
                     log -t BOOT -p i "SDM429 early_boot prop set for: HwID '$soc_hwid'"
                 fi
                 ;;
@@ -288,6 +310,13 @@ case "$target" in
         case "$soc_hwplatform" in
             *)
                 setprop vendor.display.lcd_density 560
+                ;;
+        esac
+        ;;
+    "qcs605")
+        case "$soc_hwplatform" in
+            *)
+                setprop vendor.display.lcd_density 640
                 ;;
         esac
         ;;
@@ -318,7 +347,7 @@ case "$target" in
             *)
                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc1/sku_version` 2> /dev/null
                 if [ $sku_ver -eq 1 ]; then
-                    setprop vendor.media.sdm710.version 1
+                    setprop vendor.media.target.version 1
                 fi
                 ;;
         esac
@@ -332,7 +361,7 @@ case "$target" in
                 fi
 
                 if [ $cap_ver -eq 1 ]; then
-                    setprop vendor.media.msm8953.version 1
+                    setprop vendor.media.target.version 1
                 fi
                 ;;
     #Set property to differentiate SDM660 & SDM455
@@ -340,7 +369,7 @@ case "$target" in
     "sdm660")
         case "$soc_hwid" in
            385)
-               setprop vendor.media.sdm660.version 1
+               setprop vendor.media.target.version 1
         esac
         ;;
 esac
@@ -367,20 +396,9 @@ product=`getprop ro.build.product`
 case "$product" in
         "msmnile_au")
          setprop vendor.display.lcd_density 160
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
+         echo 902400000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
          echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/max_freq
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
-         echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/max_freq
-         ;;
-        *)
-        ;;
-esac
-case "$product" in
-        "msmnile_gvmq")
-         setprop vendor.display.lcd_density 160
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
-         echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/max_freq
-         echo 864000000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
+         echo 902400000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
          echo 1612800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/max_freq
          ;;
         *)
@@ -393,15 +411,23 @@ case "$product" in
         *)
         ;;
 esac
-
 case "$product" in
         "sdmshrike_au")
          setprop vendor.display.lcd_density 160
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu0-cpu-l3-lat/min_freq
+         echo 940800000 > /sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq
          ;;
         *)
         ;;
 esac
 
+case "$product" in
+        "msmnile_gvmq")
+         setprop vendor.display.lcd_density 160
+         ;;
+        *)
+        ;;
+esac
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
@@ -430,9 +456,17 @@ then
                 esac
         done
     fi
-else
+fi
+
+
+drm_driver=/sys/class/drm/card0
+if [ -e "$drm_driver" ]; then
     set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
 fi
+
+# allow system_graphics group to access pmic secure_mode node
+set_perms /sys/class/lcd_bias/secure_mode system.graphics 0660
+set_perms /sys/class/leds/wled/secure_mode system.graphics 0660
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
@@ -448,8 +482,7 @@ if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
     setprop vendor.gpu.available_frequencies "$gpu_freq"
 fi
 
-#//<2019/12/31-JessicaTseng, 2nd battery info
-# [Fairphone][Charging][JasonHsing][ARFP3-83] Expose battery revision 20190128 BEGIN --
+#//<2020/05/18-JessicaTseng, Feature ARFP3-83 - Expose battery revision
 batinfo=`cat /sys/class/power_supply/bms/resistance_id`
 
 if [[ "$batinfo" -ge 9000 && "$batinfo" -le 11000 ]]; then
@@ -461,19 +494,4 @@ else
       setprop ro.hardware.battery_info "Unknown battery"
     fi 
 fi
-# [Fairphone][Charging][JasonHsing][ARFP3-83] Expose battery revision 20190128 END --
-#//>2019/12/31-JessicaTseng
-
-# [Fairphone][Storage][JasonHsing] Check memory configuration  20190305 BEGIN -
-
-emmc_32g='474436424d42'
-emmchw=`cat /sys/class/mmc_host/mmc0/mmc0:0001/cid`
-emmchw=$(echo $emmchw | cut -c7-18)
-
-if [ $emmchw = $emmc_32g ] ; then
-  setprop ro.boot.memory_config "32GB,3GB"
-else
-  setprop ro.boot.memory_config "64GB,4GB"
-fi
-
-# [Fairphone][Storage][JasonHsing] Check memory configuration  20190305 END -
+#//>2020/05/18-JessicaTseng
