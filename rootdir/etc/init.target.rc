@@ -27,14 +27,14 @@
 #
 #
 
-#import init.carrier.rc
-# for arima simtrigger
-import init.arima.simtrigger.rc
-
 on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules audio_apr audio_adsp_loader audio_q6_notifier audio_q6 audio_usf audio_native audio_pinctrl_wcd audio_swr audio_platform audio_swr_ctrl audio_hdmi audio_wcd9xxx audio_wcd_core audio_wsa881x_analog audio_wsa881x audio_mbhc audio_stub audio_digital_cdc audio_analog_cdc audio_wcd_cpe audio_cpe_lsm audio_wcd9335 audio_machine_sdm450 audio_machine_ext_sdm450
     write /proc/sys/kernel/sched_boost 1
     mkdir /firmware 0771 system system
+    mkdir /system 0777 root root
+    mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
+    mkdir /dsp 0771 media media
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -83,14 +83,12 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-    mkdir /mnt/vendor/persist/data/sfs 0700 system system
-    mkdir /mnt/vendor/persist/data/tz 0700 system system
+    mkdir /persist/data/sfs 0700 system system
+    mkdir /persist/data/tz 0700 system system
     mkdir /data/misc/dts 0770 media audio
-# [Arima_8901][allen_yu] remove improve touch hbtp 20181109 begin
-#    mkdir /data/vendor/hbtp 0750 system system
-# [Arima_8901][allen_yu] 20181109 end
-    mkdir /data/vendor/tloc 0700 system drmrpc
-
+    #[Tracychui]remove improve touch hbtp 20200622 start
+    mkdir /data/vendor/hbtp 0750 system system
+    #[Tracychui]remove improve touch hbtp 20200622 end
 
 #Create folder for mm-qcamera-daemon
     mkdir /data/vendor/camera 0770 camera camera
@@ -142,16 +140,6 @@ service vendor.qseecomd /vendor/bin/qseecomd
    user root
    group root
 
-#service aostlmd /system/bin/aostlmd
-#   class late_start
-#   user system
-#   group system net_raw
-
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   disabled
-
 service thermal-engine /system/vendor/bin/thermal-engine
    class main
    user root
@@ -159,11 +147,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    socket thermal-send-rule stream 0660 system system
-   group root
-
-service time_daemon /system/vendor/bin/time_daemon
-   class late_start
-   user root
    group root
 
 service audiod /system/vendor/bin/audiod
@@ -183,14 +166,14 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
-# [Arima_8901][allen_yu] remove improve touch hbtp 20181109 begin
-#    chown system system /sys/kernel/hbtp/display_pwr
-# [Arima_8901][allen_yu] 20181109 end
+    #[Tracychui]remove improve touch hbtp 20200622 start
+    chown system system /sys/kernel/hbtp/display_pwr
+    #[Tracychui]remove improve touch hbtp 20200622 end
 
 # Add a cpuset for the camera daemon
 # We want all cores for camera
     mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-3
+    write /dev/cpuset/camera-daemon/cpus 0-7
     write /dev/cpuset/camera-daemon/mems 0
     chown cameraserver cameraserver /dev/cpuset/camera-daemon
     chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
@@ -227,7 +210,7 @@ on boot
     setprop vendor.usb.dpl.inst.name "dpl"
 
 service wcnss-service /system/vendor/bin/wcnss_service
-    class main
+    class late_start
     user system
     group system wifi radio
     oneshot
@@ -296,23 +279,16 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-# [Fairphone][Charging][JasonHsing][ARFP3-63] Enable the adb on off-charging mode 20190222 BEGIN --
+#//<2020/04/27-JessicaTseng, [ARFP3-63] Enable the adb on off-charging mode
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    load_all_props
-    setprop persist.sys.usb.config mass_storage,adb
+    load_system_props
+    setprop sys.usb.configfs 1
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage,adb
     start vendor.hvdcp_opti
-    start vendor.power_off_alarm
-# [Fairphone][Charging][JasonHsing][ARFP3-63] Enable the adb on off-charging mode 20190222 END --
-
-on charger && property:ro.boot.usbconfigfs=true
-    setprop sys.usb.configfs 1
-
-on charger && property:ro.boot.usbconfigfs=false
-    setprop sys.usb.configfs 0
+#//>2020/04/27-JessicaTseng
 
 service dts_configurator /system/vendor/bin/dts_configurator
     class late_start
@@ -355,7 +331,6 @@ on property:init.svc.vendor.per_mgr=running
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy
-    stop vendor.ims_rtp_daemon
 
 service energy-awareness /system/vendor/bin/energy-awareness
     class main
@@ -386,12 +361,7 @@ on boot
     chown system system /sys/class/leds/blue/delay_on
     chown system system /sys/class/leds/blue/delay_off
 
-service vendor.tlocd /vendor/bin/tloc_daemon
-    class late_start
-    user system
-    group drmrpc gps net_raw
-
-# Samsung remosaic algorithm integration
+# Samsung remosaic algorithm ingegration
 service remosaic_daemon /system/vendor/bin/remosaic_daemon
     class late_start
     user camera
