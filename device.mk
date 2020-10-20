@@ -365,8 +365,8 @@ PRODUCT_PACKAGES += \
     android.hardware.weaver@1.0
 
 # Doze
-PRODUCT_PACKAGES += \
-    Doze
+# PRODUCT_PACKAGES += \
+#     Doze
 
 # LiveDisplay
 PRODUCT_PACKAGES += \

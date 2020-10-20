@@ -53,11 +53,11 @@
 
      Note that doze dreams are not subject to the same start conditions as ordinary dreams.
      Doze dreams will run whenever the power manager is in a dozing state. -->
-    <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+    <!-- <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string> -->
 
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+    <!-- <bool name="config_dozeAfterScreenOffByDefault">true</bool> -->
 
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
@@ -77,7 +77,7 @@
 
          Refer to autosuspend.h for details.
     -->
-    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+    <!-- <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool> -->
 
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state.
@@ -96,12 +96,12 @@
 
          Refer to power.h for details.
     -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+    <!-- <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool> -->
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-    <integer name="config_screenBrightnessDoze">17</integer>
+    <!-- <integer name="config_screenBrightnessDoze">17</integer> -->
 
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently
      in hardware. -->
