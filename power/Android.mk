@@ -2,7 +2,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_C_INCLUDES := hardware/qcom/power
+LOCAL_C_INCLUDES := vendor/qcom/opensource/power
 LOCAL_CFLAGS := -Wall -Werror
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_HEADER_LIBRARIES += libhardware_headers
