@@ -104,8 +104,9 @@ PRODUCT_PACKAGES += \
 
 #INIT
 PRODUCT_PACKAGES += \
-    init.target.rc \
+    fstab.qcom \
     init.qcom.rc \
+    init.target.rc \
     init.recovery.qcom.rc \
     init.qcom.factory.rc \
     init.qcom.usb.rc \
@@ -113,7 +114,6 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     init.carrier.rc \
     vold.fstab \
-    fstab.qcom \
     init.qti.ims.sh \
     init.qcom.coex.sh \
     init.qcom.early_boot.sh \
@@ -131,6 +131,7 @@ PRODUCT_PACKAGES += \
     init.qcom.crashdata.sh \
     init.qti.can.sh \
     init.qti.charger.sh \
+    init.time_daemon.rc \
     elan_device.rc
 
 # CRDA += init.crda.sh #TODO fix CRDA packages later
