@@ -9,5 +9,4 @@ ro.fingerprint.module   u:object_r:fps_vendor_prop:s0
 ro.nfc.fw_dl_on_boot    u:object_r:exported_default_prop:s0
 
 #vendor-info.camera
-persist.vendor.camera.            u:object_r:vendor_info_camera_prop:s0
 persist.camera.                   u:object_r:vendor_info_camera_prop:s0
