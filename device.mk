@@ -566,3 +566,25 @@ PRODUCT_PACKAGES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# Vendor
+PRODUCT_PACKAGES += \
+    libaudio_log_utils \
+    libaudioparsers \
+    libdsi_netctrl \
+    libgpustats \
+    libqmi_cci \
+    libqmi_common_so \
+    libqmiservices \
+    libsdm-disp-vndapis \
+    libthermalclient \
+    libtime_genoff \
+    android.hardware.bluetooth@1.0-impl-qti \
+    libloc_api_v02 \
+    datastatusnotification \
+    WfdService \
+    ims \
+    qcrilmsgtunnel \
+    QtiTelephonyService \
+    CneApp \
+    TimeService
