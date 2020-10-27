@@ -10,3 +10,11 @@ ro.nfc.fw_dl_on_boot    u:object_r:exported_default_prop:s0
 
 #vendor-info.camera
 persist.camera.                   u:object_r:vendor_info_camera_prop:s0
+persist.vendor.camera.            u:object_r:vendor_info_camera_prop:s0
+vendor.camera.                  u:object_r:vendor_info_camera_prop:s0
+
+persist.nfc. u:object_r:persist_nfc_prop:s0
+
+persist.vendor.bt.address       u:object_r:bluetooth_prop:s0
+
+persist.vendor.data.qmipriod_load u:object_r:vendor_radio_prop:s0
