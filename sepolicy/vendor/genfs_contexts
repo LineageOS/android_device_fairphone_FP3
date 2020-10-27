@@ -1,0 +1,2 @@
+# Real-time clock
+genfscon sysfs /devices/soc/qpnp-rtc-8/rtc                              u:object_r:sysfs_rtc:s0

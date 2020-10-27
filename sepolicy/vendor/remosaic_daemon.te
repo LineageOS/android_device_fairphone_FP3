@@ -14,4 +14,4 @@ allow remosaic_daemon hal_camera_default:fd use;
 allow remosaic_daemon ion_device:chr_file { read ioctl open };
 
 allow remosaic_daemon vendor_camera_data_file:dir create_dir_perms;
-allow remosaic_daemon vendor_camera_data_file:file create_file_perms; 
+allow remosaic_daemon vendor_camera_data_file:file create_file_perms;
