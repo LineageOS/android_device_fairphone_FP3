@@ -1,2 +1,4 @@
-# elan finger print system_server 
+# elan finger print system_server
 allow platform_app elanfp_device:chr_file rw_file_perms;
+
+allow platform_app radio_data_file:dir getattr;

@@ -1,5 +1,7 @@
-#[SM42][fingerprint][kent][17110101][begin]add writing property  permission 
+#[SM42][fingerprint][kent][17110101][begin]add writing property  permission
 type fps_vendor_prop, property_type;
 
 #vendor-info.camera
 type vendor_info_camera_prop, property_type;
+
+type persist_nfc_prop, property_type;
