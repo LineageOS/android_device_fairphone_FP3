@@ -1,0 +1,2 @@
+# This is horrible but for some reason the audio HAL wants to read all devices
+r_dir_file(hal_audio_default, sysfs)

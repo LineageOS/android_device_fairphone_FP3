@@ -1,0 +1,2 @@
+# Allow perf HAL to set freq props
+set_prop(hal_perf_default, freq_prop) 

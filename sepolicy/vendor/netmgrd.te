@@ -1,0 +1,2 @@
+#Allow connections to qmipriod
+set_prop(netmgrd, vendor_radio_prop) 
