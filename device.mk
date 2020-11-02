@@ -504,7 +504,7 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    vendor.nxp.hardware.nfc@1.2-service \
+    vendor.nxp.hardware.nfc@2.0-service \
     com.android.nfc_extras \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
@@ -515,7 +515,6 @@ PRODUCT_PACKAGES += \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     NfcNci \
-    SecureElement \
     Tag
 
 # Soong namespaces
