@@ -147,10 +147,14 @@ vendor/lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
-vendor/lib/libremosaic_daemon.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libdepthmapwrapper.so
 
+# Samsung remosaic for Tetra-cell camera s5k3p9sp
+vendor/bin/remosaic_daemon
+vendor/lib64/libremosaiclib.so
+vendor/lib64/libremosaic_daemon.so
+vendor/lib/libremosaic_daemon.so
 
 vendor/lib/libarcsoft_videostabs.so
 vendor/lib/libarcsoft_low_light_shot.so

@@ -390,3 +390,9 @@ service vendor.tlocd /vendor/bin/tloc_daemon
     class late_start
     user system
     group drmrpc gps net_raw
+
+# Samsung remosaic algorithm integration
+service remosaic_daemon /system/vendor/bin/remosaic_daemon
+    class late_start
+    user camera
+    group camera
