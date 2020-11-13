@@ -52,6 +52,7 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) echo "Making symlinks for wifi"
 	$(hide) mkdir -p $(dir $@)
 	$(hide) mkdir -p $(dir $(WCNSS_CFG_SYMLINK))
+	$(hide) mkdir -p $(dir $(WCNSS_BIN_SYMLINK))
 	$(hide) rm -rf $@
 	$(hide) rm -rf $(WCNSS_CFG_SYMLINK)
 	$(hide) ln -sf $(ACTUAL_CFG_FILE) $(WCNSS_CFG_SYMLINK)
