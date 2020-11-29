@@ -222,7 +222,7 @@ TARGET_PER_MGR_ENABLED := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2018-08-05"
+VENDOR_SECURITY_PATCH := "2020-10-05"
 
 # NFC
 TARGET_USES_NQ_NFC := true
