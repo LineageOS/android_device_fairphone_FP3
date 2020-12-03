@@ -2314,12 +2314,12 @@
 
     <!-- //[FairPhone][Audio][jinjia]=2018.11.22=Implement separated mic paths for Microphone Test of FunctionTest. -s -->
     <path name="primary-mic">
-		<path name="dmic2" />
-	</path>
+        <path name="dmic2" />
+    </path>
 
-	<path name="secondary-mic">
-		<path name="dmic3" />
-	</path>
+    <path name="secondary-mic">
+        <path name="dmic3" />
+    </path>
     <!-- //[FairPhone][Audio][jinjia]=2018.11.22=Implement separated mic paths for Microphone Test of FunctionTest. -e -->
 
     <path name="speaker-mic">
