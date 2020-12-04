@@ -309,3 +309,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.gmm=android-uniscope \
     ro.com.google.clientidbase.ms=android-uniscope \
     ro.com.google.clientidbase.yt=android-uniscope
+
+# DRM
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=enforce \
+    ro.crypto.allow_encrypt_override=true \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    drm.service.enabled=true
