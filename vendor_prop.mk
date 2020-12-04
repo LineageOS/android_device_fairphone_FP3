@@ -59,12 +59,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.btstack.enable.splita2dp=false \
     bluetooth.hfp.client=1 \
-    persist.bluetooth.avrcpversion=avrcp16 \
-    bt.pts.certification=true \
-    vendor.bt.pts.pbap=true \
-    ro.qualcomm.bluetooth.ftp=false
-    # This requires com.qualcomm.qti.bluetooth_audio@1.0
-    # ro.bluetooth.library_name=libbluetooth_qti.so \
+    ro.vendor.bluetooth.wipower=false
 
 # system props for the cne module
 PRODUCT_PROPERTY_OVERRIDES += \

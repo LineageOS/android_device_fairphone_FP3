@@ -423,8 +423,11 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    libbt-vendor \
+    audio.bluetooth.default \
+    android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.bluetooth@1.0 \
-    libbt-vendor
+    vendor.qti.hardware.btconfigstore@1.0.vendor
 
 # Wifi
 PRODUCT_COPY_FILES += \
