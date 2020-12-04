@@ -152,6 +152,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service \
+    vendor.qti.hardware.camera.device@1.0 \
+    vendor.qti.hardware.camera.device@1.0_vendor \
+    camera.device@1.0-impl \
     camera.device@3.2-impl \
     libbson.vendor \
     libxml2
@@ -322,7 +325,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     sensors.FP3 \
     android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
+    android.hardware.sensors@1.0-service \
+    libsensorndkbridge
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
