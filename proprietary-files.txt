@@ -511,6 +511,13 @@ vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so
 vendor/lib64/vendor.qti.hardware.factory@1.0.so
 vendor/lib64/vendor.qti.hardware.factory@1.1.so
 
+# DPM
+vendor/bin/dpmQmiMgr
+vendor/etc/init/dpmQmiMgr.rc
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
+vendor/lib64/libdpmqmihal.so
+vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
+vendor/lib/libdpmqmihal.so
 
 # DRM - HDCP
 vendor/lib/libmm-hdcpmgr.so
@@ -534,8 +541,6 @@ vendor/lib64/libhdcpsrm.so
 vendor/lib64/libcpion.so
 
 # DRM
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
-vendor/lib/com.qualcomm.qti.dpm.api@1.0.so
 vendor/bin/qseecomd
 vendor/lib/libcppf.so
 vendor/lib/libQSEEComAPI.so
