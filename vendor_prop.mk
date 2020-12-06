@@ -72,7 +72,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mm.enable.smoothstreaming=true \
     mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
-    av.debug.disable.pers.cache=1
+    av.debug.disable.pers.cache=1 \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 # AUDIO
 ##fluencetype can be "fluence" or "fluencepro" or "none"
