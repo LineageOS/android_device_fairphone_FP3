@@ -268,7 +268,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.rild.nitz_short_ons_2="" \
     persist.rild.nitz_short_ons_3="" \
     ril.subscription.types=NV,RUIM \
-    DEVICE_PROVISIONED=1
+    DEVICE_PROVISIONED=1 \
+    telephony.lteOnCdmaDevice=1
 
 # Set network mode to (T/L/G/W/1X/EVDO, T/G/W/L) for 7+5 mode device on DSDS mode
 PRODUCT_PROPERTY_OVERRIDES += \
