@@ -1271,19 +1271,13 @@ vendor/bin/ssr_setup
 
 # SECUREMSM
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
-vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
-vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/lib/libGPQTEEC_vendor.so
 vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/libFidoCrypto_vendor.so
 vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libQTEEConnector_vendor.so
-vendor/lib64/libFidoCrypto_vendor.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
-vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/lib/libsecureui.so
 vendor/lib64/libsecureui.so
 vendor/lib64/libStDrvInt.so
