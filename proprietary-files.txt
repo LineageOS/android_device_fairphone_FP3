@@ -1213,6 +1213,7 @@ vendor/bin/wcnss_service
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
 etc/firmware/wlan/prima/WCNSS_cfg.dat
+vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # Wi-Fi Display - 8901.2.A.0111-SS.20200304
 bin/wfdservice
@@ -1220,14 +1221,12 @@ etc/init/wfdservice.rc
 etc/wfdconfigsink.xml
 etc/wfdconfig.xml
 -framework/WfdCommon.jar
-lib64/extractors/libmmparser.so
 lib64/libFileMux.so
 lib64/libmmosal.so
 lib64/libmmparser_lite.so
 lib64/libwfdclient.so
 lib64/libwfdnative.so
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
-lib/extractors/libmmparser.so
 lib/libFileMux.so
 lib/libmmosal.so
 lib/libmmparser_lite.so
