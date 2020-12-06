@@ -656,30 +656,6 @@ vendor/lib64/vendor.qti.gnss@3.0-service.so
 vendor/lib64/vendor.qti.gnss@3.0.so
 
 # Graphics
-vendor/lib/hw/android.hardware.graphics.composer@2.1-impl.so
-vendor/etc/init/android.hardware.graphics.composer@2.1-service.rc
-vendor/bin/hw/android.hardware.graphics.composer@2.1-service
-vendor/lib64/hw/android.hardware.graphics.composer@2.1-impl.so
-vendor/bin/hw/vendor.display.color@1.0-service
-vendor/etc/init/vendor.display.color@1.0-service.rc
-vendor/lib/vendor.display.config@1.0.so
-vendor/lib/vendor.display.config@1.1.so
-vendor/lib64/vendor.display.config@1.2.so
-vendor/lib64/vendor.display.config@1.3.so
-vendor/lib64/vendor.display.config@1.4.so
-vendor/lib64/vendor.display.config@1.5.so
-vendor/lib64/vendor.display.config@1.6.so
-vendor/lib64/vendor.display.config@1.7.so
-vendor/lib/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.color@1.0.so
-vendor/lib/vendor.display.color@1.1.so
-vendor/lib64/vendor.display.color@1.1.so
-vendor/lib/vendor.display.color@1.2.so
-vendor/lib64/vendor.display.color@1.2.so
-vendor/lib/vendor.display.color@1.3.so
-vendor/lib64/vendor.display.color@1.3.so
-vendor/lib/vendor.display.postproc@1.0.so
-vendor/lib64/vendor.display.postproc@1.0.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -720,9 +696,6 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/libRSDriver_adreno.so
 vendor/lib64/libsdedrm.so
-vendor/lib64/vendor.display.color@1.0.so
-vendor/lib64/vendor.display.color@1.1.so
-vendor/lib64/vendor.display.postproc@1.0.so
 
 # Graphics - HDR
 vendor/lib/libhdr_tm.so
@@ -730,24 +703,28 @@ vendor/lib64/libhdr_tm.so
 
 # Graphics (SDM) - from 8901.2.A.0111-SS.20200304
 vendor/lib/libscalar.so
-vendor/lib/libsdmcore.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
--vendor/lib/libsdm-disp-vndapis.so
+-vendor/lib/libsdm-disp-vndapis.so|2bcfb8721de0d0668212722a78b86b92bd3f22d6
 vendor/lib/libsdmextension.so
-vendor/lib/libsdmutils.so
 vendor/lib/libtinyxml2_1.so
 vendor/lib64/libscalar.so
-vendor/lib64/libsdmcore.so
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
--vendor/lib64/libsdm-disp-vndapis.so
+-vendor/lib64/libsdm-disp-vndapis.so|5f2dfe8f37dd33f3f87ba9743bd228b0a90e13dd
 vendor/lib64/libsdmextension.so
-vendor/lib64/libsdmutils.so
 vendor/lib64/libtinyxml2_1.so
-vendor/bin/mm-pp-dpps
 
 # Graphics - Firmwares
+vendor/firmware/a530_gpmu.fw2
+vendor/firmware/a530_pfp.fw
+vendor/firmware/a530_pm4.fw
+vendor/firmware/a530v1_pfp.fw
+vendor/firmware/a530v1_pm4.fw
+vendor/firmware/a530v2_seq.fw2
+vendor/firmware/a530v3_gpmu.fw2
+vendor/firmware/a530v3_seq.fw2
+vendor/firmware/a540_gpmu.fw2
 vendor/firmware/a225_pfp.fw
 vendor/firmware/a225_pm4.fw
 vendor/firmware/a225p5_pm4.fw
@@ -762,17 +739,10 @@ vendor/firmware/a506_zap.b01
 vendor/firmware/a506_zap.b02
 vendor/firmware/a506_zap.elf
 vendor/firmware/a506_zap.mdt
+vendor/firmware/a630_gmu.bin
+vendor/firmware/a630_sqe.fw
 vendor/firmware/leia_pfp_470.fw
 vendor/firmware/leia_pm4_470.fw
-vendor/firmware/a530_gpmu.fw2
-vendor/firmware/a530_pfp.fw
-vendor/firmware/a530_pm4.fw
-vendor/firmware/a530v1_pfp.fw
-vendor/firmware/a530v1_pm4.fw
-vendor/firmware/a530v2_seq.fw2
-vendor/firmware/a530v3_gpmu.fw2
-vendor/firmware/a530v3_seq.fw2
-vendor/firmware/a540_gpmu.fw2
 
 # IPA
 vendor/bin/ipacm-diag
@@ -931,8 +901,22 @@ vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Postprocessing
+vendor/bin/hw/vendor.display.color@1.0-service
+vendor/bin/hw/vendor.qti.hardware.qdutils_disp@1.0-service-qti
+vendor/bin/mm-pp-dpps
+vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/etc/init/vendor.qti.hardware.qdutils_disp@1.0-service-qti.rc
 vendor/lib/libdisp-aba.so
+vendor/lib/vendor.display.color@1.0.so
+vendor/lib/vendor.display.color@1.1.so
+vendor/lib/vendor.display.postproc@1.0.so
+vendor/lib/vendor.qti.hardware.qdutils_disp@1.0.so
 vendor/lib64/libdisp-aba.so
+vendor/lib64/vendor.display.color@1.0.so
+vendor/lib64/vendor.display.color@1.1.so
+vendor/lib64/vendor.display.color@1.2.so
+vendor/lib64/vendor.display.postproc@1.0.so
+vendor/lib64/vendor.qti.hardware.qdutils_disp@1.0.so
 
 # QMI
 etc/permissions/qti_permissions.xml
