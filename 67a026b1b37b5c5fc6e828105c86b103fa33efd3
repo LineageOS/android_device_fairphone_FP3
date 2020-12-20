@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a05a83a8_00e87393",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-12-20T16:52:05Z",
+      "side": 1,
+      "message": "are these from stock? If so, note so in commit msg, if not you need to pin and say so",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 49
+      },
+      "revId": "67a026b1b37b5c5fc6e828105c86b103fa33efd3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
