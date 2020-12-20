@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c422307_13727c72",
+        "filename": "sepolicy/vendor/netmgrd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-12-20T16:49:26Z",
+      "side": 1,
+      "message": "whitespace, there\u0027s more in this change, you get it",
+      "range": {
+        "startLine": 2,
+        "startChar": 36,
+        "endLine": 2,
+        "endChar": 37
+      },
+      "revId": "49fa6c543a482d0ebab3800876c8ddf2e1f34179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "787f3300_515d8d03",
+        "filename": "sepolicy/vendor/platform_app.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-12-20T16:49:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1,
+        "startChar": 33,
+        "endLine": 1,
+        "endChar": 34
+      },
+      "revId": "49fa6c543a482d0ebab3800876c8ddf2e1f34179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d42d803a_2c30f168",
+        "filename": "sepolicy/vendor/radio.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-12-20T16:49:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1,
+        "startChar": 30,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "49fa6c543a482d0ebab3800876c8ddf2e1f34179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cd0f36d_fa4930d8",
+        "filename": "sepolicy/vendor/ueventd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-12-20T16:49:26Z",
+      "side": 1,
+      "message": "whitespace",
+      "range": {
+        "startLine": 1,
+        "startChar": 39,
+        "endLine": 1,
+        "endChar": 40
+      },
+      "revId": "49fa6c543a482d0ebab3800876c8ddf2e1f34179",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
