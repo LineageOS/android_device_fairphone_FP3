@@ -68,15 +68,15 @@ fi
 function blob_fixup() {
     case "${1}" in
 
-    vendor/etc/permissions/qcrilhook.xml)
-        sed -i "s|/system/framework/qcrilhook.jar|/vendor/framework/qcrilhook.jar|g" "${2}"
+    product/etc/permissions/qcrilhook.xml)
+        sed -i "s|/system/framework/qcrilhook.jar|/product/framework/qcrilhook.jar|g" "${2}"
         ;;
 
-    vendor/etc/permissions/telephonyservice.xml)
-        sed -i "s|/system/framework/QtiTelephonyServicelibrary.jar|/vendor/framework/QtiTelephonyServicelibrary.jar|g" "${2}"
+    product/etc/permissions/telephonyservice.xml)
+        sed -i "s|/system/framework/QtiTelephonyServicelibrary.jar|/product/framework/QtiTelephonyServicelibrary.jar|g" "${2}"
         ;;
 
-    vendor/etc/permissions/qti_libpermissions.xml)
+    etc/permissions/qti_libpermissions.xml)
         sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" "${2}"
         ;;
 
