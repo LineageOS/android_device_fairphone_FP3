@@ -68,10 +68,6 @@ fi
 function blob_fixup() {
     case "${1}" in
 
-    vendor/lib64/libmdmcutback.so)
-        patchelf --add-needed libqsap_shim.so "${2}"
-        ;;
-
     vendor/etc/permissions/qcrilhook.xml)
         sed -i "s|/system/framework/qcrilhook.jar|/vendor/framework/qcrilhook.jar|g" "${2}"
         ;;
