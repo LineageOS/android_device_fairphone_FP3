@@ -499,7 +499,7 @@ PRODUCT_BOOT_JARS += \
 # Secure Element
 PRODUCT_PACKAGES += \
     SecureElement \
-    android.hardware.secure_element@1.0
+    android.hardware.secure_element@1.1-service-disabled
 
 # NFC
 PRODUCT_PACKAGES += \
