@@ -493,12 +493,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
-# RCS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    PresencePolling \
-    RcsService
-
 # Telephony
 PRODUCT_PACKAGES += \
     qti-telephony-hidl-wrapper \
