@@ -361,6 +361,8 @@ service remosaic_daemon /system/vendor/bin/remosaic_daemon
 
 # Custom NFC Service
 service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.2-service
+    interface android.hardware.nfc@1.0::INfc default
+    interface android.hardware.nfc@1.1::INfc default
     interface android.hardware.nfc@1.2::INfc default
     override
     class hal
