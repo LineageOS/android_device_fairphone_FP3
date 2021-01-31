@@ -430,7 +430,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbt-vendor \
     audio.bluetooth.default \
-    android.hardware.bluetooth.audio@2.0-impl:64 \
+    android.hardware.bluetooth.audio@2.0-impl:32 \
     android.hardware.bluetooth@1.0 \
     vendor.qti.hardware.btconfigstore@1.0.vendor
 
