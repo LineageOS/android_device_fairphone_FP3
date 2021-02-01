@@ -44,12 +44,6 @@
     <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_24GHz">-85</integer>
     <integer name="config_wifi_framework_wifi_score_entry_rssi_threshold_5GHz">-82</integer>
 
-    <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
-    <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
-
-    <!-- Protected Management Frames (PMF) -->
-    <bool name="config_wifi_pmf_supported">true</bool>
-
     <!-- Boolean indicating whether or not to revert to default country code when cellular
          radio is unable to find any MCC information to infer wifi country code from -->
     <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
