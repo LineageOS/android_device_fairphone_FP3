@@ -48,9 +48,6 @@
          radio is unable to find any MCC information to infer wifi country code from -->
     <bool translatable="false" name="config_wifi_revert_country_code_on_cellular_loss">true</bool>
 
-    <!-- Wifi driver supports Automatic channel selection (ACS) for softap -->
-    <bool translatable="false" name="config_wifi_softap_acs_supported">true</bool>
-
     <!-- Configure wifi tcp buffersizes in the form:
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
     <string name="config_wifi_tcp_buffers" translatable="false">131072,262144,6287200,4096,221184,3145728</string>
