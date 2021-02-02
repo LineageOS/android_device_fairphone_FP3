@@ -279,16 +279,6 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-#//<2020/04/27-JessicaTseng, [ARFP3-63] Enable the adb on off-charging mode
-on charger
-    wait /dev/block/bootdevice/by-name/system
-    mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    setprop sys.usb.configfs 1
-    start qcom-post-boot
-    setprop persist.sys.usb.config mass_storage,adb
-    start vendor.hvdcp_opti
-#//>2020/04/27-JessicaTseng
-
 service dts_configurator /system/vendor/bin/dts_configurator
     class late_start
     user system
