@@ -503,7 +503,6 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    vendor.nxp.hardware.nfc@1.2-service \
     com.android.nfc_extras \
     com.nxp.nfc.nq \
     com.nxp.nfc.nq.xml \
