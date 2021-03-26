@@ -701,19 +701,19 @@ vendor/lib64/libsdedrm.so
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics (SDM) - from kuntao - LA.UM.7.5.r1-03700-8x96.0
+# Graphics (SDM) - from bardock 2.7.0 release - LA.UM.7.5.r1-03700-8x96.0
 vendor/lib/libscalar.so|cad128a6e71195b4ad38494bc0382bf80e1fb0b2
-vendor/lib/libsdm-color.so|b13ab5f965f5bb8f40207879415cb1adbb55da42
-vendor/lib/libsdm-diag.so|e2e3a0fba39190c58bafa0568e8cd51b391b71b6
--vendor/lib/libsdm-disp-vndapis.so|6c4233ea3676643bc9658c25cfad7edd45c49362
-vendor/lib/libsdmextension.so|a8659e7e0df5f1e20266ede1331da0660e0fe260
-vendor/lib/libtinyxml2_1.so|3882fddae942997be6ad6af789cf209fa45e61b3
-vendor/lib64/libscalar.so|490cc7447863b3279771ad99e92a5625525db055
-vendor/lib64/libsdm-color.so|9bb3f5147c277eae08c7f918e7de3bd2fccf1f74
-vendor/lib64/libsdm-diag.so|7ab5d2a980029ac9bd20fe68656823b21e483e11
--vendor/lib64/libsdm-disp-vndapis.so|6ae24866bbd413ed112778650c8fd7a2631cb1a9
-vendor/lib64/libsdmextension.so|e91aaf852df780e42bb083c3089f5b42c87c49f7
-vendor/lib64/libtinyxml2_1.so|b743b93bbb47bb2d80322fcfb985b7b8c696fa1b
+vendor/lib/libsdm-color.so|e9d0673708bf6f8c47ac7cfb0ba58269be4df9da
+vendor/lib/libsdm-diag.so|30df6a131cd55776e0d02b0b0427109f2b244c95
+-vendor/lib/libsdm-disp-vndapis.so|8e64464ad0cc4c0245619518f37735ffa1ba7682
+vendor/lib/libsdmextension.so|140969ca301305a1772f85c5dbbe18f83c927410
+vendor/lib/libtinyxml2_1.so|0960b3c008d818be73774e345c2f0f1c1e5873cd
+vendor/lib64/libscalar.so|61c059ca3b9da6a36bdf112e8fbe26a252ad1234
+vendor/lib64/libsdm-color.so|5d675be60fb9c334b4ba0fc569a186f00ad119ea
+vendor/lib64/libsdm-diag.so|64ec0a1af99830d3ffe2ee36312fe2cc7de80208
+-vendor/lib64/libsdm-disp-vndapis.so|d93f262f60b58f32273909142aa7fdc7bfb6dda3
+vendor/lib64/libsdmextension.so|3a4b0f888178eded3bd4e38b127f2148d367899c
+vendor/lib64/libtinyxml2_1.so|a2d9661cf2bb426e72ba15fd1a6a4eec940418a5
 
 # Graphics - Firmwares
 vendor/firmware/a530_gpmu.fw2
