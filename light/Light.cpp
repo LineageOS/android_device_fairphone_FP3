@@ -39,57 +39,12 @@
 #define DELAY_OFF       "delay_off"
 #define DELAY_ON        "delay_on"
 
-
-static void set_breath(int redBrightness,int greenBrightness, int blueBrightness) {
-    int red = open(RED_LED BREATH,O_WRONLY);
-    int green = open(GREEN_LED BREATH,O_WRONLY);
-    int blue = open(BLUE_LED BREATH,O_WRONLY);
-
-    if(red == -1) {
-        ALOGE("failed to open " RED_LED BREATH);
-    }
-
-    if(green == -1) {
-        ALOGE("failed to open " GREEN_LED BREATH);
-    }
-
-    if(blue == -1) {
-        ALOGE("failed to open " BLUE_LED BREATH);
-    }
-
-    int re,ge,be;
-    if (redBrightness > 0)
-        re = write(red,"1",1);
-    else
-        re = write(red,"0",1);
-
-    if (greenBrightness > 0)
-        ge = write(green,"1",1);
-    else
-        ge = write(green,"0",1);
-
-    if (blueBrightness > 0)
-        be = write(blue,"1",1);
-    else
-        be = write(blue,"0",1);
-
-    if(re != 1)
-        ALOGE("failed to write to " RED_LED BREATH " errorcode: %i",re);
-    if(ge != 1)
-        ALOGE("failed to write to " GREEN_LED BREATH " errorcode: %i",ge);
-    if(be != 1)
-        ALOGE("failed to write to " BLUE_LED BREATH " errorcode: %i",be);
-    close(red);
-    close(green);
-    close(blue);
-}
-
 /*
  * Write value to path and close file.
  */
 static void set(std::string path, std::string value) {
     std::ofstream file(path);
-    
+
     if (!file.is_open()) {
         ALOGE("failed to write %s to %s", value.c_str(), path.c_str());
         return;
@@ -100,6 +55,39 @@ static void set(std::string path, std::string value) {
 
 static void set(std::string path, int value) {
     set(path, std::to_string(value));
+}
+
+static void set_blink(uint32_t redBrightness, uint32_t greenBrightness, uint32_t blueBrightness, uint32_t flashOnMs, uint32_t flashOffMs) {
+    /*  Special case for flashOnMs == flashOffMs == 1000: use breathing effect */
+    if (flashOnMs == 1000 && flashOffMs == 1000) {
+        set(RED_LED BREATH, redBrightness > 128 ? 1 : 0);
+        set(GREEN_LED BREATH, greenBrightness > 128 ? 1 : 0);
+        set(BLUE_LED BREATH, blueBrightness > 128 ? 1 : 0);
+    } else {
+        if (redBrightness > 128) {
+            set(RED_LED DELAY_ON, flashOnMs);
+            set(RED_LED DELAY_OFF, flashOffMs);
+        }
+        else {
+            set(RED_LED BRIGHTNESS, 0);
+        }
+
+        if (greenBrightness > 128) {
+            set(GREEN_LED DELAY_ON, flashOnMs);
+            set(GREEN_LED DELAY_OFF, flashOffMs);
+        }
+        else {
+            set(GREEN_LED BRIGHTNESS, 0);
+        }
+
+        if (blueBrightness > 128 ) {
+            set(BLUE_LED DELAY_ON, flashOnMs);
+            set(BLUE_LED DELAY_OFF, flashOffMs);
+        }
+        else {
+            set(BLUE_LED BRIGHTNESS, 0);
+        }
+    }
 }
 
 static void handleBacklight(const LightState& state) {
@@ -128,17 +116,21 @@ static void handleNotification(const LightState& state) {
         blueBrightness = (blueBrightness * brightness) / 0xFF;
     }
 
-    /* Disable blinking. */
-    set_breath(0,0,0);
-
-    if (state.flashMode == Flash::TIMED) {
-        /* Enable blinking. */
-        set_breath(redBrightness, greenBrightness, blueBrightness);
-    } else {
+    if (state.flashMode == Flash::NONE) {
         set(RED_LED BRIGHTNESS, redBrightness);
         set(GREEN_LED BRIGHTNESS, greenBrightness);
         set(BLUE_LED BRIGHTNESS, blueBrightness);
     }
+    else if (state.flashMode == Flash::TIMED) {
+        /* Enable blinking and breathing.*/
+        set_blink(redBrightness, greenBrightness, blueBrightness, state.flashOnMs, state.flashOffMs);
+    }
+}
+
+/* Since higher level code seems to never query which lights
+   are actually implemented and keeps trying to set state for backend
+   'BUTTONS', drop these requests silently to avoid log spam. */
+static void handleIgnore(const LightState&) {
 }
 
 static inline bool isLit(const LightState& state) {
@@ -150,6 +142,7 @@ static std::vector<LightBackend> backends = {
     { Type::ATTENTION, handleNotification },
     { Type::NOTIFICATIONS, handleNotification },
     { Type::BATTERY, handleNotification },
+    { Type::BUTTONS, handleIgnore },
     { Type::BACKLIGHT, handleBacklight }
 };
 
