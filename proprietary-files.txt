@@ -96,9 +96,11 @@ vendor/lib/btaudio_offload_if.so
 vendor/lib/libbluetooth_audio_session_qti.so
 vendor/lib/libbt-hidlclient.so
 vendor/lib/libbtnv.so
+vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/libbtnv.so
 vendor/lib64/libbt-hidlclient.so
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Bluetooth Audio
 vendor/lib/com.qualcomm.qti.bluetooth_audio@1.0.so

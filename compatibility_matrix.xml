@@ -55,6 +55,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+	<hal format="hidl" optional="true">
+        <name>com.qualcomm.qti.ant</name>
+        <version>1.0</version>
+        <interface>
+            <name>IAntHci</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="native" optional="false">
         <name>netutils-wrapper</name>
         <!--

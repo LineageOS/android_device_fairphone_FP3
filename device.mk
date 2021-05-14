@@ -432,7 +432,11 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     android.hardware.bluetooth.audio@2.0-impl \
     android.hardware.bluetooth@1.0 \
-    vendor.qti.hardware.btconfigstore@1.0.vendor
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    antradio_app \
+    libantradio \
+    com.dsi.ant.antradio_library \
+    AntHalService
 
 # Wifi
 PRODUCT_COPY_FILES += \
