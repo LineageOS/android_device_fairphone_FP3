@@ -5,3 +5,5 @@ type fps_vendor_prop, property_type;
 type vendor_info_camera_prop, property_type;
 
 type persist_nfc_prop, property_type;
+
+type freq_prop, property_type;
