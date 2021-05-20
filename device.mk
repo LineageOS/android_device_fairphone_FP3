@@ -497,26 +497,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     telephony-ext
 
-# Secure Element
-PRODUCT_PACKAGES += \
-    SecureElement \
-    android.hardware.secure_element@1.0
-
 # NFC
 PRODUCT_PACKAGES += \
-    vendor.nxp.hardware.nfc@1.2-service \
-    com.android.nfc_extras \
-    com.nxp.nfc.nq \
-    com.nxp.nfc.nq.xml \
-    libnqnfc-nci \
-    libnqnfc_nci_jni \
-    libnqp61-jcop-kit \
-    nfc_nci.nqx.default \
-    nqnfcee_access.xml \
-    nqnfcse_access.xml \
-    NfcNci \
-    SecureElement \
-    Tag
+	com.android.nfc_extras \
+	NfcNci \
+	Tag \
+	SecureElement \
+	android.hardware.nfc@1.2-service
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
