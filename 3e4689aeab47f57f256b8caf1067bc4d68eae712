@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "36c8ba84_521bfad8",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "vendor.prop",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 35
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b12db16_42c0b01b",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "system",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 29
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa89cfc1_32e124b6",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "vendor",
+      "range": {
+        "startLine": 317,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 51
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3aed2824_4143869a",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "either system or product I think?",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 327,
+        "endChar": 50
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afbda302_bd829202",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "duplicated in vendor/lineage",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 44
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5077c9d2_7e6389a0",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "vendor",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 43
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee51f482_003c4f07",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "idk if this is of any use, usually declaredin fstab",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 49
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ded1df78_fad4f37d",
+        "filename": "vendor_prop.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2021-07-07T17:55:01Z",
+      "side": 0,
+      "message": "vendor",
+      "range": {
+        "startLine": 334,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 28
+      },
+      "revId": "3e4689aeab47f57f256b8caf1067bc4d68eae712",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
