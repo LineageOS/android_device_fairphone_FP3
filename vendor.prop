@@ -1,0 +1,98 @@
+# AUDIO
+# fluencetype can be "fluence" or "fluencepro" or "none"
+ro.vendor.audio.sdk.fluencetype=fluence
+persist.vendor.audio.fluence.voicecall=true
+persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.fluence.speaker=true
+# Low latency audio buffer size in frames
+vendor.audio_hal.period_size=192
+# Disable tunnel encoding
+vendor.audio.tunnel.encode=false
+# Buffer size in kbytes for compress offload playback
+vendor.audio.offload.buffer.size.kb=64
+# Enable audio track offload by default
+vendor.audio.offload.track.enable=true
+# Enable voice path for PCM VoIP by default
+vendor.voice.path.for.pcm.voip=true
+# Enable multi channel aac through offload
+vendor.audio.offload.multiaac.enable=true
+# Enable DS2, Hardbypass feature for Dolby
+vendor.audio.dolby.ds2.enabled=false
+vendor.audio.dolby.ds2.hardbypass=false
+# Disable Multiple offload sesison
+vendor.audio.offload.multiple.enabled=false
+# Disable Compress passthrough playback
+vendor.audio.offload.passthrough=false
+# Disable surround sound recording
+ro.vendor.audio.sdk.ssr=false
+# Enable dsp gapless mode by default
+vendor.audio.offload.gapless.enabled=true
+# Enable pbe effects
+vendor.audio.safx.pbe.enabled=true
+# Parser input buffer size(256kb) in byte stream mode
+vendor.audio.parser.ip.buffer.size=262144
+# Enable downsampling for multi-channel content > 48Khz
+vendor.audio.playback.mch.downsample=true
+# Enable software decoders for ALAC and APE.
+vendor.audio.use.sw.alac.decoder=true
+vendor.audio.use.sw.ape.decoder=true
+# Property for AudioSphere Post processing
+vendor.audio.pp.asphere.enabled=false
+# Audio voice concurrency related flags
+vendor.voice.playback.conc.disabled=true
+vendor.voice.record.conc.disabled=false
+vendor.voice.voip.conc.disabled=true
+# Decides the audio fallback path during voice call,
+# deep-buffer and fast are the two allowed fallback paths now.
+vendor.voice.conc.fallbackpath=deep-buffer
+# Disable speaker protection by default
+persist.vendor.audio.speaker.prot.enable=false
+# Enable HW AAC Encoder by default
+vendor.audio.hw.aac.encoder=true
+# flac sw decoder 24 bit decode capability
+vendor.audio.flac.sw.decoder.24bit=true
+persist.vendor.audio.hw.binder.size_kbyte=1024
+
+# Bluetooth
+ro.vendor.bluetooth.wipower=false
+
+# system props for the cne module
+persist.vendor.cne.feature=1
+
+# DRM
+ro.crypto.allow_encrypt_override=true
+ro.crypto.volume.filenames_mode=aes-256-cts
+drm.service.enabled=true
+
+# Factory reset partition
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+
+# Enable TDES support when KM4 is enabled
+ro.hardware.keystore_desede=true
+
+# MM_GRAPHICS
+ro.hardware.vulkan=adreno
+ro.hardware.egl=adreno
+# 196608 is decimal for 0x30000 to report major/minor versions as 3/0
+# 196609 is decimal for 0x30001 to report major/minor versions as 3/1
+# 196610 is decimal for 0x30002 to report major/minor versions as 3/2
+ro.opengles.version=196610
+
+# NFC
+ro.hardware.nfc_nci=nqx.default
+
+# Perf
+ro.vendor.extension_library=libqti-perfd-client.so
+
+# QTI
+ro.vendor.qti.va_aosp.support=1
+
+# RIL
+vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+keyguard.no_require_sim=true
+persist.radio.multisim.config=dsds
+persist.vendor.radio.apm_sim_not_pwdn=1
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.sib16_support=1
+
