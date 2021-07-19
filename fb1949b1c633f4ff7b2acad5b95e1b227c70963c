@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbebace3_693065fe",
+        "filename": "rro_overlays/TetheringOverlay/AndroidManifest.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2021-07-19T03:49:25Z",
+      "side": 1,
+      "message": "Need to address this.",
+      "range": {
+        "startLine": 2,
+        "startChar": 48,
+        "endLine": 2,
+        "endChar": 63
+      },
+      "revId": "fb1949b1c633f4ff7b2acad5b95e1b227c70963c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
