@@ -22,6 +22,30 @@
       "revId": "fece048ba1b7411ed652900d97e383459090feb5",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "459bb133_d36bf4e6",
+        "filename": "rro_overlays/TetheringOverlay/res/values/config.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2021-07-27T03:37:15Z",
+      "side": 1,
+      "message": "Oh yeah. Actually, we have all of these in stock overlays and hence we thought it\u0027s better to keep. You\u0027ve any suggestions here?",
+      "parentUuid": "3d68af90_1840331c",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 29
+      },
+      "revId": "fece048ba1b7411ed652900d97e383459090feb5",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
     }
   ]
 }
