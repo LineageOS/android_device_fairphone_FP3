@@ -2,13 +2,5 @@
   {
     "repository": "android_kernel_fairphone_sdm632",
     "target_path": "kernel/fairphone/sdm632"
-  },
-  {
-    "repository": "android_external_bson",
-    "target_path": "external/bson"
-  },
-  {
-    "repository": "android_system_qcom",
-    "target_path": "system/qcom"
   }
 ]
