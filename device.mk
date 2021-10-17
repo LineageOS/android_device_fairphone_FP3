@@ -136,6 +136,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.frameworks.displayservice@1.0.vendor \
     android.hardware.camera.provider@2.4-impl:32 \
     android.hardware.camera.provider@2.4-service \
     vendor.qti.hardware.camera.device@1.0 \
@@ -336,6 +337,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 
+# Gatekeeper and Keymaster for vendor
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor \
+    android.hardware.keymaster@3.0.vendor \
+    android.hardware.keymaster@4.0.vendor \
+    android.hardware.keymaster@4.1.vendor
+
 # Perf
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml \
@@ -494,6 +502,18 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
+# Radio Config for vendor
+PRODUCT_PACKAGES += \
+    android.hardware.radio.config@1.0.vendor \
+    android.hardware.radio.config@1.1.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.config@1.3.vendor \
+    android.hardware.radio.deprecated@1.0.vendor
+
+# Netd for vendor
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor
+
 #vendor prop to disable advanced network scanning
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.vendor.radio.enableadvancedscan=false
@@ -512,7 +532,9 @@ PRODUCT_BOOT_JARS += \
 # Secure Element
 PRODUCT_PACKAGES += \
     SecureElement \
-    android.hardware.secure_element@1.0
+    android.hardware.secure_element@1.2 \
+    android.hardware.secure_element@1.1.vendor \
+    android.hardware.secure_element@1.2.vendor
 
 # NFC
 PRODUCT_PACKAGES += \
