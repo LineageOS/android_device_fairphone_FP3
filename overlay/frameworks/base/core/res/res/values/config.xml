@@ -40,6 +40,10 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
+    <!-- Minimum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
     <!-- ComponentName of a dream to show whenever the system would otherwise have
      gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
      try to start this dream if possible.  The dream should typically call startDozing()
@@ -174,7 +178,7 @@
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
     <array name="config_autoBrightnessDisplayValuesNits">
-        <item>10.45935</item>   <!-- 0-1 -->
+        <item>27.0</item>   <!-- 0-1 -->
         <item>29.25559</item>   <!-- 1-2 -->
         <item>34.240692</item>  <!-- 2-3 -->
         <item>37.514347</item>  <!-- 3-4 -->
