@@ -253,7 +253,6 @@ PRODUCT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
 # Treble
-BOARD_VNDK_VERSION := current
 
 BOARD_AVB_ENABLE := true
 # Enable chain partition for system, to facilitate system-only OTA in Treble.
