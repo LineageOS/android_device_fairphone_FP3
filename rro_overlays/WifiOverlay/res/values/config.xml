@@ -39,4 +39,10 @@
 
     <!-- Enable WPA2 to WPA3 auto-upgrade -->
     <bool translatable="false" name="config_wifiSaeUpgradeEnabled">false</bool>
+
+    <!-- Indicate whether the verbose logging is always on -->
+    <!-- 0: verbose logging controlled by user
+         1: verbose logging on by default for userdebug
+         2: verbose logging on by default for all builds -->
+    <integer translatable="false" name="config_wifiVerboseLoggingAlwaysOnLevel">1</integer>
 </resources>
