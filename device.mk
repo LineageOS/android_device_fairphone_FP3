@@ -153,6 +153,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@2.0 \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
+# Bluetooth Properties
+# Hearing Aid Audio Support Using Bluetooth LE
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.profile.asha.central=true
+
 # Component overrides
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
