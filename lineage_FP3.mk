@@ -34,9 +34,11 @@ PRODUCT_MODEL := FP3
 
 PRODUCT_GMS_CLIENTID_BASE := android-uniscope
 
+PRODUCT_SYSTEM_DEVICE := FP3
+
 # userdebug
 PRODUCT_BUILD_PROP_OVERRIDES += \
-        PRODUCT_NAME=FP3 \
+        TARGET_DEVICE=FP3 \
         PRIVATE_BUILD_DESC="FP3-user 10 8901.3.A.0134.20211116 gms-12ee4a80 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
