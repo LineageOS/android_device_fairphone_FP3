@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "069165a1_6a237e64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-01-29T16:46:42Z",
+      "side": 1,
+      "message": "Would it be good to wait for the next version? This one is already old as of now.",
+      "revId": "5c2e4b44718b2e62f2ac06a779893044e21dcd88",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
