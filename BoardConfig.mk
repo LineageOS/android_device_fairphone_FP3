@@ -178,9 +178,6 @@ AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := false
 AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
 DOLBY_ENABLE := false
 
-#Audio Specific device overlays
-DEVICE_PACKAGE_OVERLAYS += hardware/qcom-caf/msm8996/audio/configs/common/overlay
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
