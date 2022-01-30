@@ -18,6 +18,8 @@ DEVICE_PATH := device/fairphone/FP3
 
 BOARD_VENDOR := Fairphone
 
+TARGET_ENFORCE_QSSI := true
+
 BUILD_BROKEN_DUP_RULES := true
 
 # APEX image
