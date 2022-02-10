@@ -156,7 +156,7 @@ PRODUCT_PACKAGES += \
 # Bluetooth Properties
 # Hearing Aid Audio Support Using Bluetooth LE
 PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.profile.asha.central=true
+    bluetooth.profile.asha.central.enabled=true
 
 # Component overrides
 PRODUCT_COPY_FILES += \
