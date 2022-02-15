@@ -263,7 +263,7 @@ PRODUCT_VENDOR_PROPERTIES += ro.hardware.egl=adreno
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
-    android.hardware.drm@1.4-service.clearkey
+    android.hardware.drm-service.clearkey
 
 PRODUCT_VENDOR_PROPERTIES += \
     drm.service.enabled=true
