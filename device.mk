@@ -413,6 +413,10 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
+# Service Tracker
+PRODUCT_PACKAGES += \
+	vendor.qti.hardware.servicetracker@1.2.vendor
+
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
