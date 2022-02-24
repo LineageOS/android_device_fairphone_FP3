@@ -417,6 +417,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	vendor.qti.hardware.servicetracker@1.2.vendor
 
+# System helper
+PRODUCT_PACKAGES += \
+	vendor.qti.hardware.systemhelper@1.0
+
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
