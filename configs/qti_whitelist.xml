@@ -40,7 +40,6 @@
     <allow-in-power-save package="com.qualcomm.simcontacts" />
     <allow-in-power-save package="com.qualcomm.qti.autoregistration" />
     <allow-in-power-save package="com.qualcomm.qti.server.wigigapp" />
-    <!-- allow-in-power-save package="com.qualcomm.qti.StatsPollManager" IKSWO-99124-->
     <allow-in-power-save package="com.qualcomm.qti.gsma.services.nfc" />
     <allow-in-power-save package="com.quicinc.voice.activation" />
     <allow-in-power-save package="com.android.mms" />
@@ -48,6 +47,11 @@
     <allow-in-power-save package="com.android.email" />
     <allow-in-power-save package="com.qualcomm.qti.callenhancement" />
     <allow-in-power-save package="com.qualcomm.qti.smartassistant" />
+    <allow-in-power-save package="com.skyhook.blp" />
+    <!-- These are customer apps that need to freely run in the background -->
+    <allow-in-power-save package="com.netcompany.smittestop_exposure_notification" />
+    <!-- These are customer apps that need to freely run in the background -->
+    <allow-in-power-save package="com.netcompany.smittestop_exposure_notification" />
     <!-- These telephony applications need access to non-[System]SDK APIs -->
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteserver" />
     <hidden-api-whitelisted-app package="com.qualcomm.uimremoteclient" />
@@ -100,7 +104,6 @@
     <hidden-api-whitelisted-app package="com.example.connmgr" />
     <hidden-api-whitelisted-app package="com.android.email" />
     <hidden-api-whitelisted-app package="com.cyanogenmod.filemanager" />
-    <hidden-api-whitelisted-app package="com.qualcomm.qti.presenceappSub2" />
     <hidden-api-whitelisted-app package="com.qualcomm.secureindicator" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.sysmonappExternal" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.biometrics.voiceprint.voiceprintdemo" />
@@ -113,4 +116,8 @@
     <hidden-api-whitelisted-app package="com.qualcomm.wfd.service" />
     <hidden-api-whitelisted-app package="com.qualcomm.qti.server.wigigapp" />
     <hidden-api-whitelisted-app package="com.qti.service.colorservice" />
+    <!-- These are location components that need to freely run in the background -->
+    <allow-in-power-save package="com.qualcomm.location" />
+    <allow-in-power-save package="com.qualcomm.location.XT" />
+    <allow-implicit-broadcast action="org.codeaurora.intent.action.CALL_COMPOSER_INFO" />
 </config>
