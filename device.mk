@@ -540,6 +540,10 @@ PRODUCT_PACKAGES += \
     NfcNci \
     Tag
 
+# NFC Config
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     vendor/nxp/opensource/pn5xx
