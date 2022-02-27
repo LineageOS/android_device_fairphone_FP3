@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "545cd56a_d2c0c188",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-27T01:21:35Z",
+      "side": 1,
+      "message": "what is this for? This might warrant it\u0027s own commit - tbh a lot of this could be split out.",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 40
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79ee0a52_3dd02ca7",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-27T01:21:35Z",
+      "side": 1,
+      "message": "no tabs and such",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa5903d0_6c3f4a4f",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-27T01:21:35Z",
+      "side": 1,
+      "message": "uhhh, this seems really odd - what is this for?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
