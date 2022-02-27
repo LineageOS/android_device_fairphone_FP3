@@ -24,6 +24,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7902ef61_b3e2dca2",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-02-27T05:44:11Z",
+      "side": 1,
+      "message": "Ahh.. I took it from stock. Now I got to know that it\u0027s used nowhere in tree.\n\nDropped this. Thanks.",
+      "parentUuid": "545cd56a_d2c0c188",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 40
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79ee0a52_3dd02ca7",
@@ -47,6 +71,30 @@
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e543077a_3359a983",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-02-27T05:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79ee0a52_3dd02ca7",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa5903d0_6c3f4a4f",
@@ -60,6 +108,30 @@
       "writtenOn": "2022-02-27T01:21:35Z",
       "side": 1,
       "message": "uhhh, this seems really odd - what is this for?",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "0da8b97fa732e5ff120f0c73d0073204b714169c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c401d5a_e5b51b7a",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-02-27T05:44:11Z",
+      "side": 1,
+      "message": "Instead of using the full path I thought of using a flag to copy audio files(few lines below this line).",
+      "parentUuid": "aa5903d0_6c3f4a4f",
       "range": {
         "startLine": 245,
         "startChar": 0,
