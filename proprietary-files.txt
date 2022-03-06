@@ -70,9 +70,9 @@ vendor/etc/acdbdata/TAS/TAS_WCD9335_Hdmi_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Headset_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Speaker_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_workspaceFile.qwsp
-vendor/lib/libaudioparsers.so
+-vendor/lib/libaudioparsers.so
 vendor/lib/libaudio_log_utils.so
-vendor/lib64/libaudioparsers.so
+-vendor/lib64/libaudioparsers.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib/libsmwrapper.so
 vendor/lib64/soundfx/libqcbassboost.so
@@ -664,6 +664,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libQTapGLES.so
+vendor/lib/hw/vulkan.adreno.so
 vendor/lib/hw/vulkan.msm8953.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libbccQTI.so
@@ -685,6 +686,7 @@ vendor/lib64/egl/libGLESv2_adreno.so
 vendor/lib64/egl/libq3dtools_adreno.so
 vendor/lib64/egl/libQTapGLES.so
 vendor/lib64/hw/vulkan.msm8953.so
+vendor/lib64/hw/vulkan.adreno.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libbccQTI.so
 vendor/lib64/libC2D2.so
@@ -692,6 +694,7 @@ vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libCB.so
 vendor/lib64/libgsl.so
 vendor/lib64/libllvm-glnext.so
+vendor/lib64/libllvm-qcom.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/librs_adreno.so
@@ -702,19 +705,21 @@ vendor/lib64/libsdedrm.so
 vendor/lib/libhdr_tm.so
 vendor/lib64/libhdr_tm.so
 
-# Graphics (SDM) - from bardock 2.7.0 release - LA.UM.7.5.r1-03700-8x96.0
-vendor/lib/libscalar.so|cad128a6e71195b4ad38494bc0382bf80e1fb0b2
-vendor/lib/libsdm-color.so|e9d0673708bf6f8c47ac7cfb0ba58269be4df9da
-vendor/lib/libsdm-diag.so|30df6a131cd55776e0d02b0b0427109f2b244c95
--vendor/lib/libsdm-disp-vndapis.so|8e64464ad0cc4c0245619518f37735ffa1ba7682
-vendor/lib/libsdmextension.so|140969ca301305a1772f85c5dbbe18f83c927410
-vendor/lib/libtinyxml2_1.so|0960b3c008d818be73774e345c2f0f1c1e5873cd
-vendor/lib64/libscalar.so|61c059ca3b9da6a36bdf112e8fbe26a252ad1234
-vendor/lib64/libsdm-color.so|5d675be60fb9c334b4ba0fc569a186f00ad119ea
-vendor/lib64/libsdm-diag.so|64ec0a1af99830d3ffe2ee36312fe2cc7de80208
--vendor/lib64/libsdm-disp-vndapis.so|d93f262f60b58f32273909142aa7fdc7bfb6dda3
-vendor/lib64/libsdmextension.so|3a4b0f888178eded3bd4e38b127f2148d367899c
-vendor/lib64/libtinyxml2_1.so|a2d9661cf2bb426e72ba15fd1a6a4eec940418a5
+# Graphics (SDM)
+vendor/lib/libscalar.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-diag.so
+vendor/lib/libsdm-disp-apis.so
+-vendor/lib/libsdm-disp-vndapis.so
+vendor/lib/libsdmextension.so
+vendor/lib/libtinyxml2_1.so
+vendor/lib64/libscalar.so
+vendor/lib64/libsdm-color.so
+vendor/lib64/libsdm-diag.so
+vendor/lib64/libsdm-disp-apis.so
+-vendor/lib64/libsdm-disp-vndapis.so
+vendor/lib64/libsdmextension.so
+vendor/lib64/libtinyxml2_1.so
 
 # Graphics - Firmwares
 vendor/firmware/a530_gpmu.fw2
