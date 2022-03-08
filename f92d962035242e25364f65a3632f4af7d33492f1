@@ -63,6 +63,30 @@
       },
       "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0e4f0e_2d4f1e07",
+        "filename": "audio_properties.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-08T13:51:29Z",
+      "side": 1,
+      "message": "In the device trees, in rare occasions. In kernel, all over the place.",
+      "parentUuid": "8ca29085_0347f5e1",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
