@@ -111,6 +111,30 @@
       },
       "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecce355a_7423af3a",
+        "filename": "audio_properties.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-08T15:13:17Z",
+      "side": 1,
+      "message": "This one here, for example: https://github.com/LineageOS/android_device_xiaomi_sdm845-common/blob/lineage-18.1/Android.mk#L18",
+      "parentUuid": "1b4dcf2f_e5e50d4a",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
