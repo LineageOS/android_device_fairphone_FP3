@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa71eff_92d9b491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2022-03-08T16:24:54Z",
+      "side": 1,
+      "message": "The right thing to do is eliminate libaudioparsers.so from blobs.",
+      "revId": "ba9cc9376b5e349197f0d05777e5a941b4fbb18d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
