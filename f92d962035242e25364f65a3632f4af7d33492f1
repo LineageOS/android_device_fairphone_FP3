@@ -87,6 +87,30 @@
       },
       "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b4dcf2f_e5e50d4a",
+        "filename": "audio_properties.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-03-08T14:03:50Z",
+      "side": 1,
+      "message": "Last question, which are those rare occasions in device trees?",
+      "parentUuid": "cd0e4f0e_2d4f1e07",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "f92d962035242e25364f65a3632f4af7d33492f1",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
