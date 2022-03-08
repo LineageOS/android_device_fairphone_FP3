@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94642d45_e89fc73c",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-03-08T10:46:20Z",
+      "side": 1,
+      "message": "Totally unrelated to graphics/sdm blobs update.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 30
+      },
+      "revId": "8b0841141754517ba0d51af690cbf535626c5c9c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
