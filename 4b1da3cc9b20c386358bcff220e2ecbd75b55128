@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "161ea5e1_89daf809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2022-03-10T10:29:46Z",
+      "side": 1,
+      "message": "Turned out that we do actually need libaudioparsers.so as a module. Rewrote commit message to reflect this.",
+      "revId": "4b1da3cc9b20c386358bcff220e2ecbd75b55128",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
