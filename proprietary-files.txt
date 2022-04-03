@@ -226,8 +226,6 @@ system_ext/framework/vendor.qti.hardware.mwqemadapter-V1.0-java.jar
 system_ext/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
 system_ext/framework/vendor.qti.hardware.slmadapter-V1.0-java.jar
 system_ext/framework/vendor.qti.hardware.soter-V1.0-java.jar
-system_ext/framework/vendor.qti.hardware.wigig.netperftuner-V1.0-java.jar
-system_ext/framework/vendor.qti.hardware.wigig.supptunnel-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.callcapability-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
@@ -239,7 +237,6 @@ system_ext/framework/vendor.qti.ims.rcsconfig-V2.1-java.jar
 system_ext/framework/vendor.qti.latency-V2.0-java.jar
 system_ext/framework/vendor.qti.latency-V2.1-java.jar
 system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar
-system_ext/framework/wigig-service.jar
 
 # lib
 system_ext/lib/com.qualcomm.qti.ant@1.0.so
@@ -384,8 +381,6 @@ system_ext/lib/vendor.qti.hardware.trustedui@1.0.so
 system_ext/lib/vendor.qti.hardware.tui_comm@1.0.so
 system_ext/lib/vendor.qti.hardware.vpp@1.1.so
 system_ext/lib/vendor.qti.hardware.vpp@1.2.so
-system_ext/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
-system_ext/lib/vendor.qti.hardware.wigig.supptunnel@1.0.so
 system_ext/lib/vendor.qti.ims.callcapability@1.0.so
 system_ext/lib/vendor.qti.ims.callinfo@1.0.so
 system_ext/lib/vendor.qti.ims.factory@1.0.so
@@ -548,8 +543,6 @@ system_ext/lib64/vendor.qti.hardware.trustedui@1.0.so
 system_ext/lib64/vendor.qti.hardware.tui_comm@1.0.so
 system_ext/lib64/vendor.qti.hardware.vpp@1.1.so
 system_ext/lib64/vendor.qti.hardware.vpp@1.2.so
-system_ext/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
-system_ext/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 system_ext/lib64/vendor.qti.ims.callcapability@1.0.so
 system_ext/lib64/vendor.qti.ims.callinfo@1.0.so
 system_ext/lib64/vendor.qti.ims.factory@1.0.so
@@ -602,7 +595,6 @@ vendor/bin/diag_socket_log
 vendor/bin/diag_uart_log
 vendor/bin/dpmQmiMgr
 vendor/bin/dspservice
-vendor/bin/fstman
 vendor/bin/ftmdaemon
 vendor/bin/garden_app
 vendor/bin/hal_proxy_daemon
@@ -673,8 +665,6 @@ vendor/bin/vendor_cmd_tool
 vendor/bin/wcnss_service:vendor/bin/wcnss_service_prebuilt
 vendor/bin/wdsdaemon
 vendor/bin/wifidisplayhalservice
-vendor/bin/wigighalsvc
-vendor/bin/wigignpt
 vendor/bin/xtra-daemon
 vendor/bin/xtwifi-client
 vendor/bin/xtwifi-inet-agent
@@ -857,14 +847,12 @@ vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.cryptfshw@1.0-service-qti.rc
 vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.fstman@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
 vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc
 vendor/etc/init/vendor.qti.hardware.soter@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
-vendor/etc/init/vendor.qti.hardware.wigig.supptunnel@1.0-service.rc
 vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
 
@@ -911,9 +899,6 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 # etc-wifi configs
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
-vendor/etc/wifi/fstman.ini
-vendor/etc/wifi/wigig_p2p_supplicant.conf
-vendor/etc/wifi/wigig_supplicant.conf
 
 vendor/etc/xtra_root_cert.pem
 
@@ -2922,7 +2907,6 @@ vendor/lib/vendor.qti.hardware.soter@1.0.so
 vendor/lib/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib/vendor.qti.hardware.vpp@1.1.so
 vendor/lib/vendor.qti.hardware.vpp@1.2.so
-vendor/lib/vendor.qti.hardware.wigig.netperftuner@1.0.so
 vendor/lib/vendor.qti.ims.callcapability@1.0.so
 vendor/lib/vendor.qti.ims.callinfo@1.0.so
 vendor/lib/vendor.qti.ims.factory@1.0.so
@@ -3312,8 +3296,6 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so
-vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
-vendor/lib64/vendor.qti.hardware.wigig.supptunnel@1.0.so
 vendor/lib64/vendor.qti.ims.callcapability@1.0.so
 vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.ims.factory@1.0.so
