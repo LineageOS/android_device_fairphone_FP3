@@ -93,9 +93,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8953 \
     memtrack.msm8953 \
     libdisplayconfig \
-    libqdMetaData.system \
+    libqdMetaData \
     libvulkan \
-    libtinyxml
+    libtinyxml \
+    vendor.display.config@1.0.vendor
 
 # Disable skip validate
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -373,12 +374,19 @@ PRODUCT_PACKAGES += \
 
 # HW crypto
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
+    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee \
+    vendor.qti.hardware.cryptfshw@1.0 \
+    vendor.qti.hardware.cryptfshw@1.0.vendor
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm \
     vendor.lineage.livedisplay@2.0-service-sysfs
+
+# Configstore
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0 \
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -387,7 +395,9 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti \
-    vendor.qti.hardware.perf@2.0.vendor
+    vendor.qti.hardware.perf@1.0.vendor \
+    vendor.qti.hardware.perf@2.2 \
+    vendor.qti.hardware.perf@2.2.vendor
 
 # IRQ
 PRODUCT_COPY_FILES += \
@@ -433,10 +443,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libbt-vendor \
     audio.bluetooth.default \
-	android.hardware.bluetooth.audio@2.0-impl:32 \
+    android.hardware.bluetooth.audio@2.0-impl:32 \
     android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth@1.0.vendor \
+    com.qualcomm.qti.bluetooth_audio@1.0 \
+    com.qualcomm.qti.bluetooth_audio@1.0.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     com.dsi.ant.antradio_library \
+    vendor.qti.hardware.btconfigstore@2.0 \
+    vendor.qti.hardware.btconfigstore@2.0.vendor \
     AntHalService
 
 PRODUCT_COPY_FILES += \
@@ -482,6 +497,10 @@ PRODUCT_PACKAGES += \
 # Network
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
+
+# Netd
+PRODUCT_PACKAGES += \
+    libnetd_resolv
 
 # QMI
 PRODUCT_PACKAGES += \
