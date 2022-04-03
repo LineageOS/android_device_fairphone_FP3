@@ -87,6 +87,7 @@ TARGET_USES_UNCOMPRESSED_KERNEL := false
 TARGET_KERNEL_CONFIG := lineageos_FP3_defconfig
 TARGET_KERNEL_SOURCE := kernel/fairphone/sdm632
 TARGET_USES_UNCOMPRESSED_KERNEL := false
+TARGET_KERNEL_CLANG_COMPILE := false
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom msm_rtb.filter=0x237
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true loop.max_part=7
