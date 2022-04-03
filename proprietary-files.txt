@@ -676,7 +676,7 @@ vendor/bin/thermal-engine
 vendor/bin/time_daemon
 vendor/bin/vendor.qti.hardware.soter@1.0-provision
 vendor/bin/vendor_cmd_tool
-vendor/bin/wcnss_service
+vendor/bin/wcnss_service:vendor/bin/wcnss_service_prebuilt
 vendor/bin/wdsdaemon
 vendor/bin/wifidisplayhalservice
 vendor/bin/wigighalsvc
