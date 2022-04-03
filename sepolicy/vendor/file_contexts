@@ -12,3 +12,6 @@
 
 # Persist
 /persist(/*)?                u:object_r:mnt_vendor_file:s0
+
+# Custom wcnss_service
+/(vendor|system/vendor)/bin/wcnss_service_prebuilt       u:object_r:wcnss_service_exec:s0
