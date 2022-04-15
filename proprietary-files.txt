@@ -951,6 +951,7 @@ vendor/firmware/a530v2_seq.fw2
 vendor/firmware/a530v3_gpmu.fw2
 vendor/firmware/a530v3_seq.fw2
 vendor/firmware/a540_gpmu.fw2
+vendor/firmware/aw8898_cfg.bin
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
 vendor/firmware/cpp_firmware_v1_12_1.fw
@@ -971,6 +972,8 @@ vendor/firmware/fingerprint.b04
 vendor/firmware/fingerprint.b05
 vendor/firmware/fingerprint.b06
 vendor/firmware/fingerprint.mdt
+vendor/firmware/tas2557_uCDSP.bin
+vendor/firmware/tas2557evm_aacspk_a.ftcfg
 vendor/firmware/venus.b00
 vendor/firmware/venus.b01
 vendor/firmware/venus.b02
