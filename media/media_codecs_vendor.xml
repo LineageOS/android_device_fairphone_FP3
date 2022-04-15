@@ -128,9 +128,6 @@ Only the three quirks included above are recognized at this point:
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
     </Settings>
-    <Settings>
-        <Variant name="slow-cpu" enabled="true" />
-    </Settings>
     <Encoders>
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.encoder.hevc" type="video/hevc" >
@@ -369,7 +366,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="blocks-per-second" min="1" max="972000" />
             <Limit name="bitrate" range="1-100000000" />
             <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="16" />
+            <Limit name="concurrent-instances" max="13" />
             <Limit name="performance-point-3840x2160" value="24" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" >
@@ -381,7 +378,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="blocks-per-second" min="1" max="972000" />
             <Limit name="bitrate" range="1-100000000" />
             <Feature name="adaptive-playback" />
-            <Limit name="concurrent-instances" max="15" />
+            <Limit name="concurrent-instances" max="7" />
             <Limit name="performance-point-3840x2160" value="24" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.hevc.secure" type="video/hevc" >

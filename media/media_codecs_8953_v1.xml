@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright (C) 2012-2013 The Android Open Source Project
-     Copyright (C) 2012-2016, 2019, The Linux Foundation. All rights reserved.
+     Copyright (C) 2012-2016 The Linux Foundation. All rights reserved.
      Not a contribution.
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -122,14 +122,10 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <MediaCodecs>
-    <Include href="media_codecs_google_audio.xml" />
     <Include href="media_codecs_vendor_audio.xml" />
     <Include href="media_codecs_google_telephony.xml" />
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
-    </Settings>
-    <Settings>
-        <Variant name="slow-cpu" enabled="true" />
     </Settings>
     <Encoders>
         <!-- Video Hardware  -->
@@ -407,6 +403,25 @@ Only the three quirks included above are recognized at this point:
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="2" />
             <Limit name="performance-point-1920x1088" value="30" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.hevc.decoder" type="video/hevc" update="true">
+            <!-- profiles and levels:  ProfileMain : MainTierLevel51 -->
+            <Limit name="size" min="2x2" max="2048x2048" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="8x8" />
+            <Limit name="block-count" range="1-65536" />
+            <Limit name="blocks-per-second" range="1-491520" />
+            <Limit name="bitrate" range="1-5000000" />
+        </MediaCodec>
+        <MediaCodec name="c2.android.avc.decoder" type="video/avc" update="true">
+            <!-- profiles and levels:  ProfileHigh : Level51 -->
+            <Limit name="size" min="2x2" max="2048x2048" />
+            <Limit name="alignment" value="2x2" />
+            <Limit name="block-size" value="16x16" />
+            <Limit name="block-count" range="1-16384" />
+            <Limit name="blocks-per-second" range="1-491520" />
+            <Limit name="bitrate" range="1-40000000" />
+            <Feature name="adaptive-playback" />
         </MediaCodec>
     </Decoders>
     <Include href="media_codecs_google_video_le.xml" />
