@@ -115,7 +115,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.msm.usb.configfs.rc \
     ueventd.qcom.rc \
-    init.carrier.rc \
     vold.fstab \
     init.qti.ims.sh \
     init.qcom.coex.sh \
