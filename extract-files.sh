@@ -58,18 +58,6 @@ fi
 function blob_fixup() {
     case "${1}" in
 
-    product/etc/permissions/qcrilhook.xml)
-        sed -i "s|/system/framework/qcrilhook.jar|/product/framework/qcrilhook.jar|g" "${2}"
-        ;;
-
-    product/etc/permissions/telephonyservice.xml)
-        sed -i "s|/system/framework/QtiTelephonyServicelibrary.jar|/product/framework/QtiTelephonyServicelibrary.jar|g" "${2}"
-        ;;
-
-    etc/permissions/qti_libpermissions.xml)
-        sed -i "s|name=\"android.hidl.manager-V1.0-java|name=\"android.hidl.manager@1.0-java|g" "${2}"
-        ;;
-
     # Fix xml version
     product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
         sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
