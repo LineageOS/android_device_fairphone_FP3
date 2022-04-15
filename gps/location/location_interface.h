@@ -31,6 +31,7 @@
 
 #include <LocationAPI.h>
 #include <gps_extended_c.h>
+#include <functional>
 
 /* Used for callback to deliver GNSS energy consumed */
 /** @fn
@@ -62,7 +63,7 @@ struct GnssInterface {
     void (*setControlCallbacks)(LocationControlCallbacks& controlCallbacks);
     uint32_t (*enable)(LocationTechnologyType techType);
     void (*disable)(uint32_t id);
-    uint32_t* (*gnssUpdateConfig)(GnssConfig config);
+    uint32_t* (*gnssUpdateConfig)(const GnssConfig& config);
     uint32_t* (*gnssGetConfig)(GnssConfigFlagsMask config);
     void (*gnssUpdateSvTypeConfig)(GnssSvTypeConfig& config);
     void (*gnssGetSvTypeConfig)(GnssSvTypeConfigCallback& callback);
@@ -77,7 +78,7 @@ struct GnssInterface {
     void (*agpsDataConnFailed)(AGpsExtType agpsType);
     void (*getDebugReport)(GnssDebugReport& report);
     void (*updateConnectionStatus)(bool connected, int8_t type, bool roaming,
-                                   NetworkHandle networkHandle);
+                                   NetworkHandle networkHandle, std::string& apn);
     void (*odcpiInit)(const OdcpiRequestCallback& callback, OdcpiPrioritytype priority);
     void (*odcpiInject)(const Location& location);
     void (*blockCPI)(double latitude, double longitude, float accuracy,
@@ -85,17 +86,31 @@ struct GnssInterface {
     void (*getGnssEnergyConsumed)(GnssEnergyConsumedCallback energyConsumedCb);
     void (*enableNfwLocationAccess)(bool enable);
     void (*nfwInit)(const NfwCbInfo& cbInfo);
-    void (*getPowerStateChanges)(void* powerStateCb);
+    void (*getPowerStateChanges)(std::function<void(bool)> powerStateCb);
     void (*injectLocationExt)(const GnssLocationInfoNotification &locationInfo);
     void (*updateBatteryStatus)(bool charging);
     void (*updateSystemPowerState)(PowerStateType systemPowerState);
     uint32_t (*setConstrainedTunc) (bool enable, float tuncConstraint, uint32_t energyBudget);
     uint32_t (*setPositionAssistedClockEstimator) (bool enable);
-    uint32_t (*gnssUpdateSvConfig)(const GnssSvTypeConfig& svTypeConfig,
-                                   const GnssSvIdConfig& svIdConfig);
-    uint32_t (*gnssResetSvConfig)();
+    uint32_t (*gnssUpdateSvConfig)(const GnssSvTypeConfig& constellationEnablementConfig,
+                                   const GnssSvIdConfig&   blacklistSvConfig);
     uint32_t (*configLeverArm)(const LeverArmConfigInfo& configInfo);
+    bool (*measCorrInit)(const measCorrSetCapabilitiesCb setCapabilitiesCb);
+    bool (*measCorrSetCorrections)(const GnssMeasurementCorrections gnssMeasCorr);
+    void (*measCorrClose)();
+    uint32_t (*antennaInfoInit)(const antennaInfoCb antennaInfoCallback);
+    void (*antennaInfoClose) ();
     uint32_t (*configRobustLocation)(bool enable, bool enableForE911);
+    uint32_t (*configMinGpsWeek)(uint16_t minGpsWeek);
+    uint32_t (*configDeadReckoningEngineParams)(const DeadReckoningEngineConfig& dreConfig);
+    void (*updateNTRIPGGAConsent)(bool consentAccepted);
+    void (*enablePPENtripStream)(const GnssNtripConnectionParams& params, bool enableRTKEngine);
+    void (*disablePPENtripStream)();
+    uint32_t (*gnssUpdateSecondaryBandConfig)(const GnssSvTypeConfig& secondaryBandConfig);
+    uint32_t (*gnssGetSecondaryBandConfig)();
+    void (*resetNetworkInfo)();
+    uint32_t (*configEngineRunState)(PositioningEngineMask engType,
+                                     LocEngineRunState engState);
 };
 
 struct BatchingInterface {

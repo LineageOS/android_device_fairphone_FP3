@@ -39,6 +39,15 @@
 typedef const GnssInterface* (getGnssInterface)();
 typedef const GeofenceInterface* (getGeofenceInterface)();
 typedef const BatchingInterface* (getBatchingInterface)();
+typedef void (createOSFramework)();
+typedef void (destroyOSFramework)();
+
+// GTP services
+typedef uint32_t (setOptInStatusGetter)(bool userConsent, responseCallback* callback);
+typedef void (enableProviderGetter)();
+typedef void (disableProviderGetter)();
+typedef void (getSingleNetworkLocationGetter)(trackingCallback* callback);
+typedef void (stopNetworkLocationGetter)(trackingCallback* callback);
 
 typedef struct {
     // bit mask of the adpaters that we need to wait for the removeClientCompleteCallback
@@ -68,6 +77,7 @@ static pthread_mutex_t gDataMutex = PTHREAD_MUTEX_INITIALIZER;
 static bool gGnssLoadFailed = false;
 static bool gBatchingLoadFailed = false;
 static bool gGeofenceLoadFailed = false;
+static uint32_t gOSFrameworkRefCount = 0;
 
 template <typename T1, typename T2>
 static const T1* loadLocationInterface(const char* library, const char* name) {
@@ -80,12 +90,47 @@ static const T1* loadLocationInterface(const char* library, const char* name) {
     }
 }
 
+static void createOSFrameworkInstance() {
+    void* libHandle = nullptr;
+    createOSFramework* getter = (createOSFramework*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "createOSFramework");
+    if (getter != nullptr) {
+        (*getter)();
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
+static void destroyOSFrameworkInstance() {
+    void* libHandle = nullptr;
+    destroyOSFramework* getter = (destroyOSFramework*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "destroyOSFramework");
+    if (getter != nullptr) {
+        (*getter)();
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
+static bool needsGnssTrackingInfo(LocationCallbacks& locationCallbacks)
+{
+    return (locationCallbacks.gnssLocationInfoCb != nullptr ||
+            locationCallbacks.engineLocationsInfoCb != nullptr ||
+            locationCallbacks.gnssSvCb != nullptr ||
+            locationCallbacks.gnssNmeaCb != nullptr ||
+            locationCallbacks.gnssDataCb != nullptr ||
+            locationCallbacks.gnssMeasurementsCb != nullptr);
+}
+
 static bool isGnssClient(LocationCallbacks& locationCallbacks)
 {
     return (locationCallbacks.gnssNiCb != nullptr ||
             locationCallbacks.trackingCb != nullptr ||
             locationCallbacks.gnssLocationInfoCb != nullptr ||
             locationCallbacks.engineLocationsInfoCb != nullptr ||
+            locationCallbacks.gnssSvCb != nullptr ||
+            locationCallbacks.gnssNmeaCb != nullptr ||
+            locationCallbacks.gnssDataCb != nullptr ||
             locationCallbacks.gnssMeasurementsCb != nullptr ||
             locationCallbacks.locationSystemInfoCb != nullptr);
 }
@@ -150,6 +195,7 @@ LocationAPI::createInstance (LocationCallbacks& locationCallbacks)
     if (nullptr == locationCallbacks.capabilitiesCb ||
         nullptr == locationCallbacks.responseCb ||
         nullptr == locationCallbacks.collectiveResponseCb) {
+        LOC_LOGe("missing mandatory callback, return null");
         return NULL;
     }
 
@@ -157,6 +203,11 @@ LocationAPI::createInstance (LocationCallbacks& locationCallbacks)
     bool requestedCapabilities = false;
 
     pthread_mutex_lock(&gDataMutex);
+
+    gOSFrameworkRefCount++;
+    if (1 == gOSFrameworkRefCount) {
+        createOSFrameworkInstance();
+    }
 
     if (isGnssClient(locationCallbacks)) {
         if (NULL == gData.gnssInterface && !gGnssLoadFailed) {
@@ -282,6 +333,11 @@ LocationAPI::destroy(locationApiDestroyCompleteCallback destroyCompleteCb)
         LOC_LOGE("%s:%d]: Location API client %p not found in client data",
                  __func__, __LINE__, this);
     }
+
+    if (1 == gOSFrameworkRefCount) {
+        destroyOSFrameworkInstance();
+    }
+    gOSFrameworkRefCount--;
 
     pthread_mutex_unlock(&gDataMutex);
     if (invokeDestroyCb) {
@@ -593,6 +649,52 @@ LocationAPI::gnssNiResponse(uint32_t id, GnssNiResponse response)
     pthread_mutex_unlock(&gDataMutex);
 }
 
+void LocationAPI::enableNetworkProvider() {
+    void* libHandle = nullptr;
+    enableProviderGetter* setter = (enableProviderGetter*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "enableNetworkProvider");
+    if (setter != nullptr) {
+        (*setter)();
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
+void LocationAPI::disableNetworkProvider() {
+    void* libHandle = nullptr;
+    disableProviderGetter* setter = (disableProviderGetter*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "disableNetworkProvider");
+    if (setter != nullptr) {
+        (*setter)();
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
+void LocationAPI::startNetworkLocation(trackingCallback* callback) {
+    void* libHandle = nullptr;
+    getSingleNetworkLocationGetter* setter =
+            (getSingleNetworkLocationGetter*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "startNetworkLocation");
+    if (setter != nullptr) {
+        (*setter)(callback);
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
+void LocationAPI::stopNetworkLocation(trackingCallback* callback) {
+    void* libHandle = nullptr;
+    stopNetworkLocationGetter* setter = (stopNetworkLocationGetter*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "stopNetworkLocation");
+    if (setter != nullptr) {
+        LOC_LOGe("called");
+        (*setter)(callback);
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+}
+
 LocationControlAPI*
 LocationControlAPI::createInstance(LocationControlCallbacks& locationControlCallbacks)
 {
@@ -677,7 +779,7 @@ LocationControlAPI::disable(uint32_t id)
 }
 
 uint32_t*
-LocationControlAPI::gnssUpdateConfig(GnssConfig config)
+LocationControlAPI::gnssUpdateConfig(const GnssConfig& config)
 {
     uint32_t* ids = NULL;
     pthread_mutex_lock(&gDataMutex);
@@ -725,12 +827,15 @@ LocationControlAPI::gnssDeleteAidingData(GnssAidingData& data)
     return id;
 }
 
-uint32_t LocationControlAPI::resetConstellationConfig() {
+uint32_t LocationControlAPI::configConstellations(
+        const GnssSvTypeConfig& constellationEnablementConfig,
+        const GnssSvIdConfig&   blacklistSvConfig) {
     uint32_t id = 0;
     pthread_mutex_lock(&gDataMutex);
 
     if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->gnssResetSvConfig();
+        id = gData.gnssInterface->gnssUpdateSvConfig(
+                constellationEnablementConfig, blacklistSvConfig);
     } else {
         LOC_LOGe("No gnss interface available for Location Control API");
     }
@@ -739,15 +844,13 @@ uint32_t LocationControlAPI::resetConstellationConfig() {
     return id;
 }
 
-uint32_t LocationControlAPI::configConstellations(
-        const GnssSvTypeConfig& svTypeConfig,
-        const GnssSvIdConfig&   svIdConfig) {
+uint32_t LocationControlAPI::configConstellationSecondaryBand(
+        const GnssSvTypeConfig& secondaryBandConfig) {
     uint32_t id = 0;
     pthread_mutex_lock(&gDataMutex);
 
     if (gData.gnssInterface != NULL) {
-        id = gData.gnssInterface->gnssUpdateSvConfig(
-                svTypeConfig, svIdConfig);
+        id = gData.gnssInterface->gnssUpdateSecondaryBandConfig(secondaryBandConfig);
     } else {
         LOC_LOGe("No gnss interface available for Location Control API");
     }
@@ -813,4 +916,61 @@ uint32_t LocationControlAPI::configRobustLocation(bool enable, bool enableForE91
 
     pthread_mutex_unlock(&gDataMutex);
     return id;
+}
+
+uint32_t LocationControlAPI::configMinGpsWeek(uint16_t minGpsWeek) {
+    uint32_t id = 0;
+    pthread_mutex_lock(&gDataMutex);
+
+    if (gData.gnssInterface != NULL) {
+        id = gData.gnssInterface->configMinGpsWeek(minGpsWeek);
+    } else {
+        LOC_LOGe("No gnss interface available for Location Control API");
+    }
+
+    pthread_mutex_unlock(&gDataMutex);
+    return id;
+}
+
+uint32_t LocationControlAPI::configDeadReckoningEngineParams(
+        const DeadReckoningEngineConfig& dreConfig) {
+    uint32_t id = 0;
+    pthread_mutex_lock(&gDataMutex);
+
+    if (gData.gnssInterface != NULL) {
+        id = gData.gnssInterface->configDeadReckoningEngineParams(dreConfig);
+    } else {
+        LOC_LOGe("No gnss interface available for Location Control API");
+    }
+
+    pthread_mutex_unlock(&gDataMutex);
+    return id;
+}
+
+uint32_t LocationControlAPI::configEngineRunState(
+        PositioningEngineMask engType, LocEngineRunState engState) {
+    uint32_t id = 0;
+    pthread_mutex_lock(&gDataMutex);
+
+    if (gData.gnssInterface != NULL) {
+        id = gData.gnssInterface->configEngineRunState(engType, engState);
+    } else {
+        LOC_LOGe("No gnss interface available for Location Control API");
+    }
+
+    pthread_mutex_unlock(&gDataMutex);
+    return id;
+}
+
+uint32_t LocationControlAPI::setOptInStatus(bool userConsent) {
+    void* libHandle = nullptr;
+    uint32_t sessionId = 0;
+    setOptInStatusGetter* setter = (setOptInStatusGetter*)dlGetSymFromLib(libHandle,
+            "liblocationservice_glue.so", "setOptInStatus");
+    if (setter != nullptr) {
+        sessionId = (*setter)(userConsent, &gData.controlCallbacks.responseCb);
+    } else {
+        LOC_LOGe("dlGetSymFromLib failed for liblocationservice_glue.so");
+    }
+    return sessionId;
 }

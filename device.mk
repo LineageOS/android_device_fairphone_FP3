@@ -463,8 +463,8 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@2.0-impl-qti:64 \
-    android.hardware.gnss@2.0-service-qti \
+    android.hardware.gnss@2.1-impl-qti:64 \
+    android.hardware.gnss@2.1-service-qti \
     libbatching \
     libgeofencing \
     libgnss \

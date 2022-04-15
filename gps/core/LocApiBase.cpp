@@ -1,4 +1,4 @@
-/* Copyright (c) 2011-2014, 2016-2020 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2011-2014, 2016-2021 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -36,6 +36,7 @@
 #include <LocAdapterBase.h>
 #include <log_util.h>
 #include <LocContext.h>
+#include <loc_misc_utils.h>
 
 namespace loc_core {
 
@@ -160,7 +161,7 @@ LocApiBase::LocApiBase(LOC_API_ADAPTER_EVENT_MASK_T excludedMask,
 
     android_atomic_inc(&mMsgTaskRefCount);
     if (nullptr == mMsgTask) {
-        mMsgTask = new MsgTask("LocApiMsgTask", false);
+        mMsgTask = new MsgTask("LocApiMsgTask");
     }
 }
 
@@ -330,7 +331,7 @@ void LocApiBase::reportPosition(UlpLocation& location,
              "timestamp: %" PRId64 "\n"
              "Session status: %d\n Technology mask: %u\n "
              "SV used in fix (gps/glo/bds/gal/qzss) : \
-             (0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 ")",
+             (0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 "/0x%" PRIx64 ")",
              location.gpsLocation.flags, location.position_source,
              location.gpsLocation.latitude, location.gpsLocation.longitude,
              location.gpsLocation.altitude, location.gpsLocation.speed,
@@ -340,7 +341,8 @@ void LocApiBase::reportPosition(UlpLocation& location,
              locationExtended.gnss_sv_used_ids.glo_sv_used_ids_mask,
              locationExtended.gnss_sv_used_ids.bds_sv_used_ids_mask,
              locationExtended.gnss_sv_used_ids.gal_sv_used_ids_mask,
-             locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask);
+             locationExtended.gnss_sv_used_ids.qzss_sv_used_ids_mask,
+             locationExtended.gnss_sv_used_ids.navic_sv_used_ids_mask);
     // loop through adapters, and deliver to all adapters.
     TO_ALL_LOCADAPTERS(
         mLocAdapters[i]->reportPositionEvent(location, locationExtended,
@@ -406,21 +408,22 @@ void LocApiBase::reportSv(GnssSvNotification& svNotify)
 
     // print the SV info before delivering
     LOC_LOGV("num sv: %u\n"
-        "      sv: constellation svid         cN0"
+        "      sv: constellation svid         cN0  basebandCN0"
         "    elevation    azimuth    flags",
         svNotify.count);
-    for (size_t i = 0; i < svNotify.count && i < LOC_GNSS_MAX_SVS; i++) {
+    for (size_t i = 0; i < svNotify.count && i < GNSS_SV_MAX; i++) {
         if (svNotify.gnssSvs[i].type >
             sizeof(constellationString) / sizeof(constellationString[0]) - 1) {
             svNotify.gnssSvs[i].type = GNSS_SV_TYPE_UNKNOWN;
         }
         // Display what we report to clients
-        LOC_LOGV("   %03zu: %*s  %02d    %f    %f    %f    %f    0x%02X 0x%2X",
+        LOC_LOGV("   %03zu: %*s  %02d    %f    %f    %f    %f    %f    0x%02X 0x%2X",
             i,
             13,
             constellationString[svNotify.gnssSvs[i].type],
             svNotify.gnssSvs[i].svId,
             svNotify.gnssSvs[i].cN0Dbhz,
+            svNotify.gnssSvs[i].basebandCarrierToNoiseDbHz,
             svNotify.gnssSvs[i].elevation,
             svNotify.gnssSvs[i].azimuth,
             svNotify.gnssSvs[i].carrierFrequencyHz,
@@ -481,6 +484,14 @@ void LocApiBase::reportLocationSystemInfo(const LocationSystemInfo& locationSyst
     TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportLocationSystemInfoEvent(locationSystemInfo));
 }
 
+void LocApiBase::reportQwesCapabilities
+(
+    const std::unordered_map<LocationQwesFeatureType, bool> &featureMap
+)
+{
+    // loop through adapters, and deliver to all adapters.
+    TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportQwesCapabilities(featureMap));
+}
 void LocApiBase::requestXtraData()
 {
     // loop through adapters, and deliver to the first handling adapter.
@@ -539,9 +550,10 @@ void LocApiBase::reportGnssSvIdConfig(const GnssSvIdConfig& config)
 {
     // Print the config
     LOC_LOGv("gloBlacklistSvMask: %" PRIu64 ", bdsBlacklistSvMask: %" PRIu64 ",\n"
-             "qzssBlacklistSvMask: %" PRIu64 ", galBlacklistSvMask: %" PRIu64,
+             "qzssBlacklistSvMask: %" PRIu64 ", galBlacklistSvMask: %" PRIu64 ",\n"
+              "navicBlacklistSvMask: %" PRIu64,
              config.gloBlacklistSvMask, config.bdsBlacklistSvMask,
-             config.qzssBlacklistSvMask, config.galBlacklistSvMask);
+             config.qzssBlacklistSvMask, config.galBlacklistSvMask, config.navicBlacklistSvMask);
 
     // Loop through adapters, and deliver to all adapters.
     TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportGnssSvIdConfigEvent(config));
@@ -597,6 +609,12 @@ void LocApiBase::reportGnssConfig(uint32_t sessionId, const GnssConfig& gnssConf
     TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportGnssConfigEvent(sessionId, gnssConfig));
 }
 
+void LocApiBase::reportLatencyInfo(GnssLatencyInfo& gnssLatencyInfo)
+{
+    // loop through adapters, and deliver to the first handling adapter.
+    TO_ALL_LOCADAPTERS(mLocAdapters[i]->reportLatencyInfoEvent(gnssLatencyInfo));
+}
+
 enum loc_api_adapter_err LocApiBase::
    open(LOC_API_ADAPTER_EVENT_MASK_T /*mask*/)
 DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
@@ -616,7 +634,8 @@ void LocApiBase::
 DEFAULT_IMPL()
 
 void LocApiBase::
-    injectPosition(double /*latitude*/, double /*longitude*/, float /*accuracy*/)
+    injectPosition(double /*latitude*/, double /*longitude*/, float /*accuracy*/,
+                   bool /*onDemandCpi*/)
 DEFAULT_IMPL()
 
 void LocApiBase::
@@ -630,10 +649,6 @@ DEFAULT_IMPL()
 void LocApiBase::
     setTime(LocGpsUtcTime /*time*/, int64_t /*timeReference*/, int /*uncertainty*/)
 DEFAULT_IMPL()
-
-enum loc_api_adapter_err LocApiBase::
-    setXtraData(char* /*data*/, int /*length*/)
-DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
 
 void LocApiBase::
    atlOpenStatus(int /*handle*/, int /*is_succ*/, char* /*apn*/, uint32_t /*apnLen*/,
@@ -666,7 +681,7 @@ enum loc_api_adapter_err LocApiBase::
 DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
 
 LocationError LocApiBase::
-    setLPPConfigSync(GnssConfigLppProfile /*profile*/)
+    setLPPConfigSync(GnssConfigLppProfileMask /*profileMask*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
 
@@ -711,9 +726,6 @@ DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 GnssConfigSuplVersion LocApiBase::convertSuplVersion(const uint32_t /*suplVersion*/)
 DEFAULT_IMPL(GNSS_CONFIG_SUPL_VERSION_1_0_0)
 
-GnssConfigLppProfile LocApiBase::convertLppProfile(const uint32_t /*lppProfile*/)
-DEFAULT_IMPL(GNSS_CONFIG_LPP_PROFILE_RRLP_ON_LTE)
-
 GnssConfigLppeControlPlaneMask LocApiBase::convertLppeCp(const uint32_t /*lppeControlPlaneMask*/)
 DEFAULT_IMPL(0)
 
@@ -723,6 +735,10 @@ DEFAULT_IMPL(0)
 LocationError LocApiBase::setEmergencyExtensionWindowSync(
         const uint32_t /*emergencyExtensionSeconds*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+
+void LocApiBase::setMeasurementCorrections(
+        const GnssMeasurementCorrections& /*gnssMeasurementCorrections*/)
+DEFAULT_IMPL()
 
 void LocApiBase::
    getWwanZppFix()
@@ -740,12 +756,6 @@ void LocApiBase::
     requestForAidingData(GnssAidingDataSvMask /*svDataMask*/)
 DEFAULT_IMPL()
 
-void LocApiBase::
-    installAGpsCert(const LocDerEncodedCertificate* /*pData*/,
-                    size_t /*length*/,
-                    uint32_t /*slotBitMask*/)
-DEFAULT_IMPL()
-
 LocationError LocApiBase::
     setXtraVersionCheckSync(uint32_t /*check*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
@@ -753,7 +763,8 @@ DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 LocationError LocApiBase::setBlacklistSvSync(const GnssSvIdConfig& /*config*/)
 DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
 
-void LocApiBase::setBlacklistSv(const GnssSvIdConfig& /*config*/)
+void LocApiBase::setBlacklistSv(const GnssSvIdConfig& /*config*/,
+                                LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
 void LocApiBase::getBlacklistSv()
@@ -781,8 +792,8 @@ void LocApiBase::
                                           LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
-LocationError LocApiBase::getGnssEnergyConsumed()
-DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+void LocApiBase::getGnssEnergyConsumed()
+DEFAULT_IMPL()
 
 
 void LocApiBase::addGeofence(uint32_t /*clientId*/, const GeofenceOption& /*options*/,
@@ -892,4 +903,167 @@ void LocApiBase::
     getRobustLocationConfig(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
 DEFAULT_IMPL()
 
+void LocApiBase::
+    configMinGpsWeek(uint16_t minGpsWeek,
+                     LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    getMinGpsWeek(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+LocationError LocApiBase::
+    setParameterSync(const GnssConfig& gnssConfig)
+DEFAULT_IMPL(LOCATION_ERROR_SUCCESS)
+
+void LocApiBase::
+    getParameter(uint32_t sessionId, GnssConfigFlagsMask flags, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    configConstellationMultiBand(const GnssSvTypeConfig& secondaryBandConfig,
+                                 LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+void LocApiBase::
+    getConstellationMultiBandConfig(uint32_t sessionId, LocApiResponse* /*adapterResponse*/)
+DEFAULT_IMPL()
+
+int64_t ElapsedRealtimeEstimator::getElapsedRealtimeEstimateNanos(int64_t curDataTimeNanos,
+            bool isCurDataTimeTrustable, int64_t tbf) {
+    //The algorithm works follow below steps:
+    //When isCurDataTimeTrustable is meet (means Modem timestamp is already stable),
+    //1, Wait for mFixTimeStablizationThreshold fixes; While waiting for modem time
+    //   stable, we set the traveltime to a default value;
+    //2, When the mFixTimeStablizationThreshold fix comes, we think now the mode time
+    //   is already stable, calculate the initial AP-Modem clock diff(mCurrentClockDiff)
+    //   using formula:
+    //   mCurrentClockDiff = currentTimeNanos - locationTimeNanos - currentTravelTimeNanos
+    //3, since then, when the nth fix comes,
+    //   3.1 First update mCurrentClockDiff using below formula:
+    //        mCurrentClockDiff = mCurrentClockDiff + (currentTimeNanos - sinceBootTimeNanos)
+    //                - (mPrevUtcTimeNanos - mPrevBootTimeNanos)
+    //   3.2 Calculate currentTravelTimeNanos:
+    //        currentTravelTimeNanos = currentTimeNanos - locationTimeNanos - mCurrentClockDiff
+    //4, It is possible that locationTimeNanos will jump,
+    //   reset mFixTimeStablizationThreshold to default value, jump to step 2 to continue.
+
+    int64_t currentTravelTimeNanos = mInitialTravelTime;
+    struct timespec currentTime;
+    int64_t sinceBootTimeNanos;
+    if (getCurrentTime(currentTime, sinceBootTimeNanos)) {
+        if (isCurDataTimeTrustable) {
+            if (tbf > 0 && tbf != curDataTimeNanos - mPrevDataTimeNanos) {
+                mFixTimeStablizationThreshold = 5;
+            }
+            int64_t currentTimeNanos = (int64_t)currentTime.tv_sec*1000000000 + currentTime.tv_nsec;
+            LOC_LOGd("sinceBootTimeNanos:%" PRIi64 " currentTimeNanos:%" PRIi64 ""
+                     " locationTimeNanos:%" PRIi64 "",
+                     sinceBootTimeNanos, currentTimeNanos, curDataTimeNanos);
+            if (mFixTimeStablizationThreshold == 0) {
+                currentTravelTimeNanos = mInitialTravelTime;
+                mCurrentClockDiff = currentTimeNanos - curDataTimeNanos - currentTravelTimeNanos;
+            } else if (mFixTimeStablizationThreshold < 0) {
+                mCurrentClockDiff = mCurrentClockDiff + (currentTimeNanos - sinceBootTimeNanos)
+                        - (mPrevUtcTimeNanos - mPrevBootTimeNanos);
+                currentTravelTimeNanos = currentTimeNanos - curDataTimeNanos - mCurrentClockDiff;
+            }
+
+            mPrevUtcTimeNanos = currentTimeNanos;
+            mPrevBootTimeNanos = sinceBootTimeNanos;
+            mPrevDataTimeNanos = curDataTimeNanos;
+            mFixTimeStablizationThreshold--;
+        }
+    } else {
+        return -1;
+    }
+    LOC_LOGd("Estimated travel time: %" PRIi64 "", currentTravelTimeNanos);
+    return (sinceBootTimeNanos - currentTravelTimeNanos);
+}
+
+void ElapsedRealtimeEstimator::reset() {
+    mCurrentClockDiff = 0;
+    mPrevDataTimeNanos = 0;
+    mPrevUtcTimeNanos = 0;
+    mPrevBootTimeNanos = 0;
+    mFixTimeStablizationThreshold = 5;
+}
+
+int64_t ElapsedRealtimeEstimator::getElapsedRealtimeQtimer(int64_t qtimerTicksAtOrigin) {
+    struct timespec currentTime;
+    int64_t sinceBootTimeNanos;
+    int64_t elapsedRealTimeNanos;
+
+    if (getCurrentTime(currentTime, sinceBootTimeNanos)) {
+       uint64_t qtimerDiff = 0;
+       uint64_t qTimerTickCount = getQTimerTickCount();
+       if (qTimerTickCount >= qtimerTicksAtOrigin) {
+           qtimerDiff = qTimerTickCount - qtimerTicksAtOrigin;
+       }
+       LOC_LOGd("sinceBootTimeNanos:%" PRIi64 " qtimerTicksAtOrigin=%" PRIi64 ""
+                " qTimerTickCount=%" PRIi64 " qtimerDiff=%" PRIi64 "",
+                sinceBootTimeNanos, qtimerTicksAtOrigin, qTimerTickCount, qtimerDiff);
+       uint64_t qTimerDiffNanos = qTimerTicksToNanos(double(qtimerDiff));
+
+       /* If the time difference between Qtimer on modem side and Qtimer on AP side
+          is greater than one second we assume this is a dual-SoC device such as
+          Kona and will try to get Qtimer on modem side and on AP side and
+          will adjust our difference accordingly */
+       if (qTimerDiffNanos > 1000000000) {
+           uint64_t qtimerDelta = getQTimerDeltaNanos();
+           if (qTimerDiffNanos >= qtimerDelta) {
+               qTimerDiffNanos -= qtimerDelta;
+           }
+       }
+
+       LOC_LOGd("Qtimer travel time: %" PRIi64 "", qTimerDiffNanos);
+       if (sinceBootTimeNanos >= qTimerDiffNanos) {
+           elapsedRealTimeNanos = sinceBootTimeNanos - qTimerDiffNanos;
+       } else {
+           elapsedRealTimeNanos = -1;
+       }
+    } else {
+        elapsedRealTimeNanos = -1;
+    }
+    return elapsedRealTimeNanos;
+}
+
+bool ElapsedRealtimeEstimator::getCurrentTime(
+        struct timespec& currentTime, int64_t& sinceBootTimeNanos)
+{
+    struct timespec sinceBootTime;
+    struct timespec sinceBootTimeTest;
+    bool clockGetTimeSuccess = false;
+    const uint32_t MAX_TIME_DELTA_VALUE_NANOS = 15000;
+    const uint32_t MAX_GET_TIME_COUNT = 20;
+    /* Attempt to get CLOCK_REALTIME and CLOCK_BOOTIME in succession without an interruption
+    or context switch (for up to MAX_GET_TIME_COUNT times) to avoid errors in the calculation */
+    for (uint32_t i = 0; i < MAX_GET_TIME_COUNT; i++) {
+        if (clock_gettime(CLOCK_BOOTTIME, &sinceBootTime) != 0) {
+            break;
+        };
+        if (clock_gettime(CLOCK_REALTIME, &currentTime) != 0) {
+            break;
+        }
+        if (clock_gettime(CLOCK_BOOTTIME, &sinceBootTimeTest) != 0) {
+            break;
+        };
+        sinceBootTimeNanos = (int64_t)sinceBootTime.tv_sec * 1000000000 + sinceBootTime.tv_nsec;
+        int64_t sinceBootTimeTestNanos =
+            (int64_t)sinceBootTimeTest.tv_sec * 1000000000 + sinceBootTimeTest.tv_nsec;
+        int64_t sinceBootTimeDeltaNanos = sinceBootTimeTestNanos - sinceBootTimeNanos;
+
+        /* sinceBootTime and sinceBootTimeTest should have a close value if there was no
+        interruption or context switch between clock_gettime for CLOCK_BOOTIME and
+        clock_gettime for CLOCK_REALTIME */
+        if (sinceBootTimeDeltaNanos < MAX_TIME_DELTA_VALUE_NANOS) {
+            clockGetTimeSuccess = true;
+            break;
+        } else {
+            LOC_LOGd("Delta:%" PRIi64 "ns time too large, retry number #%u...",
+                     sinceBootTimeDeltaNanos, i + 1);
+        }
+    }
+    return clockGetTimeSuccess;
+}
 } // namespace loc_core

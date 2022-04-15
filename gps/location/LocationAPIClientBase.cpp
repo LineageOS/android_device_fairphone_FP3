@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2020 The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017, 2020-2021 The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -158,6 +158,7 @@ uint32_t LocationAPIControlClient::locAPIGnssUpdateConfig(GnssConfig config)
                 }
                 mRequestQueues[CTRL_REQUEST_CONFIG_UPDATE].push(new GnssUpdateConfigRequest(*this));
                 retVal = LOCATION_ERROR_SUCCESS;
+                delete [] idArray;
             }
         }
     }
@@ -180,6 +181,7 @@ uint32_t LocationAPIControlClient::locAPIGnssGetConfig(GnssConfigFlagsMask mask)
             }
             mRequestQueues[CTRL_REQUEST_CONFIG_GET].push(new GnssGetConfigRequest(*this));
             retVal = LOCATION_ERROR_SUCCESS;
+            delete [] idArray;
         }
     }
     pthread_mutex_unlock(&mMutex);
@@ -310,24 +312,43 @@ void LocationAPIClientBase::locAPISetCallbacks(LocationCallbacks& locationCallba
     pthread_mutex_unlock(&mMutex);
 }
 
-LocationAPIClientBase::~LocationAPIClientBase()
+void LocationAPIClientBase::destroy()
 {
+    LOC_LOGD("LocationAPIClientBase::destroy()");
+
     pthread_mutex_lock(&mMutex);
 
     mGeofenceBreachCallback = nullptr;
-
-    if (mLocationAPI) {
-        mLocationAPI->destroy();
-        mLocationAPI = nullptr;
-    }
 
     for (int i = 0; i < REQUEST_MAX; i++) {
         mRequestQueues[i].reset((uint32_t)0);
     }
 
+    LocationAPI* localHandle = nullptr;
+    if (nullptr != mLocationAPI) {
+        localHandle = mLocationAPI;
+        mLocationAPI = nullptr;
+    }
+
     pthread_mutex_unlock(&mMutex);
 
+    // Invoking destroy has the possibility of destroy complete callback
+    // being invoked right away in the same context, hence no instance
+    // member must be accessed after the destroy call.
+    if (nullptr != localHandle) {
+        localHandle->destroy([this]() {onLocationApiDestroyCompleteCb();});
+    }
+}
+
+LocationAPIClientBase::~LocationAPIClientBase()
+{
     pthread_mutex_destroy(&mMutex);
+}
+
+void LocationAPIClientBase::onLocationApiDestroyCompleteCb()
+{
+    LOC_LOGD("LocationAPIClientBase::onLocationApiDestroyCompleteCb()");
+    delete this;
 }
 
 uint32_t LocationAPIClientBase::locAPIStartTracking(TrackingOptions& options)
@@ -378,12 +399,11 @@ void LocationAPIClientBase::locAPIUpdateTrackingOptions(TrackingOptions& options
     if (mLocationAPI) {
         uint32_t session = 0;
         session = mRequestQueues[REQUEST_TRACKING].getSession();
-        // Not allowing to update the tracking options for stopped session
-        if (session > 0 && mTracking) {
+        if (session > 0) {
             mRequestQueues[REQUEST_TRACKING].push(new UpdateTrackingOptionsRequest(*this));
             mLocationAPI->updateTrackingOptions(session, options);
         } else {
-            LOC_LOGe("invalid or stopped session: %d.", session);
+            LOC_LOGE("%s:%d] invalid session: %d.", __FUNCTION__, __LINE__, session);
         }
     }
     pthread_mutex_unlock(&mMutex);
@@ -614,7 +634,7 @@ uint32_t LocationAPIClientBase::locAPIGetBatchedLocations(uint32_t id, size_t co
             }
         }  else {
             retVal = LOCATION_ERROR_ID_UNKNOWN;
-            LOC_LOGE("%s:%d] invalid session: %d.", __FUNCTION__, __LINE__, id);
+            LOC_LOGd("unknown session id: %d, might flush() a stopped session",  id);
         }
     }
     pthread_mutex_unlock(&mMutex);
@@ -800,7 +820,9 @@ void LocationAPIClientBase::locAPIResumeGeofences(
 void LocationAPIClientBase::locAPIRemoveAllGeofences()
 {
     std::vector<uint32_t> sessionsVec = mGeofenceBiDict.getAllSessions();
-    locAPIRemoveGeofences(sessionsVec.size(), &sessionsVec[0]);
+    if (sessionsVec.size() > 0) {
+        locAPIRemoveGeofences(sessionsVec.size(), &sessionsVec[0]);
+    }
 }
 
 void LocationAPIClientBase::locAPIGnssNiResponse(uint32_t id, GnssNiResponse response)

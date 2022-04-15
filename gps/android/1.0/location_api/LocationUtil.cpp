@@ -157,7 +157,11 @@ void convertGnssSvid(GnssSv& in, int16_t& out)
             out = in.svId;
             break;
         case GNSS_SV_TYPE_GLONASS:
-            out = in.svId - GLO_SV_PRN_MIN + 1;
+            if (!isGloSlotUnknown(in.svId)) { // OSN is known
+                out = in.svId - GLO_SV_PRN_MIN + 1;
+            } else { // OSN is not known, report FCN
+                out = in.gloFrequency + 92;
+            }
             break;
         case GNSS_SV_TYPE_QZSS:
             out = in.svId;
@@ -167,6 +171,9 @@ void convertGnssSvid(GnssSv& in, int16_t& out)
             break;
         case GNSS_SV_TYPE_GALILEO:
             out = in.svId - GAL_SV_PRN_MIN + 1;
+            break;
+        case GNSS_SV_TYPE_NAVIC:
+            out = in.svId - NAVIC_SV_PRN_MIN + 1;
             break;
         default:
             out = in.svId;
@@ -184,7 +191,7 @@ void convertGnssSvid(GnssMeasurementsData& in, int16_t& out)
             out = in.svId;
             break;
         case GNSS_SV_TYPE_GLONASS:
-            if (in.svId != 255) { // OSN is known
+            if (!isGloSlotUnknown(in.svId)) { // OSN is known
                 out = in.svId - GLO_SV_PRN_MIN + 1;
             } else { // OSN is not known, report FCN
                 out = in.gloFrequency + 92;
@@ -198,6 +205,9 @@ void convertGnssSvid(GnssMeasurementsData& in, int16_t& out)
             break;
         case GNSS_SV_TYPE_GALILEO:
             out = in.svId - GAL_SV_PRN_MIN + 1;
+            break;
+        case GNSS_SV_TYPE_NAVIC:
+            out = in.svId - NAVIC_SV_PRN_MIN + 1;
             break;
         default:
             out = in.svId;

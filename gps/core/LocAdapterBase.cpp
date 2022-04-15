@@ -313,6 +313,15 @@ LocAdapterBase::getCapabilities()
         if (ContextBase::isFeatureSupported(LOC_SUPPORTED_FEATURE_LOCATION_PRIVACY)) {
             mask |= LOCATION_CAPABILITIES_PRIVACY_BIT;
         }
+        if (ContextBase::isFeatureSupported(LOC_SUPPORTED_FEATURE_MEASUREMENTS_CORRECTION)) {
+            mask |= LOCATION_CAPABILITIES_MEASUREMENTS_CORRECTION_BIT;
+        }
+        if (ContextBase::isFeatureSupported(LOC_SUPPORTED_FEATURE_ROBUST_LOCATION)) {
+            mask |= LOCATION_CAPABILITIES_CONFORMITY_INDEX_BIT;
+        }
+        if (ContextBase::isFeatureSupported(LOC_SUPPORTED_FEATURE_EDGNSS)) {
+            mask |= LOCATION_CAPABILITIES_EDGNSS_BIT;
+        }
     } else {
         LOC_LOGE("%s]: attempt to get capabilities before they are known.", __func__);
     }
@@ -418,5 +427,13 @@ LocAdapterBase::requestCapabilitiesCommand(LocationAPI* client)
 
     sendMsg(new MsgRequestCapabilities(*this, client));
 }
+
+void
+LocAdapterBase::reportLatencyInfoEvent(const GnssLatencyInfo& /*gnssLatencyInfo*/)
+DEFAULT_IMPL()
+
+bool LocAdapterBase::
+    reportQwesCapabilities(const std::unordered_map<LocationQwesFeatureType, bool> &featureMap)
+DEFAULT_IMPL(false)
 
 } // namespace loc_core

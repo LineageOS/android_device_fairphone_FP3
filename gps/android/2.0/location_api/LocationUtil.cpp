@@ -1,4 +1,4 @@
-/* Copyright (c) 2017-2019, The Linux Foundation. All rights reserved.
+/* Copyright (c) 2017-2020, The Linux Foundation. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -31,6 +31,7 @@
 #include <log_util.h>
 #include <inttypes.h>
 #include <gps_extended_c.h>
+#include <loc_misc_utils.h>
 
 namespace android {
 namespace hardware {
@@ -39,6 +40,7 @@ namespace V2_0 {
 namespace implementation {
 
 using ::android::hardware::gnss::V2_0::GnssLocation;
+using ::android::hardware::gnss::V2_0::ElapsedRealtimeFlags;
 using ::android::hardware::gnss::V2_0::GnssConstellationType;
 using ::android::hardware::gnss::V1_0::GnssLocationFlags;
 
@@ -82,78 +84,21 @@ void convertGnssLocation(Location& in, V1_0::GnssLocation& out)
     out.timestamp = static_cast<V1_0::GnssUtcTime>(in.timestamp);
 }
 
-bool getCurrentTime(struct timespec& currentTime, int64_t& sinceBootTimeNanos)
-{
-    struct timespec sinceBootTime;
-    struct timespec sinceBootTimeTest;
-    bool clockGetTimeSuccess = false;
-    const uint32_t MAX_TIME_DELTA_VALUE_NANOS = 10000;
-    const uint32_t MAX_GET_TIME_COUNT = 20;
-    /* Attempt to get CLOCK_REALTIME and CLOCK_BOOTIME in succession without an interruption
-    or context switch (for up to MAX_GET_TIME_COUNT times) to avoid errors in the calculation */
-    for (uint32_t i = 0; i < MAX_GET_TIME_COUNT; i++) {
-        if (clock_gettime(CLOCK_BOOTTIME, &sinceBootTime) != 0) {
-            break;
-        };
-        if (clock_gettime(CLOCK_REALTIME, &currentTime) != 0) {
-            break;
-        }
-        if (clock_gettime(CLOCK_BOOTTIME, &sinceBootTimeTest) != 0) {
-            break;
-        };
-        sinceBootTimeNanos = sinceBootTime.tv_sec * 1000000000 + sinceBootTime.tv_nsec;
-        int64_t sinceBootTimeTestNanos =
-            sinceBootTimeTest.tv_sec * 1000000000 + sinceBootTimeTest.tv_nsec;
-        int64_t sinceBootTimeDeltaNanos = sinceBootTimeTestNanos - sinceBootTimeNanos;
-
-        /* sinceBootTime and sinceBootTimeTest should have a close value if there was no
-        interruption or context switch between clock_gettime for CLOCK_BOOTIME and
-        clock_gettime for CLOCK_REALTIME */
-        if (sinceBootTimeDeltaNanos < MAX_TIME_DELTA_VALUE_NANOS) {
-            clockGetTimeSuccess = true;
-            break;
-        } else {
-            LOC_LOGd("Delta:%" PRIi64 "ns time too large, retry number #%u...",
-                     sinceBootTimeDeltaNanos, i + 1);
-        }
-    }
-    return clockGetTimeSuccess;
-}
-
 void convertGnssLocation(Location& in, V2_0::GnssLocation& out)
 {
     memset(&out, 0, sizeof(V2_0::GnssLocation));
     convertGnssLocation(in, out.v1_0);
 
-    struct timespec currentTime;
-    int64_t sinceBootTimeNanos;
-
-    if (getCurrentTime(currentTime, sinceBootTimeNanos)) {
-        int64_t currentTimeNanos = currentTime.tv_sec*1000000000 + currentTime.tv_nsec;
-        int64_t locationTimeNanos = in.timestamp*1000000;
-        LOC_LOGD("%s]: sinceBootTimeNanos:%" PRIi64 " currentTimeNanos:%" PRIi64 ""
-                " locationTimeNanos:%" PRIi64 "",
-                __FUNCTION__, sinceBootTimeNanos, currentTimeNanos, locationTimeNanos);
-        if (currentTimeNanos >= locationTimeNanos) {
-            int64_t ageTimeNanos = currentTimeNanos - locationTimeNanos;
-            LOC_LOGD("%s]: ageTimeNanos:%" PRIi64 ")", __FUNCTION__, ageTimeNanos);
-            // the max trusted propagation time 30s for ageTimeNanos to avoid user setting
-            //wrong time, it will affect elapsedRealtimeNanos
-            if (ageTimeNanos >= 0 && ageTimeNanos <= 30000000000) {
-                out.elapsedRealtime.flags |= ElapsedRealtimeFlags::HAS_TIMESTAMP_NS;
-                out.elapsedRealtime.timestampNs = sinceBootTimeNanos - ageTimeNanos;
-                out.elapsedRealtime.flags |= ElapsedRealtimeFlags::HAS_TIME_UNCERTAINTY_NS;
-                // time uncertainty is the max value between abs(AP_UTC - MP_UTC) and 100ms, to
-                //verify if user change the sys time
-                out.elapsedRealtime.timeUncertaintyNs =
-                        std::max((int64_t)abs(currentTimeNanos - locationTimeNanos),
-                                 (int64_t)100000000);
-                LOC_LOGD("%s]: timestampNs:%" PRIi64 ")",
-                        __FUNCTION__, out.elapsedRealtime.timestampNs);
-            }
-        }
-    } else {
-        LOC_LOGe("Failed to calculate elapsedRealtimeNanos timestamp");
+    if (in.flags & LOCATION_HAS_ELAPSED_REAL_TIME) {
+        out.elapsedRealtime.flags |= ElapsedRealtimeFlags::HAS_TIMESTAMP_NS;
+        out.elapsedRealtime.timestampNs = in.elapsedRealTime;
+        out.elapsedRealtime.flags |= ElapsedRealtimeFlags::HAS_TIME_UNCERTAINTY_NS;
+        out.elapsedRealtime.timeUncertaintyNs = in.elapsedRealTimeUnc;
+        LOC_LOGd("out.elapsedRealtime.timestampNs=%" PRIi64 ""
+                 " out.elapsedRealtime.timeUncertaintyNs=%" PRIi64 ""
+                 " out.elapsedRealtime.flags=0x%X",
+                 out.elapsedRealtime.timestampNs,
+                 out.elapsedRealtime.timeUncertaintyNs, out.elapsedRealtime.flags);
     }
 }
 
@@ -272,7 +217,11 @@ void convertGnssSvid(GnssSv& in, int16_t& out)
             out = in.svId;
             break;
         case GNSS_SV_TYPE_GLONASS:
-            out = in.svId - GLO_SV_PRN_MIN + 1;
+            if (!isGloSlotUnknown(in.svId)) { // OSN is known
+                out = in.svId - GLO_SV_PRN_MIN + 1;
+            } else { // OSN is not known, report FCN
+                out = in.gloFrequency + 92;
+            }
             break;
         case GNSS_SV_TYPE_QZSS:
             out = in.svId;
@@ -282,6 +231,9 @@ void convertGnssSvid(GnssSv& in, int16_t& out)
             break;
         case GNSS_SV_TYPE_GALILEO:
             out = in.svId - GAL_SV_PRN_MIN + 1;
+            break;
+        case GNSS_SV_TYPE_NAVIC:
+            out = in.svId - NAVIC_SV_PRN_MIN + 1;
             break;
         default:
             out = in.svId;
@@ -299,7 +251,7 @@ void convertGnssSvid(GnssMeasurementsData& in, int16_t& out)
             out = in.svId;
             break;
         case GNSS_SV_TYPE_GLONASS:
-            if (in.svId != 255) { // OSN is known
+            if (!isGloSlotUnknown(in.svId)) { // OSN is known
                 out = in.svId - GLO_SV_PRN_MIN + 1;
             } else { // OSN is not known, report FCN
                 out = in.gloFrequency + 92;
@@ -313,6 +265,9 @@ void convertGnssSvid(GnssMeasurementsData& in, int16_t& out)
             break;
         case GNSS_SV_TYPE_GALILEO:
             out = in.svId - GAL_SV_PRN_MIN + 1;
+            break;
+        case GNSS_SV_TYPE_NAVIC:
+            out = in.svId - NAVIC_SV_PRN_MIN + 1;
             break;
         default:
             out = in.svId;
