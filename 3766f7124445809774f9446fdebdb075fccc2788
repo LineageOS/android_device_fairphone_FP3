@@ -16,6 +16,24 @@
       "message": "Is com.qualcomm.location(.XT) really needed? Please reconsider!\n\n/a/ I expect that it will raise privacy concerns as \"Qualcomm Location Service periodically sends us a unique software ID, the location of your device (longitude, latitude and altitude, and its uncertainty) and nearby cellular towers and Wi-Fi hotspots, signal strength, and time (collectively, “Location Data”). As with any Internet communication, we also receive the IP address your device uses.\" (see https://www.qualcomm.com/site/privacy/services)\n\n/b/ It may interfere with UnifiedNlp. IF you consider the QC location service as vital, please check thoughly that UnifiedNlp / MicroG continues to work.",
       "revId": "3766f7124445809774f9446fdebdb075fccc2788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9c075c_3954adc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-04-22T07:27:34Z",
+      "side": 1,
+      "message": "Thanks for this input. Removal of com.qualcomm.location(.XT) is scheduled in 19.1 bringup. Here, I just wanted to update sources to match the updated Android 11 blobs.",
+      "parentUuid": "2b581ade_657e9ebe",
+      "revId": "3766f7124445809774f9446fdebdb075fccc2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
