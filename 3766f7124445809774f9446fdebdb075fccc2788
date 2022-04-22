@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b581ade_657e9ebe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2022-04-22T05:55:25Z",
+      "side": 1,
+      "message": "Is com.qualcomm.location(.XT) really needed? Please reconsider!\n\n/a/ I expect that it will raise privacy concerns as \"Qualcomm Location Service periodically sends us a unique software ID, the location of your device (longitude, latitude and altitude, and its uncertainty) and nearby cellular towers and Wi-Fi hotspots, signal strength, and time (collectively, “Location Data”). As with any Internet communication, we also receive the IP address your device uses.\" (see https://www.qualcomm.com/site/privacy/services)\n\n/b/ It may interfere with UnifiedNlp. IF you consider the QC location service as vital, please check thoughly that UnifiedNlp / MicroG continues to work.",
+      "revId": "3766f7124445809774f9446fdebdb075fccc2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
