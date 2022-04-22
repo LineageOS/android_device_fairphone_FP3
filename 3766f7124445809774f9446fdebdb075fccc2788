@@ -52,6 +52,24 @@
       "parentUuid": "ff9c075c_3954adc8",
       "revId": "3766f7124445809774f9446fdebdb075fccc2788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69a434d2_604e293e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-04-22T12:36:52Z",
+      "side": 1,
+      "message": "There\u0027s no strong reason for that. Idea was to import everything that is being used in stock in this topic and then do the cleanups to clearly document the reason for dropping blobs.",
+      "parentUuid": "0e33f1eb_14688a60",
+      "revId": "3766f7124445809774f9446fdebdb075fccc2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
