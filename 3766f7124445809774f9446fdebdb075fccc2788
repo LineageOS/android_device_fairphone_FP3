@@ -34,6 +34,24 @@
       "parentUuid": "2b581ade_657e9ebe",
       "revId": "3766f7124445809774f9446fdebdb075fccc2788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e33f1eb_14688a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2022-04-22T08:33:35Z",
+      "side": 1,
+      "message": "Thanks for your swift reply. But why adding it in the first instance with running risks while having the firm intention to remove it in the next step? com.qualcomm.location(.XT) was not needed in the previous FP3 builds although present in the A10 blobs ...",
+      "parentUuid": "ff9c075c_3954adc8",
+      "revId": "3766f7124445809774f9446fdebdb075fccc2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
