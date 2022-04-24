@@ -70,6 +70,24 @@
       "parentUuid": "0e33f1eb_14688a60",
       "revId": "3766f7124445809774f9446fdebdb075fccc2788",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6f98dc_9fa53f61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2022-04-24T14:53:33Z",
+      "side": 1,
+      "message": "Hmm, as LOS aims to be as FOSS as possible, shouldn\u0027t your strategy be the other way around, i.e. including binary blobs only if they turned out to be unavoidable? So far, these binary blobs were not required and if no new vital need arose, I still recommend to skip them. However, I fully respect that the final decision is with you and dk1978, and I won\u0027t post any further comments here.",
+      "parentUuid": "69a434d2_604e293e",
+      "revId": "3766f7124445809774f9446fdebdb075fccc2788",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
