@@ -178,6 +178,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
     bluetooth.profile.ccp.server.enabled=true \
     bluetooth.profile.vcp.controller.enabled=true
 
+# Set the Bluetooth Class of Device
+# Service Field: 0x5A -> 90
+#    Bit 17: Networking
+#    Bit 19: Capturing
+#    Bit 20: Object Transfer
+#    Bit 22: Telephony
+# MAJOR_CLASS: 0x02 -> 2 (Phone)
+# MINOR_CLASS: 0x0C -> 12 (Smart Phone)
+PRODUCT_PRODUCT_PROPERTIES += \
+    bluetooth.device.class_of_device=90,2,12
+
 # Component overrides
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
