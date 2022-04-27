@@ -760,6 +760,7 @@ service loc_launcher /system/vendor/bin/loc_launcher
     class late_start
     user gps
     group gps
+    disabled
 
 service drmdiag /system/vendor/bin/drmdiagapp
     class late_start
