@@ -16,6 +16,24 @@
       "message": "Hi @G_D, hope this looks good now.",
       "revId": "f2585ceb6b2c75cfa8ee6e32e1762472bcce3299",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "623b7268_23c6589a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2022-04-28T08:28:31Z",
+      "side": 1,
+      "message": "Yeap. Thanks for considering my comment!\nAnd thanks for all your efforts to transition to the new R blobs ...",
+      "parentUuid": "866cc62a_ade46b4d",
+      "revId": "f2585ceb6b2c75cfa8ee6e32e1762472bcce3299",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
