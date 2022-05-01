@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fd641d6_40dda39a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2022-05-01T11:47:41Z",
+      "side": 1,
+      "message": "clang says \"-fstack-protector-strong\" not supported by compiler. Had to use GCC as there\u0027s no alternative.",
+      "revId": "e46e330a402735fedb797616ff5452278ef51c60",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
