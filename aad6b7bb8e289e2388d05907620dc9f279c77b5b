@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8d7c4d2_8c2da558",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2022-05-07T09:08:25Z",
+      "side": 1,
+      "message": "I suggest to:\n* apply the final change also to the lineage-18.1 branch, and \n* consider also dropping the following proprietary components plus libs. They are -as far as I have tested- not needed but pose unnecessary security and privacy risks: \n\u003e --product/app/CallFeaturesSetting/CallFeaturesSetting.apk\n\u003e --product/app/PowerOffAlarm/PowerOffAlarm.apk\n\u003e --system_ext/app/ConferenceDialer/ConferenceDialer.apk\n\u003e --system_ext/app/DeviceInfo/DeviceInfo.apk\n\u003e --system_ext/app/DynamicDDSService/DynamicDDSService.apk\n\u003e --system_ext/app/SimContact/SimContact.apk\n\u003e --system_ext/app/atfwd/atfwd.apk\n\u003e --system_ext/app/embms/embms.apk\n\u003e --system_ext/app/imssettings/imssettings.apk\n\u003e --system_ext/app/remotesimlockservice/remotesimlockservice.apk\n\u003e --system_ext/app/uimgbaservice/uimgbaservice.apk\n\u003e --system_ext/app/uimlpaservice/uimlpaservice.apk\n\u003e --system_ext/app/uimremoteclient/uimremoteclient.apk\n\u003e --system_ext/app/uimremoteserver/uimremoteserver.apk\n\u003e --system_ext/app/workloadclassifier/workloadclassifier.apk\n\u003e --system_ext/app/xdivert/xdivert.apk\n\u003e --system_ext/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk\n\u003e --system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk\n\u003e --system_ext/priv-app/seccamservice/seccamservice.apk\n\u003e --vendor/app/CACertService/CACertService.apk\n\u003e --vendor/app/IWlanService/IWlanService.apk\n",
+      "revId": "aad6b7bb8e289e2388d05907620dc9f279c77b5b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
