@@ -25,6 +25,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 
+# Compile SystemUI on device with `speed`.
+PRODUCT_VENDOR_PROPERTIES += \
+    dalvik.vm.systemuicompilerfilter=speed
+
+
 # Set system properties identifying the chipset
 PRODUCT_VENDOR_PROPERTIES += ro.soc.manufacturer=QTI
 PRODUCT_VENDOR_PROPERTIES += ro.soc.model=SDM450
