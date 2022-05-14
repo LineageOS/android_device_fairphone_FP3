@@ -907,7 +907,7 @@ vendor/firmware/a530v2_seq.fw2
 vendor/firmware/a530v3_gpmu.fw2
 vendor/firmware/a530v3_seq.fw2
 vendor/firmware/a540_gpmu.fw2
-vendor/firmware/aw8898_cfg.bin|bbcda305cedb3a26f5c29b48ae80b3ec
+vendor/firmware/aw8898_cfg.bin
 vendor/firmware/cpp_firmware_v1_10_0.fw
 vendor/firmware/cpp_firmware_v1_12_0.fw
 vendor/firmware/cpp_firmware_v1_12_1.fw
@@ -920,16 +920,16 @@ vendor/firmware/cpp_firmware_v1_5_1.fw
 vendor/firmware/cpp_firmware_v1_5_2.fw
 vendor/firmware/cpp_firmware_v1_6_0.fw
 vendor/firmware/cpp_firmware_v1_8_0.fw
-vendor/firmware/fingerprint.b00|69308c021d7dceb0cae5f3e7c2a08a85
-vendor/firmware/fingerprint.b01|e3d34a2588b63744fbc3c9f0bc7c05ad
-vendor/firmware/fingerprint.b02|b10c576c8c3447f4038a4488f4199b2f
-vendor/firmware/fingerprint.b03|3dd951aac83d57ce620ca0ef73e8f588
-vendor/firmware/fingerprint.b04|134fb66c849a3b1e0fd63b129318468c
-vendor/firmware/fingerprint.b05|c3cf5ec92a7de7765d03dba601b1bec7
-vendor/firmware/fingerprint.b06|e591e6d42e55a4fcd0daf7c597bfa20d
-vendor/firmware/fingerprint.mdt|1470c06cab0006e6360d0004eea405bf
-vendor/firmware/tas2557_uCDSP.bin|9861a0912173ab3de0fd27102f900d8d
-vendor/firmware/tas2557evm_aacspk_a.ftcfg|d766c316c26c418d692500c9619ec66e
+vendor/firmware/fingerprint.b00
+vendor/firmware/fingerprint.b01
+vendor/firmware/fingerprint.b02
+vendor/firmware/fingerprint.b03
+vendor/firmware/fingerprint.b04
+vendor/firmware/fingerprint.b05
+vendor/firmware/fingerprint.b06
+vendor/firmware/fingerprint.mdt
+vendor/firmware/tas2557_uCDSP.bin
+vendor/firmware/tas2557evm_aacspk_a.ftcfg
 vendor/firmware/venus.b00
 vendor/firmware/venus.b01
 vendor/firmware/venus.b02
@@ -937,7 +937,7 @@ vendor/firmware/venus.b03
 vendor/firmware/venus.b04
 vendor/firmware/venus.mbn
 vendor/firmware/venus.mdt
-vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin|6144cf3ba65e7f7187abf00134d7ca60
+vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # lib
 vendor/lib/btaudio_offload_if.so
@@ -2680,7 +2680,7 @@ vendor/lib/libmmlib2d_interface.so
 vendor/lib/libmmosal.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
-vendor/lib/libmpbase.so|97dddc59e8c74f417c9badf1995e0bef
+vendor/lib/libmpbase.so
 vendor/lib/libmulawdec.so
 vendor/lib/libnetmgr.so
 vendor/lib/libnetmgr_common.so
@@ -2938,7 +2938,7 @@ vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/hw/audio.bluetooth_qti.default.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
-vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.FP3.so|4e3f3cf1a1f39cead1cbc48c371c7ddc
+vendor/lib64/hw/fingerprint.default.so:vendor/lib64/hw/fingerprint.FP3.so
 vendor/lib64/hw/gatekeeper.msm8953.so
 vendor/lib64/hw/keystore.msm8953.so
 vendor/lib64/hw/sound_trigger.primary.msm8953.so
