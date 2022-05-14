@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from 4.A.0011 preview blobs package
+# All unpinned blobs are extracted from FP3-REL-8901.4.A.0010-gms-f74c58a8-user
 
 # System partition
 
