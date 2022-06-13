@@ -552,6 +552,7 @@ PRODUCT_PACKAGES += \
     nqnfcee_access.xml \
     nqnfcse_access.xml \
     NfcNci \
+    nqnfcinfo \
     Tag
 
 # NFC Config
