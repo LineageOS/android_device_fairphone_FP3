@@ -618,7 +618,6 @@ vendor/bin/mm-qcamera-app
 vendor/bin/msm_irqbalance
 vendor/bin/mutualex
 vendor/bin/netmgrd
-vendor/bin/nqnfcinfo
 vendor/bin/pktlogconf
 vendor/bin/pm-proxy
 vendor/bin/pm-service
