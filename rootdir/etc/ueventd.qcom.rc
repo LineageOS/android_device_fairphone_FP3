@@ -194,7 +194,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/msm_evrc             0660   system     audio
 /dev/msm_wma              0660   system     audio
 /dev/msm_wmapro           0660   system     audio
-/dev/msm_alac             0660   system     audio
+#/dev/msm_alac             0660   system     audio
 /dev/msm_ape              0660   system     audio
 /dev/msm_amrnb            0660   system     audio
 /dev/msm_amrwb            0660   system     audio

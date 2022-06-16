@@ -85,7 +85,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #enable software decoders for ALAC and APE.
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.use.sw.alac.decoder=true\
+    vendor.audio.use.sw.alac.decoder=false \
     vendor.audio.use.sw.ape.decoder=true
 
 #property for AudioSphere Post processing
