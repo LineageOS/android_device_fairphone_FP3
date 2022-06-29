@@ -6,7 +6,8 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
 #<src>                                      <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
-/dev/block/bootdevice/by-name/system        /            ext4    ro,barrier=1,discard                        wait,slotselect,avb
+/dev/block/by-name/system                   /system      ext4    ro,barrier=1,discard                        wait,slotselect,first_stage_mount
+/dev/block/by-name/vendor                   /vendor      ext4    ro,barrier=1,discard                        wait,slotselect,first_stage_mount
 /dev/block/bootdevice/by-name/userdata      /data        ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,discard  latemount,wait,check,quota,reservedsize=128M,fileencryption=aes-256-xts:aes-256-cts
 /dev/block/bootdevice/by-name/config        /frp         emmc    defaults                                    defaults
 /dev/block/bootdevice/by-name/misc          /misc        emmc    defaults                                    defaults
