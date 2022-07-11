@@ -98,7 +98,6 @@ lib64/vendor.qti.hardware.sigma_miracast@1.0.so
 
 # app
 -product/app/CallFeaturesSetting/CallFeaturesSetting.apk
--product/app/PowerOffAlarm/PowerOffAlarm.apk
 
 # etc
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
