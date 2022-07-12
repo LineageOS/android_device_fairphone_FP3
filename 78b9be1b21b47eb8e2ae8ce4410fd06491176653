@@ -16,6 +16,23 @@
       "message": "Why are you doing this in the device tree and not in qcom sepolicy repo?",
       "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe3f4c9_96a91e4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18586
+      },
+      "writtenOn": "2022-07-12T12:43:11Z",
+      "side": 1,
+      "message": "PowerOffAlarm functionality is restored with this.",
+      "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
