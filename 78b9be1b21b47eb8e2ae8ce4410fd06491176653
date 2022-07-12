@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f603c1d_b1d275e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-07-12T12:42:28Z",
+      "side": 1,
+      "message": "Why are you doing this in the device tree and not in qcom sepolicy repo?",
+      "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
