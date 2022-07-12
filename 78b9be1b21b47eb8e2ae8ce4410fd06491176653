@@ -50,6 +50,23 @@
       "message": "This should be fixed in QC sepolicy repo.",
       "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aeedc53_a4c792e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2022-07-12T12:52:38Z",
+      "side": 1,
+      "message": "Btw: https://review.lineageos.org/c/LineageOS/android_device_qcom_sepolicy/+/325386",
+      "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
