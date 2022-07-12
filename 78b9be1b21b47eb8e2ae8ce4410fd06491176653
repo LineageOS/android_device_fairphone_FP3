@@ -67,6 +67,42 @@
       "message": "Btw: https://review.lineageos.org/c/LineageOS/android_device_qcom_sepolicy/+/325386",
       "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36105715_904d0d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18586
+      },
+      "writtenOn": "2022-07-12T15:26:17Z",
+      "side": 1,
+      "message": "https://gist.github.com/merothh/fe48ce95017a56792073eb4c43aff39e\n\nhttps://git.codelinaro.org/clo/la/device/qcom/sepolicy/-/commits/LA.UM.9.6.2.c26/generic/vendor/common/poweroffalarm_app.te\n\nSystem UID was removed later in the latest A11 tags (which the FP3 blobs are based off)",
+      "parentUuid": "2aeedc53_a4c792e7",
+      "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da2e2191_1f0cbcad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 18586
+      },
+      "writtenOn": "2022-07-12T15:26:17Z",
+      "side": 1,
+      "message": "\u003e Why are you doing this in the device tree and not in qcom sepolicy repo?\n\nNot sure how to approach this then:\n1. Merge newer tag onto sepolicy repo (Isn\u0027t this usually done across all the CAF repos) ?\n2. Pick https://git.codelinaro.org/clo/la/device/qcom/sepolicy/-/commit/b69efc22159aba49a9f5323f06c9cb8a3181ec43 ?\n\nWe would break other devices on older blobs with 1. and 2. above^^\n\n3. Just add this label in addition on qcom sepolicy (Should be fine for old and new blobs) ?",
+      "parentUuid": "9f603c1d_b1d275e0",
+      "revId": "78b9be1b21b47eb8e2ae8ce4410fd06491176653",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
