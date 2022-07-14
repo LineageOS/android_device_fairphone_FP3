@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01a14574_3844092a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2022-07-14T17:52:23Z",
+      "side": 1,
+      "message": "what about vendor.prop, line 37?",
+      "revId": "dd64a10d439a8cb20407471a1a2cebf0d074cf71",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
