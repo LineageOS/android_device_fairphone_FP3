@@ -14,8 +14,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 ##fluencetype can be "fluence" or "fluencepro" or "none"
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.audio.fluence.voicecall=true\
-    persist.vendor.audio.fluence.voicerec=false\
+    ro.vendor.audio.sdk.fluencetype=none \
+    persist.vendor.audio.fluence.voicecall=true \
+    persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.fluence.speaker=true
 
 #disable tunnel encoding
@@ -52,7 +53,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Enable DS2, Hardbypass feature for Dolby
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.dolby.ds2.enabled=false\
+    vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false
 
 #Disable Multiple offload sesison
@@ -85,7 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #enable software decoders for ALAC and APE.
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.use.sw.alac.decoder=true\
+    vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true
 
 #property for AudioSphere Post processing
@@ -94,8 +95,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Audio voice concurrency related flags
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.voice.playback.conc.disabled=true\
-    vendor.voice.record.conc.disabled=false\
+    vendor.voice.playback.conc.disabled=true \
+    vendor.voice.record.conc.disabled=false \
     vendor.voice.voip.conc.disabled=true
 
 #Decides the audio fallback path during voice call,
@@ -134,6 +135,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #Set speaker protection cal tx path sampling rate to 48k
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.spkr_prot.tx.sampling_rate=48000
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.vc_call_vol_steps=7
 
 # add dynamic feature flags here
 PRODUCT_PROPERTY_OVERRIDES += \
