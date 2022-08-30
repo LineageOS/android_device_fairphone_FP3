@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from FP3-REL-8901.4.A.0013.4-gms-c1b5afb7-user
+# All unpinned blobs are extracted from FP3-REL-8901.4.A.0016.6-gms-f0c20986-user
 
 # System partition
 
