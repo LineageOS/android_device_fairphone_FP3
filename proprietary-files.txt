@@ -2629,7 +2629,7 @@ vendor/lib/libmmcamera_ppeiscore.so
 vendor/lib/libmmcamera_puya_s5kgm1sp_p24c64e_eeprom.so
 vendor/lib/libmmcamera_qtech_f3l8yam_eeprom.so
 vendor/lib/libmmcamera_qtech_f5670bq_eeprom.so
-vendor/lib/libmmcamera_quadracfa.so
+vendor/lib/libmmcamera_quadracfa.so|587fcf95fc1863c17b2d80e837acc288e0db4a71
 vendor/lib/libmmcamera_rohm_brcg064gwz_3_eeprom.so
 vendor/lib/libmmcamera_s5k2l7.so
 vendor/lib/libmmcamera_s5k2l7sx.so
