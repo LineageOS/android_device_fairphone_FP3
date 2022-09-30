@@ -2790,6 +2790,7 @@ vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdmodulehdcpsession.so
 vendor/lib/libwms.so
 vendor/lib/libwqe.so
+vendor/lib/libwvhidl.so
 vendor/lib/libxml.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_server_protocol.so
