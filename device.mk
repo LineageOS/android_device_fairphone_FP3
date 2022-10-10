@@ -674,3 +674,8 @@ PRODUCT_COPY_FILES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+
+# Enable zygote critical window.
+PRODUCT_VENDOR_OVERRIDES += \
+    zygote.critical_window.minute=10
