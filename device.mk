@@ -463,6 +463,12 @@ PRODUCT_COPY_FILES += \
 # Media / StagefrightCodec 2.0
 PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
 
+# Disable media transcoding
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.sys.fuse.transcode_user_control=true \
+    persist.sys.fuse.transcode_enabled=false
+
+
 # OMX
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
