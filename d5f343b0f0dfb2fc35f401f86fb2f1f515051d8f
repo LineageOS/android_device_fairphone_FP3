@@ -16,6 +16,24 @@
       "message": "Hi, the libwvhidl.so file seems to be missing from lineage-19.1-20220919-nightly-FP3-signed build as reported by ninja. Thanks.",
       "revId": "d5f343b0f0dfb2fc35f401f86fb2f1f515051d8f",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5affde52_edca2eed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2022-10-20T15:18:50Z",
+      "side": 1,
+      "message": "Thanks, we are aware of that and will fix it soon.",
+      "parentUuid": "61fe5f71_0d7e18bb",
+      "revId": "d5f343b0f0dfb2fc35f401f86fb2f1f515051d8f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
