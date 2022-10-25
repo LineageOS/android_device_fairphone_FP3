@@ -110,7 +110,7 @@ ro.hwui.texture_cache_size=72
 # Media
 av.debug.disable.pers.cache=1
 media.aac_51_output_enabled=true
-#media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 mm.enable.smoothstreaming=true
 mmp.enable.3g2=true
 
