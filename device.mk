@@ -584,7 +584,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds
 
 # Disable handling audio direction changes on IMS calls.
-PRODUCT_VENDOR_PROPERTIES += \
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
