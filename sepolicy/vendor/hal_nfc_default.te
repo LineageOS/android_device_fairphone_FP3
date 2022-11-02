@@ -1,1 +1,0 @@
-dontaudit hal_nfc_default persist_nfc_prop:file read;
