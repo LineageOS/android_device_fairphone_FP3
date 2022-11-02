@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4146c7a0_c1c08180",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 24334
+      },
+      "writtenOn": "2022-11-02T07:10:03Z",
+      "side": 1,
+      "message": "\u003e Patch Set 1:\n\u003e \n\u003e why not product?\n\nOur telephony/ims packages present in /system_ext so thought it would be consistent. \nProduct also would work but haven\u0027t checked that",
+      "revId": "af3fc002445b2715be474bfc9b45dc14fc642030",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
