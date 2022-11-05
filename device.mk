@@ -94,7 +94,6 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     libaacwrapper \
     libaudio-resampler \
-    libautohal \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -178,10 +177,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service \
     camera.device@1.0-impl \
     camera.device@3.2-impl:32 \
-    libbson.vendor \
     libxml2 \
     vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
+    vendor.qti.hardware.camera.device@1.0.vendor
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.isp.clock.optmz=0 \
@@ -304,18 +302,11 @@ PRODUCT_PACKAGES += \
     libbatching \
     libgeofencing \
     libgnss \
-    libgnsspps \
-    libsynergy_loc_api \
     libgps.utils
 
 PRODUCT_PACKAGES += \
-    apdr.conf \
     flp.conf \
-    gps.conf \
-    izat.conf \
-    lowi.conf \
-    sap.conf \
-    xtwifi.conf
+    gps.conf
 
 # gps/location secuity configuration file
 PRODUCT_COPY_FILES += \
@@ -380,12 +371,9 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     vold.fstab
 
-# CRDA += init.crda.sh #TODO fix CRDA packages later
-
 #Add init.qcom.test.rc to PRODUCT_PACKAGES_DEBUG list
 PRODUCT_PACKAGES += \
-    init.qcom.test.rc \
-    init.qcom.debug.sh
+    init.qcom.test.rc
 
 
 # IPACM
@@ -437,9 +425,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
 
 # Media / StagefrightCodec 2.0
-PRODUCT_PACKAGES += \
-    libstagefright_ccodec
-
 PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
 
 # OMX
@@ -486,11 +471,8 @@ PRODUCT_PACKAGES += \
     com.nxp.nfc.nq.xml \
     libnqnfc-nci \
     libnqnfc_nci_jni \
-    libnqp61-jcop-kit \
-    nfc_nci.nqx.default \
-    nqnfcee_access.xml \
+    nfc_nci.nqx.default.hw \
     nqnfcinfo \
-    nqnfcse_access.xml \
     vendor.nxp.hardware.nfc@2.0-service
 
 # NFC Config
@@ -695,14 +677,12 @@ PRODUCT_PACKAGES += \
     hostapd \
     hostapd_cli \
     libnl \
-    libqsap_sdk \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
     libwpa_client \
-    vendor.qti.hardware.wifi.supplicant@1.0_vendor \
+    vendor.qti.hardware.wifi.supplicant@1.0.vendor \
     wificond \
     WifiOverlay \
-    libwcnss_qmi \
     wpa_supplicant \
     wpa_supplicant.conf
 

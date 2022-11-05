@@ -81,7 +81,6 @@ BOARD_SUPPORTS_QAHW := false
 MM_AUDIO_ENABLED_FTM := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
-#AUDIO_FEATURE_ENABLED_VOICE_CONCURRENCY := true
 AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
 AUDIO_FEATURE_ENABLED_ALAC_OFFLOAD := false
 AUDIO_FEATURE_ENABLED_APE_OFFLOAD := true
@@ -112,14 +111,12 @@ USE_CUSTOM_AUDIO_POLICY := 1
 # Bluetooth
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
-BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := FP3
 TARGET_NO_BOOTLOADER := false
-# BOOTLOADER_GCC_VERSION := arm-eabi-4.8
 
 
 # Broken Flags
@@ -127,7 +124,6 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 
 # Camera
-TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_CAMERA_STUB := true
 
 
@@ -167,7 +163,7 @@ TARGET_FS_CONFIG_GEN += \
 
 
 # GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default # from gps/gps_vendor_board.mk
 LOC_HIDL_VERSION := 4.0
 
 
@@ -187,10 +183,6 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-
-
-# INIT
-# TARGET_INIT_VENDOR_LIB := libinit_msm #Important
 
 
 # Kernel
@@ -213,7 +205,6 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/fairphone/sdm632
 TARGET_KERNEL_VERSION := 4.9
 TARGET_USES_UNCOMPRESSED_KERNEL := false
-TARGET_USES_UNCOMPRESSED_KERNEL := false
 
 # Declare boot header
 BOARD_BOOT_HEADER_VERSION := 1
@@ -228,21 +219,11 @@ TARGET_PROVIDES_LIBLIGHT := true
 TARGET_MOUNT_POINTS_SYMLINKS := false
 
 
-# NFC
-BOARD_NFC_CHIPSET := pn553
-TARGET_USES_NQ_NFC := true
-
-
-#Enable peripheral manager
-TARGET_PER_MGR_ENABLED := true
-
-
 # Platform - UM_3_18_FAMILY
 TARGET_BOARD_PLATFORM := msm8953
 
 
 # Power
-TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 
@@ -254,8 +235,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
 
 # RIL
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
-TARGET_USES_OLD_MNC_FORMAT := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 
@@ -283,16 +262,6 @@ BOARD_AVB_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
 
 # Disable verity and descriptor checking
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
-
-# When AVB 2.0 is enabled, dm-verity is enabled differently,
-# below definitions are only required for AVB 1.0
-ifeq ($(BOARD_AVB_ENABLE),false)
-# dm-verity definitions
-    PRODUCT_SUPPORTS_VERITY := true
-    PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/bootdevice/by-name/system
-    PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/bootdevice/by-name/vendor
-    $(call inherit-product, build/target/product/verity.mk)
-endif
 
 
 # Vendor Security Patch Level

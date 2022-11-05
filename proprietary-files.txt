@@ -862,6 +862,7 @@ vendor/etc/thermal-engine.conf
 
 # etc-gps-configs
 vendor/etc/apdr.conf
+vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
