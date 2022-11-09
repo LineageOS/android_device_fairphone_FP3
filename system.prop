@@ -121,8 +121,8 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 #system props for the MM modules
 media.msm8956hw=0
 
-#codecs:(PARSER_)AAC AC3 ASF DTS FLV 3G2 MP2PS MP2TS QCP AIFF
-vendor.mm.enable.qcom_parser=301779
+#codecs:(PARSER_)AAC AC3 ASF FLV 3G2 MP2PS MP2TS QCP AIFF
+vendor.mm.enable.qcom_parser=301715
 
 
 # Others
