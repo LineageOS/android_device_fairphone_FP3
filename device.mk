@@ -161,7 +161,7 @@ PRODUCT_PACKAGES += \
 # Bluetooth Properties
 # Set supported Bluetooth profiles to enabled
 PRODUCT_PRODUCT_PROPERTIES += \
-    bluetooth.profile.asha.central.enabled?=true \
+    bluetooth.profile.asha.central.enabled?=false \
     bluetooth.profile.a2dp.source.enabled?=true \
     bluetooth.profile.avrcp.target.enabled?=true \
     bluetooth.profile.bas.client.enabled?=true \
