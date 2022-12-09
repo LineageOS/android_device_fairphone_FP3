@@ -19,6 +19,7 @@ ro.af.client_heap_size_kbyte=7168
 #system prop for Bluetooth
 #ro.bluetooth.library_name=libbluetooth_qti.so # Disable this as we do not use QTI BT stack in AOSP.
 bluetooth.hfp.client=1
+bluetooth.device.default_name=Fairphone 3
 
 
 # Camera
