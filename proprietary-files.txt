@@ -596,7 +596,6 @@ vendor/bin/hw/vendor.display.color@1.0-service
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
-vendor/bin/hw/vendor.qti.hardware.cryptfshw@1.0-service-qti
 vendor/bin/hw/vendor.qti.hardware.perf@2.2-service
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
@@ -833,7 +832,6 @@ vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
 vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
-vendor/etc/init/vendor.qti.hardware.cryptfshw@1.0-service-qti.rc
 vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
 vendor/etc/init/vendor.qti.hardware.perf@2.2-service.rc
 vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
@@ -2446,8 +2444,6 @@ vendor/lib/libcneqmiutils.so
 vendor/lib/libconfigdb.so
 vendor/lib/libcpion.so
 vendor/lib/libcppf.so
-vendor/lib/libcryptfshwcommon.so
-vendor/lib/libcryptfshwhidl.so
 vendor/lib/libdataitems.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libdiag.so
@@ -3030,8 +3026,6 @@ vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/libcpion.so
-vendor/lib64/libcryptfshwcommon.so
-vendor/lib64/libcryptfshwhidl.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libdiag.so
 vendor/lib64/libdiagjni.so

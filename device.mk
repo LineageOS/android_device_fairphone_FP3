@@ -252,12 +252,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.hardware.keystore_desede=true
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.qti.qseecomd.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.qseecomd.sh
 
-# HW crypto
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee \
-    vendor.qti.hardware.cryptfshw@1.0 \
-    vendor.qti.hardware.cryptfshw@1.0.vendor
-
 
 # Fingerprint
 PRODUCT_PACKAGES += \
