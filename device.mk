@@ -208,7 +208,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0 \
     vendor.qti.hardware.camera.device@1.0.vendor
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.isp.clock.optmz=0 \
     persist.vendor.camera.lib2d.rotation=on
 
@@ -220,7 +220,7 @@ PRODUCT_PACKAGES += \
 
 
 # Dalvik
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
            vendor.vidc.disable.split.mode=1
 $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 
@@ -246,10 +246,10 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.0.vendor
 
 # Disable skip validate
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     vendor.display.disable_skip_validate=1
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     vendor.gralloc.disable_ahardware_buffer=1
 
 #
@@ -258,11 +258,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # 196608 is decimal for 0x30000 to report major/minor versions as 3/0
 # 196609 is decimal for 0x30001 to report major/minor versions as 3/1
 # 196610 is decimal for 0x30002 to report major/minor versions as 3/2
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.opengles.version=196610
 
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.vulkan=adreno
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.egl=adreno
+PRODUCT_VENDOR_PROPERTIES += ro.hardware.vulkan=adreno
+PRODUCT_VENDOR_PROPERTIES += ro.hardware.egl=adreno
 
 
 # DRM
@@ -270,16 +270,16 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.4.vendor \
     android.hardware.drm@1.4-service.clearkey
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     drm.service.enabled=true
 
 
 # Encryption
-PRODUCT_PROPERTY_OVERRIDES += ro.crypto.allow_encrypt_override=true
-PRODUCT_PROPERTY_OVERRIDES += ro.crypto.volume.filenames_mode=aes-256-cts
+PRODUCT_VENDOR_PROPERTIES += ro.crypto.allow_encrypt_override=true
+PRODUCT_VENDOR_PROPERTIES += ro.crypto.volume.filenames_mode=aes-256-cts
 
 # Keystore
-PRODUCT_PROPERTY_OVERRIDES += ro.hardware.keystore_desede=true
+PRODUCT_VENDOR_PROPERTIES += ro.hardware.keystore_desede=true
 
 
 # FBE support
@@ -299,7 +299,7 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.qti.va_aosp.support=1
 
 PRODUCT_ODM_PROPERTIES += \
@@ -307,7 +307,7 @@ PRODUCT_ODM_PROPERTIES += \
 
 
 # FRP
-PRODUCT_PROPERTY_OVERRIDES += ro.frp.pst=/dev/block/bootdevice/by-name/config
+PRODUCT_VENDOR_PROPERTIES += ro.frp.pst=/dev/block/bootdevice/by-name/config
 
 
 # Gatekeeper and Keymaster for vendor
@@ -335,7 +335,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.backup.ntpServer=0.pool.ntp.org
 
 
@@ -409,10 +409,10 @@ PRODUCT_PACKAGES += \
 
 
 # IPV4
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.data.profile_update=true
 
-PRODUCT_PROPERTY_OVERRIDES += ro.telephony.iwlan_operation_mode=legacy
+PRODUCT_VENDOR_PROPERTIES += ro.telephony.iwlan_operation_mode=legacy
 
 
 # IRQ
@@ -461,7 +461,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
 
 # Media / StagefrightCodec 2.0
-PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
+PRODUCT_VENDOR_PROPERTIES += debug.stagefright.omx_default_rank=0
 
 # Disable media transcoding
 PRODUCT_VENDOR_PROPERTIES += \
@@ -485,7 +485,7 @@ PRODUCT_PACKAGES += \
 
 
 # OEM Unlock reporting
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.oem_unlock_supported=1
 
 
@@ -517,12 +517,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.nfc_nci=nqx.default
 
 
 # Others
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.qcomsysd.enabled=1 \
     ro.vendor.extension_library=libqti-perfd-client.so \
     sys.vendor.shutdown.waittime=500
@@ -616,19 +616,19 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor
 
 # RIL properties
-PRODUCT_PROPERTY_OVERRIDES += vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
+PRODUCT_VENDOR_PROPERTIES += vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 #vendor prop to disable advanced network scanning
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.radio.enableadvancedscan=false
 # Enable Dual SIM by default
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.radio.multisim.config=dsds
 
 # Disable handling audio direction changes on IMS calls.
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
 
-PRODUCT_PROPERTY_OVERRIDES += \
+PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.sib16_support=1 \
     persist.vendor.radio.custom_ecc=1 \
