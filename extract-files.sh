@@ -67,6 +67,10 @@ function blob_fixup() {
     vendor/lib64/hw/fingerprint.FP3.so)
         "${PATCHELF}" --set-soname "fingerprint.FP3.so" "${2}"
         ;;
+
+    vendor/lib/libremosaic_daemon.so)
+        "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v30.so" "${2}"
+        ;;
     esac
 }
 

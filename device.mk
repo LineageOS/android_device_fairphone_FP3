@@ -212,6 +212,9 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.camera.isp.clock.optmz=0 \
     persist.vendor.camera.lib2d.rotation=on
 
+# VNDK
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v30/arm/arch-arm-armv7-a-neon/shared/vndk-core/libbinder.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libbinder-v30.so
 
 # Configstore
 PRODUCT_PACKAGES += \
