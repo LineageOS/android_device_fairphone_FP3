@@ -143,6 +143,7 @@ system_ext/etc/permissions/UimGba.xml
 system_ext/etc/permissions/UimGbaManager.xml
 system_ext/etc/permissions/UimService.xml
 system_ext/etc/permissions/audiosphere.xml
+system_ext/etc/permissions/com.nxp.nfc.nq.xml
 system_ext/etc/permissions/com.qti.dpmframework.xml
 system_ext/etc/permissions/com.qti.location.sdk.xml
 system_ext/etc/permissions/com.qti.media.secureprocessor.xml
@@ -169,6 +170,7 @@ system_ext/etc/spn-conf.xml
 # framework
 system_ext/framework/ActivityExt.jar
 system_ext/framework/audiosphere.jar
+system_ext/framework/com.nxp.nfc.nq.jar
 system_ext/framework/com.qti.dpmframework.jar
 system_ext/framework/com.qti.location.sdk.jar
 system_ext/framework/com.qti.media.secureprocessor.jar
@@ -275,6 +277,8 @@ system_ext/lib/libminksocket_system.so
 system_ext/lib/libmmosal.so
 system_ext/lib/libmmparser_lite.so
 system_ext/lib/libmwqemiptablemgr.so
+system_ext/lib/libnqnfc-nci.so
+system_ext/lib/libnqnfc_nci_jni.so
 system_ext/lib/libqcc.so
 system_ext/lib/libqcc_file_agent_sys.so
 system_ext/lib/libqct_resampler.so
@@ -297,6 +301,10 @@ system_ext/lib/vendor.display.color@1.0.so
 system_ext/lib/vendor.display.color@1.1.so
 system_ext/lib/vendor.display.color@1.2.so
 system_ext/lib/vendor.display.postproc@1.0.so
+system_ext/lib/vendor.nxp.hardware.nfc@1.0.so
+system_ext/lib/vendor.nxp.hardware.nfc@1.1.so
+system_ext/lib/vendor.nxp.hardware.nfc@2.0.so
+system_ext/lib/vendor.nxp.nxpnfclegacy@1.0.so
 system_ext/lib/vendor.qti.data.factory@1.0.so
 system_ext/lib/vendor.qti.data.factory@2.0.so
 system_ext/lib/vendor.qti.data.factory@2.1.so
@@ -436,6 +444,8 @@ system_ext/lib64/libmmosal.so
 system_ext/lib64/libmmparser_lite.so
 system_ext/lib64/libmsp.so
 system_ext/lib64/libmwqemiptablemgr.so
+system_ext/lib64/libnqnfc-nci.so
+system_ext/lib64/libnqnfc_nci_jni.so
 system_ext/lib64/libqcc.so
 system_ext/lib64/libqcc_file_agent_sys.so
 system_ext/lib64/libqmi_cci_system.so
@@ -457,6 +467,10 @@ system_ext/lib64/vendor.display.color@1.0.so
 system_ext/lib64/vendor.display.color@1.1.so
 system_ext/lib64/vendor.display.color@1.2.so
 system_ext/lib64/vendor.display.postproc@1.0.so
+system_ext/lib64/vendor.nxp.hardware.nfc@1.0.so
+system_ext/lib64/vendor.nxp.hardware.nfc@1.1.so
+system_ext/lib64/vendor.nxp.hardware.nfc@2.0.so
+system_ext/lib/vendor.nxp.nxpnfclegacy@1.0.so
 system_ext/lib64/vendor.qti.data.factory@1.0.so
 system_ext/lib64/vendor.qti.data.factory@2.0.so
 system_ext/lib64/vendor.qti.data.factory@2.1.so
@@ -593,6 +607,7 @@ vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/bin/hw/qcrild
 vendor/bin/hw/vendor.display.color@1.0-service
+vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
 vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
 vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
@@ -828,6 +843,7 @@ vendor/etc/init/netmgrd.rc
 vendor/etc/init/port-bridge.rc
 vendor/etc/init/qcrild.rc
 vendor/etc/init/vendor.display.color@1.0-service.rc
+vendor/etc/init/vendor.nxp.hardware.nfc@2.0-service.rc
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
 vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
@@ -881,6 +897,7 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 
 # etc-vintf manifests
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
+-vendor/etc/vintf/manifest/vendor.nxp.hardware.nfc@2.0-service.xml
 -vendor/etc/vintf/manifest/vendor.qti.gnss@4.0-service.xml
 -vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
 
@@ -956,6 +973,7 @@ vendor/lib/egl/libGLESv1_CM_adreno.so
 vendor/lib/egl/libGLESv2_adreno.so
 vendor/lib/egl/libq3dtools_adreno.so
 vendor/lib/egl/libq3dtools_esx.so
+vendor/lib/hal_libnfc.so
 vendor/lib/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
@@ -2793,6 +2811,7 @@ vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_server_protocol.so
 vendor/lib/libxtwifi_server_protocol_uri_v3.so
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/nfc_nci.nqx.default.hw.so
 vendor/lib/qcrild_librilutils.so
 vendor/lib/qtibus.so
 vendor/lib/qtimutex.so
@@ -2814,6 +2833,10 @@ vendor/lib/vendor.display.color@1.0.so
 vendor/lib/vendor.display.color@1.1.so
 vendor/lib/vendor.display.color@1.2.so
 vendor/lib/vendor.display.postproc@1.0.so
+vendor/lib/vendor.nxp.hardware.nfc@1.0.so
+vendor/lib/vendor.nxp.hardware.nfc@1.1.so
+vendor/lib/vendor.nxp.hardware.nfc@2.0.so
+vendor/lib/vendor.nxp.nxpnfclegacy@1.0.so
 vendor/lib/vendor.qti.data.factory@2.0.so
 vendor/lib/vendor.qti.data.factory@2.1.so
 vendor/lib/vendor.qti.data.factory@2.2.so
@@ -2926,6 +2949,7 @@ vendor/lib64/egl/libGLESv1_CM_adreno.so
 vendor/lib64/egl/libGLESv2_adreno.so
 vendor/lib64/egl/libq3dtools_adreno.so
 vendor/lib64/egl/libq3dtools_esx.so
+vendor/lib64/hal_libnfc.so
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
@@ -3186,6 +3210,7 @@ vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_server_protocol.so
 vendor/lib64/libxtwifi_server_protocol_uri_v3.so
 vendor/lib64/mediadrm/libwvdrmengine.so
+vendor/lib64/nfc_nci.nqx.default.hw.so
 vendor/lib64/qcrild_librilutils.so
 vendor/lib64/qtibus.so
 vendor/lib64/qtimutex.so
@@ -3200,6 +3225,10 @@ vendor/lib64/vendor.display.color@1.0.so
 vendor/lib64/vendor.display.color@1.1.so
 vendor/lib64/vendor.display.color@1.2.so
 vendor/lib64/vendor.display.postproc@1.0.so
+vendor/lib64/vendor.nxp.hardware.nfc@1.0.so
+vendor/lib64/vendor.nxp.hardware.nfc@1.1.so
+vendor/lib64/vendor.nxp.hardware.nfc@2.0.so
+vendor/lib64/vendor.nxp.nxpnfclegacy@1.0.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
 vendor/lib64/vendor.qti.data.factory@2.2.so

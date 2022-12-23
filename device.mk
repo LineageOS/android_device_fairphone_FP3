@@ -453,14 +453,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NfcNci \
     Tag \
+    android.hardware.nfc@1.2.vendor \
     com.android.nfc_extras \
-    com.nxp.nfc.nq \
-    com.nxp.nfc.nq.xml \
-    libnqnfc-nci \
-    libnqnfc_nci_jni \
-    nfc_nci.nqx.default.hw \
+    libchrome.vendor \
     nqnfcinfo \
-    vendor.nxp.hardware.nfc@2.0-service
 
 # NFC Config
 PRODUCT_COPY_FILES += \
@@ -468,10 +464,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default
-
-# Soong namespaces
-PRODUCT_SOONG_NAMESPACES += \
-    vendor/nxp/opensource/pn5xx
 
 
 # Others
