@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35cfaf6b_ce8b032b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5911
+      },
+      "writtenOn": "2023-01-18T22:43:01Z",
+      "side": 1,
+      "message": "why don\u0027t you pull these out into vendor.prop, system.prop \u0026 friends?",
+      "revId": "3130db14e9fef88a3aba6c032fddae0ff3617894",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
