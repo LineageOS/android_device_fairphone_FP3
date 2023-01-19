@@ -16,6 +16,24 @@
       "message": "why don\u0027t you pull these out into vendor.prop, system.prop \u0026 friends?",
       "revId": "3130db14e9fef88a3aba6c032fddae0ff3617894",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "466af295_c5565617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2023-01-19T04:13:17Z",
+      "side": 1,
+      "message": "No hard reason for this. I shall be cherry-picking from stock(https://gerrit-public.fairphone.software/plugins/gitiles/device/fairphone/fp3-common/+/refs/heads/int/11/fp3/device.mk) for every MR.\n\nSo, I\u0027ve retained their structure just to make cherry-picking easier.",
+      "parentUuid": "35cfaf6b_ce8b032b",
+      "revId": "3130db14e9fef88a3aba6c032fddae0ff3617894",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
