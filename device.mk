@@ -399,7 +399,7 @@ PRODUCT_PACKAGES += \
     vold.fstab
 
 #Add init.qcom.test.rc to PRODUCT_PACKAGES_DEBUG list
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES_DEBUG += \
     init.qcom.test.rc
 
 
