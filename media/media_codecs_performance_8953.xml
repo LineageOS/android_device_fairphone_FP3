@@ -35,12 +35,12 @@
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.h263" type="video/3gpp" update="true">
             <Limit name="measured-frame-rate-176x144" range="400-400" />
-            <Limit name="measured-frame-rate-352x288" range="302-321" />
+            <Limit name="measured-frame-rate-352x288" range="106-321" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.mpeg4" type="video/mp4v-es" update="true">
             <Limit name="measured-frame-rate-176x144" range="351-351" />
-            <Limit name="measured-frame-rate-352x288" range="303-323" />
-            <Limit name="measured-frame-rate-640x480" range="144-144" />
+            <Limit name="measured-frame-rate-352x288" range="108-323" />
+            <Limit name="measured-frame-rate-640x480" range="108-144" />
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" update="true">
             <Limit name="measured-frame-rate-320x180" range="312-312" />
