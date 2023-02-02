@@ -1028,3 +1028,14 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
     user system
     group system
     disabled
+
+# Enable zram only once per boot. 
+
+# We want one opportunity per boot to enable zram, so we
+# use a trigger we fire from the above stanza. If
+# persist.sys.zram_enabled becomes true after boot,
+# we don't want to run swapon_all at that time.
+
+on property:sys.boot_completed=1
+    swapon_all /vendor/etc/fstab.${ro.hardware}
+
