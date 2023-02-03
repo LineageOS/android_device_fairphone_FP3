@@ -33,6 +33,24 @@
       "message": "Hi, thanks for your change. Could you do the following:\n- Add an \"FP3:\" prefix to the commit message to maintain style\n- Change the author field as in https://review.lineageos.org/c/LineageOS/android_device_samsung_gts4lv-common/+/344860 ",
       "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02135b40_14b41ae0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2023-02-03T08:53:24Z",
+      "side": 1,
+      "message": "Maybe also look at https://review.lineageos.org/c/LineageOS/android_device_fxtec_pro1/+/348225 for similar approach.",
+      "parentUuid": "0128e7e0_b37540f2",
+      "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
