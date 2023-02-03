@@ -69,6 +69,24 @@
       "parentUuid": "02135b40_14b41ae0",
       "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e739825_e67a4c3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2023-02-03T14:05:52Z",
+      "side": 1,
+      "message": "If you want to attribute the authorship to someone else, you can do something like\n`git commit --amend --author\u003d\"The Big Lebowski \u003cdude@pool.com\u003e\"`,\nthen submit the updated patch here. Don\u0027t think you can do this through the Gerrit Web UI.",
+      "parentUuid": "fb5db21f_2c6f367a",
+      "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
