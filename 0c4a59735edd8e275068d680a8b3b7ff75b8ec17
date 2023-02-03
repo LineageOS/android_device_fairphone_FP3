@@ -51,6 +51,24 @@
       "parentUuid": "0128e7e0_b37540f2",
       "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5db21f_2c6f367a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32315
+      },
+      "writtenOn": "2023-02-03T12:26:37Z",
+      "side": 1,
+      "message": "yes, the gist of this patch is the same, but it\u0027s more encompassing. In fact, everything is set up on the FP3, zram is configured and usable, so, in the end, \nonly activating is missing\n\nregarding the other comment, I added the prefix, but I seem to be unable to add the author field? I thought I set everything up correctly, but it looks like there\u0027s something missing? (My first commit here)",
+      "parentUuid": "02135b40_14b41ae0",
+      "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
