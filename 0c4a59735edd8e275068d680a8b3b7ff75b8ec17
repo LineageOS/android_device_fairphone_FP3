@@ -16,6 +16,23 @@
       "message": "Hi, I added the missing changes as are present in any other device, as well as in the emulator",
       "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0128e7e0_b37540f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27052
+      },
+      "writtenOn": "2023-02-03T08:11:44Z",
+      "side": 1,
+      "message": "Hi, thanks for your change. Could you do the following:\n- Add an \"FP3:\" prefix to the commit message to maintain style\n- Change the author field as in https://review.lineageos.org/c/LineageOS/android_device_samsung_gts4lv-common/+/344860 ",
+      "revId": "0c4a59735edd8e275068d680a8b3b7ff75b8ec17",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
