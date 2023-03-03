@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb8c554_b2e38e49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2023-03-03T16:54:04Z",
+      "side": 1,
+      "message": "@Kishan, could you set the Verified vote if you have validated this on a clean build?\n\nThanks.",
+      "revId": "381a5b027e8459a9b84eefbefab61b8c7db1d2a8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
