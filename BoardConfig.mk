@@ -165,6 +165,9 @@ TARGET_FS_CONFIG_GEN += \
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default # from gps/gps_vendor_board.mk
 LOC_HIDL_VERSION := 4.0
 
+# Health
+TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/power_supply/battery/battery_charging_enabled
+TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_TOGGLE := true
 
 # Graphics
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
