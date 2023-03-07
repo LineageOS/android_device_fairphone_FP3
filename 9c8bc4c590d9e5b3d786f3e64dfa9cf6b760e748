@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66408b77_f1fd7ef4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32315
+      },
+      "writtenOn": "2023-03-07T20:00:44Z",
+      "side": 1,
+      "message": "Hi, just tried to cherry pick your changes from LOS20 to LOS19.1\nNot sure whether this is still reasonable, but then, I\u0027m not sure when LOS20 for FP3 will be available",
+      "revId": "9c8bc4c590d9e5b3d786f3e64dfa9cf6b760e748",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
