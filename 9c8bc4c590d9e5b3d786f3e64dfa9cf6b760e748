@@ -103,6 +103,24 @@
       "message": "also, we have plenty of zram patches to pick, eg https://review.lineageos.org/c/LineageOS/android_device_fxtec_pro1/+/348225\n\nwhich seems a bit more moderate ;)",
       "revId": "9c8bc4c590d9e5b3d786f3e64dfa9cf6b760e748",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22a38fe_b266a614",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32315
+      },
+      "writtenOn": "2023-03-09T19:23:54Z",
+      "side": 1,
+      "message": "Changed zram percentage to 50% \nExperience of people on FP forum suggest 50%, also, e.g. Pixel 3a also uses 50% zram recommendations for fedora also recommend 50% in this range of available RAM",
+      "parentUuid": "e3647a71_a64675b8",
+      "revId": "9c8bc4c590d9e5b3d786f3e64dfa9cf6b760e748",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
