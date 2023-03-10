@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from FP3-REL-8901.4.A.0019.1-gms-edfd6a4e-user
+# All unpinned blobs are extracted from FP3-REL-8901.4.A.0021.0-gms-0b368514-user
 
 # System partition
 
@@ -470,7 +470,7 @@ system_ext/lib64/vendor.display.postproc@1.0.so
 system_ext/lib64/vendor.nxp.hardware.nfc@1.0.so
 system_ext/lib64/vendor.nxp.hardware.nfc@1.1.so
 system_ext/lib64/vendor.nxp.hardware.nfc@2.0.so
-system_ext/lib/vendor.nxp.nxpnfclegacy@1.0.so
+system_ext/lib64/vendor.nxp.nxpnfclegacy@1.0.so
 system_ext/lib64/vendor.qti.data.factory@1.0.so
 system_ext/lib64/vendor.qti.data.factory@2.0.so
 system_ext/lib64/vendor.qti.data.factory@2.1.so
@@ -1138,6 +1138,7 @@ vendor/lib/libchromatix_s5k3p9sp_common.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_liveshot.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_preview.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_snapshot.so
+vendor/lib/libchromatix_s5k3p9sp_cpp_snapshot_pro.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_video.so
 vendor/lib/libchromatix_s5k3p9sp_liveshot.so
 vendor/lib/libchromatix_s5k3p9sp_postproc.so
@@ -1174,6 +1175,7 @@ vendor/lib/libchromatix_s5kgm1sp_cpp_hfr_90.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_liveshot.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_preview.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot.so
+vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot_pro.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot_upscale.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_video.so
 vendor/lib/libchromatix_s5kgm1sp_default_preview_3a.so
