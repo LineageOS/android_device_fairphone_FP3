@@ -15,7 +15,7 @@ etc/powerhint.xml
 etc/wfdconfig.xml
 etc/wfdconfigsink.xml
 
-# firmware
+# framework
 -framework/QPerformance.jar
 -framework/UxPerformance.jar
 -framework/WfdCommon.jar
