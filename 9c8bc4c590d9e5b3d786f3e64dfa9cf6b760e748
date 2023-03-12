@@ -121,6 +121,24 @@
       "parentUuid": "e3647a71_a64675b8",
       "revId": "9c8bc4c590d9e5b3d786f3e64dfa9cf6b760e748",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbe8b0d7_def8ded3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2023-03-12T08:21:37Z",
+      "side": 1,
+      "message": "Thanks Georg,\nc/350942 seems to work fine.",
+      "parentUuid": "e22a38fe_b266a614",
+      "revId": "9c8bc4c590d9e5b3d786f3e64dfa9cf6b760e748",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
