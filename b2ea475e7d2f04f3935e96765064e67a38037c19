@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcecb619_2e6a8e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2023-04-27T13:44:12Z",
+      "side": 1,
+      "message": "See discussions at https://forum.fairphone.com/t/smartphones-with-popular-qualcomm-chip-secretly-share-private-information-with-us-chip-maker/95544/45",
+      "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
