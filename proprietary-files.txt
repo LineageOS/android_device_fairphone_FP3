@@ -96,10 +96,6 @@ lib64/vendor.qti.hardware.sigma_miracast@1.0.so
 
 # Product partition
 
-# app
--product/app/CallFeaturesSetting/CallFeaturesSetting.apk
--product/app/PowerOffAlarm/PowerOffAlarm.apk
-
 # etc
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml
 product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
@@ -108,21 +104,7 @@ product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
 # System_ext partition
 
 # app
--system_ext/app/ConferenceDialer/ConferenceDialer.apk
--system_ext/app/DeviceInfo/DeviceInfo.apk
--system_ext/app/DynamicDDSService/DynamicDDSService.apk
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
--system_ext/app/SimContact/SimContact.apk
--system_ext/app/atfwd/atfwd.apk
--system_ext/app/embms/embms.apk
--system_ext/app/imssettings/imssettings.apk
--system_ext/app/remotesimlockservice/remotesimlockservice.apk
--system_ext/app/uimgbaservice/uimgbaservice.apk
--system_ext/app/uimlpaservice/uimlpaservice.apk
--system_ext/app/uimremoteclient/uimremoteclient.apk
--system_ext/app/uimremoteserver/uimremoteserver.apk
--system_ext/app/workloadclassifier/workloadclassifier.apk
--system_ext/app/xdivert/xdivert.apk
 
 # bin
 system_ext/bin/dpmd
@@ -145,7 +127,6 @@ system_ext/etc/permissions/UimService.xml
 system_ext/etc/permissions/audiosphere.xml
 system_ext/etc/permissions/com.nxp.nfc.nq.xml
 system_ext/etc/permissions/com.qti.dpmframework.xml
-system_ext/etc/permissions/com.qti.location.sdk.xml
 system_ext/etc/permissions/com.qti.media.secureprocessor.xml
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.0-java.xml
 system_ext/etc/permissions/com.qualcomm.qti.imscmservice-V2.1-java.xml
@@ -172,7 +153,6 @@ system_ext/framework/ActivityExt.jar
 system_ext/framework/audiosphere.jar
 system_ext/framework/com.nxp.nfc.nq.jar
 system_ext/framework/com.qti.dpmframework.jar
-system_ext/framework/com.qti.location.sdk.jar
 system_ext/framework/com.qti.media.secureprocessor.jar
 system_ext/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
 system_ext/framework/com.qualcomm.qti.imscmservice-V2.1-java.jar
@@ -561,19 +541,14 @@ system_ext/lib64/vendor.qti.latency@2.1.so
 system_ext/lib64/vendor.qti.voiceprint@1.0.so
 
 # priv-app
--system_ext/priv-app/QAS_DVC_MSP/QAS_DVC_MSP.apk
--system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
 -system_ext/priv-app/ims/ims.apk
 -system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
--system_ext/priv-app/seccamservice/seccamservice.apk
 
 
 # Vendor partition
 
 # app
--vendor/app/CACertService/CACertService.apk
 -vendor/app/CneApp/CneApp.apk
--vendor/app/IWlanService/IWlanService.apk
 -vendor/app/TimeService/TimeService.apk
 
 # bin
@@ -624,8 +599,6 @@ vendor/bin/imsrcsd
 vendor/bin/ipacm-diag
 vendor/bin/irsc_util
 vendor/bin/ks
-vendor/bin/loc_launcher
-vendor/bin/lowi-server
 vendor/bin/mlid
 vendor/bin/mm-pp-dpps
 vendor/bin/mm-qcamera-app
@@ -666,9 +639,6 @@ vendor/bin/vendor_cmd_tool
 vendor/bin/wcnss_service:vendor/bin/wcnss_service_prebuilt
 vendor/bin/wdsdaemon
 vendor/bin/wifidisplayhalservice
-vendor/bin/xtra-daemon
-vendor/bin/xtwifi-client
-vendor/bin/xtwifi-inet-agent
 
 # etc-acdb files
 vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
@@ -711,9 +681,6 @@ vendor/etc/acdbdata/TAS/TAS_WCD9335_Hdmi_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Headset_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_Speaker_cal.acdb
 vendor/etc/acdbdata/TAS/TAS_WCD9335_workspaceFile.qwsp
-
-# etc
-vendor/etc/cacert_location.pem
 
 # etc-camera
 vendor/etc/camera/camera_config.xml
@@ -828,7 +795,6 @@ vendor/etc/thermal-engine.conf
 
 # etc-gps-configs
 vendor/etc/apdr.conf
-vendor/etc/izat.conf
 vendor/etc/lowi.conf
 vendor/etc/sap.conf
 vendor/etc/xtwifi.conf
@@ -856,8 +822,6 @@ vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 # etc-wifi configs
 vendor/etc/wifi/aoa_cldb_falcon.bin
 vendor/etc/wifi/aoa_cldb_swl14.bin
-
-vendor/etc/xtra_root_cert.pem
 
 # firmware
 vendor/firmware/a506_zap.b00
@@ -1035,9 +999,6 @@ vendor/lib/libarcsoft_object_tracking.so
 vendor/lib/libarcsoft_singlecam_bokeh.so
 vendor/lib/libarcsoft_videoautozoom.so
 vendor/lib/libarcsoft_videostabs.so
-vendor/lib/libasn1cper.so
-vendor/lib/libasn1crt.so
-vendor/lib/libasn1crtx.so
 vendor/lib/libaudcal.so
 vendor/lib/libaudio_log_utils.so
 vendor/lib/libaudioalsa.so
@@ -1222,7 +1183,6 @@ vendor/lib/libgcs-calwrapper.so
 vendor/lib/libgcs-ipc.so
 vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
-vendor/lib/libgdtap.so
 vendor/lib/libgnsspps.so
 vendor/lib/libgpudataproducer.so
 vendor/lib/libgsl.so
@@ -1246,7 +1206,6 @@ vendor/lib/libloc_socket.so
 vendor/lib/liblocationservice.so
 vendor/lib/liblocationservice_glue.so
 vendor/lib/liblowi_client.so
-vendor/lib/liblowi_wifihal.so
 vendor/lib/liblqe.so
 -vendor/lib/libmdmdetect.so
 vendor/lib/libmdsprpc.so
@@ -1684,9 +1643,6 @@ vendor/lib64/libadreno_utils.so
 vendor/lib64/libadsp_default_listener.so
 vendor/lib64/libadsprpc.so
 vendor/lib64/libaoa.so
-vendor/lib64/libasn1cper.so
-vendor/lib64/libasn1crt.so
-vendor/lib64/libasn1crtx.so
 vendor/lib64/libaudcal.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudioalsa.so
@@ -1730,7 +1686,6 @@ vendor/lib64/libgcs-calwrapper.so
 vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
-vendor/lib64/libgdtap.so
 vendor/lib64/libgnsspps.so
 vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgsl.so
@@ -1750,7 +1705,6 @@ vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
 vendor/lib64/liblqe.so
 -vendor/lib64/libmdmdetect.so
 vendor/lib64/libmdsprpc.so
