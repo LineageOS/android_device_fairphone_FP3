@@ -33,6 +33,24 @@
       "message": "Thank you for your clear statement.\n\nI\u0027m running this on my daily driver without any problems and haven\u0027t noticed any lack of functionality compared to the datum.\n* The izat/com.qualcomm.location services are not used in FP3 LOS so far, so their remnants only take up space and battery, but IMHO don\u0027t provide any user functionality,\n* I and other users here haven\u0027t found any missing LOS functionality by removing the other apks. So they also seem to only take up space and battery.\nIn addition, I consider any unused/unnecessary blob to be an avoidable security risk. \n\nThus, I am happy to do some more dedicated testing, as our daily usage may not make use of all the features you consider affected, but I would need your guidance on what to check specifically here and on the datum. Alternatively, if you insist, I am certainly also happy to abandon the commit without further efforts.",
       "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b2b2237_813c396b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 19282
+      },
+      "writtenOn": "2023-04-28T10:02:19Z",
+      "side": 1,
+      "message": "Note that the nitrokey blog post was a PR stunt gone wrong and was debunked by multiple sources right after them publishing it.\n\nAs long as you also do not ship the IZat rro overlay, which offers the user to opt-in to their extended services during the setup wizard, it will not even make use of it.",
+      "parentUuid": "dcecb619_2e6a8e34",
+      "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
