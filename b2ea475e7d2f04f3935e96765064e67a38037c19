@@ -69,6 +69,24 @@
       "parentUuid": "bf27f74a_71ff201e",
       "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0497807_7ad85510",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2195
+      },
+      "writtenOn": "2023-04-28T12:13:30Z",
+      "side": 1,
+      "message": "Additionally, based on our testing without xtra-daemon on Pixels, you\u0027ll have a noticeably slow pure GNSS lock without the data it downloads.\n\nYou have to factory reset, make sure there\u0027s no other helper for location (Play Services, microG, etc) and then try an app like GPSTest to see what the TTFF is.",
+      "parentUuid": "3f8df679_395d3519",
+      "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
