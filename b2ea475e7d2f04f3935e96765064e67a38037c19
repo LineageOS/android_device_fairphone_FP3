@@ -16,6 +16,23 @@
       "message": "See discussions at https://forum.fairphone.com/t/smartphones-with-popular-qualcomm-chip-secretly-share-private-information-with-us-chip-maker/95544/45",
       "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf27f74a_71ff201e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 27275
+      },
+      "writtenOn": "2023-04-28T07:51:14Z",
+      "side": 1,
+      "message": "Thank you for your clear statement.\n\nI\u0027m running this on my daily driver without any problems and haven\u0027t noticed any lack of functionality compared to the datum.\n* The izat/com.qualcomm.location services are not used in FP3 LOS so far, so their remnants only take up space and battery, but IMHO don\u0027t provide any user functionality,\n* I and other users here haven\u0027t found any missing LOS functionality by removing the other apks. So they also seem to only take up space and battery.\nIn addition, I consider any unused/unnecessary blob to be an avoidable security risk. \n\nThus, I am happy to do some more dedicated testing, as our daily usage may not make use of all the features you consider affected, but I would need your guidance on what to check specifically here and on the datum. Alternatively, if you insist, I am certainly also happy to abandon the commit without further efforts.",
+      "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
