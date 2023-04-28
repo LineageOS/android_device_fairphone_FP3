@@ -51,6 +51,24 @@
       "parentUuid": "dcecb619_2e6a8e34",
       "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f8df679_395d3519",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2023-04-28T11:19:39Z",
+      "side": 1,
+      "message": "hey,\n\nAlexander covered the IZAT stuff.\n\nyou can\u0027t have possibly tested everything because several features are outright broken after this, power off alarm, the feature where when you set an alarm and turn off the device it will power back on to alert you, we\u0027ll be completely broken.\n\nWi-Fi calling will be completely broken.\n\nDPM/CNE makes radio switch way less smart and breaks volte.\n\nI would go to say that it seems that not one of these wouldn\u0027t break something",
+      "parentUuid": "bf27f74a_71ff201e",
+      "revId": "b2ea475e7d2f04f3935e96765064e67a38037c19",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
