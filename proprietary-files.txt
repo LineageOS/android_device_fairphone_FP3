@@ -122,7 +122,6 @@ product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml
 -system_ext/app/uimlpaservice/uimlpaservice.apk
 -system_ext/app/uimremoteclient/uimremoteclient.apk
 -system_ext/app/uimremoteserver/uimremoteserver.apk
--system_ext/app/workloadclassifier/workloadclassifier.apk
 -system_ext/app/xdivert/xdivert.apk
 
 # bin
@@ -288,8 +287,6 @@ system_ext/lib/libqti-at.so
 system_ext/lib/libqti-iopd-client_system.so
 system_ext/lib/libqti-perfd-client_system.so
 system_ext/lib/libqti-util_system.so
-system_ext/lib/libqti_performance.so
-system_ext/lib/libqti_workloadclassifiermodel.so
 system_ext/lib/libsdsprpc_system.so
 system_ext/lib/libseccam-ipc.so
 system_ext/lib/libseccam.so
@@ -453,8 +450,6 @@ system_ext/lib64/libqti-at.so
 system_ext/lib64/libqti-iopd-client_system.so
 system_ext/lib64/libqti-perfd-client_system.so
 system_ext/lib64/libqti-util_system.so
-system_ext/lib64/libqti_performance.so
-system_ext/lib64/libqti_workloadclassifiermodel.so
 system_ext/lib64/libsdsprpc_system.so
 system_ext/lib64/libseccam-ipc.so
 system_ext/lib64/libseccam.so
