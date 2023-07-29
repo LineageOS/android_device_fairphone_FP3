@@ -1465,7 +1465,6 @@ vendor/lib/libxml.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_server_protocol.so
 vendor/lib/libxtwifi_server_protocol_uri_v3.so
-vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/nfc_nci.nqx.default.hw.so
 vendor/lib/qcrild_librilutils.so
 vendor/lib/qtibus.so
@@ -1864,7 +1863,6 @@ vendor/lib64/libxml.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_server_protocol.so
 vendor/lib64/libxtwifi_server_protocol_uri_v3.so
-vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/nfc_nci.nqx.default.hw.so
 vendor/lib64/qcrild_librilutils.so
 vendor/lib64/qtibus.so
