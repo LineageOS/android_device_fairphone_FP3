@@ -1,4 +1,4 @@
-# All unpinned blobs are extracted from FP3-REL-6.A.018.0-gms-1f4b2a90-user
+# All unpinned blobs are extracted from FP3-REL-6.A.020.0-gms-88126537-user
 
 # System partition
 
@@ -1119,6 +1119,7 @@ vendor/lib/libchromatix_s5k3p9sp_common.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_liveshot.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_preview.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_snapshot.so
+vendor/lib/libchromatix_s5k3p9sp_cpp_snapshot_pro.so
 vendor/lib/libchromatix_s5k3p9sp_cpp_video.so
 vendor/lib/libchromatix_s5k3p9sp_liveshot.so
 vendor/lib/libchromatix_s5k3p9sp_postproc.so
@@ -1155,6 +1156,7 @@ vendor/lib/libchromatix_s5kgm1sp_cpp_hfr_90.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_liveshot.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_preview.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot.so
+vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot_pro.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_snapshot_upscale.so
 vendor/lib/libchromatix_s5kgm1sp_cpp_video.so
 vendor/lib/libchromatix_s5kgm1sp_default_preview_3a.so
