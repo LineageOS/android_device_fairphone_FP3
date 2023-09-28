@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efdea144_b9ac2f28",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2023-09-28T11:46:03Z",
+      "side": 1,
+      "message": "No tabs.",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 1
+      },
+      "revId": "9ccf86ff9167934c81b7e70cf616e1c18d8deabf",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
