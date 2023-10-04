@@ -1367,7 +1367,7 @@ vendor/lib/libqmi.so
 -vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_client_helper.so
 vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmi_common_so.so
+-vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libqmi_legacy.so
@@ -1780,7 +1780,7 @@ vendor/lib64/libqmi.so
 -vendor/lib64/libqmi_cci.so
 vendor/lib64/libqmi_client_helper.so
 vendor/lib64/libqmi_client_qmux.so
-vendor/lib64/libqmi_common_so.so
+-vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmi_legacy.so
