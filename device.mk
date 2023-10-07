@@ -708,7 +708,7 @@ TARGET_NOT_SUPPORT_VULKAN_FEATURE_LEVEL_1 := true
 
 # Wifi
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
+    android.hardware.wifi@1.0-service.legacy \
     hostapd \
     hostapd_cli \
     libnl \
