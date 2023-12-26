@@ -189,7 +189,7 @@ DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 # Kernel
 BOARD_KERNEL_BASE        := 0x80000000
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom msm_rtb.filter=0x237
-BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true loop.max_part=7
+BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true loop.max_part=7 androidboot.boot_devices=soc/7824900.sdhci
 BOARD_KERNEL_CMDLINE += ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_OFFSET      := 0x00008000
