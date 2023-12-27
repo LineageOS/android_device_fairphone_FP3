@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec559a60_4b50c4c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2023-12-27T14:31:33Z",
+      "side": 1,
+      "message": "For documentation purpose, could you add `This also reverts commit 932e54670 and commit d4db9354a`?\n\nThanks.",
+      "revId": "d781ffaba4fb9cde8fb164c0b926da827ac72c4b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
