@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b3d7f50_69fdba67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2024-01-07T17:11:43Z",
+      "side": 1,
+      "message": "\u003e commit message makes no sense here. lineage restored these. also, confused, as something must depend on these if they\u0027re here? what\u0027s the alternative?\n\nLineage restored it but Lineage now also has a more specific module. Alternative would be the 3.9.1 variant which is included in c/378365 and c/378366. Since these better match the requirement, the generic ones are removed to avoid the duplication.",
+      "revId": "39fe7ad3e530f58c8eaf36b53e2a57bc69a75879",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
