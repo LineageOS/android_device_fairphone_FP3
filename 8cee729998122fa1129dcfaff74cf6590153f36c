@@ -16,6 +16,24 @@
       "message": "Wrong author info",
       "revId": "8cee729998122fa1129dcfaff74cf6590153f36c",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbdeba1d_49ee0e8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2024-01-07T17:12:19Z",
+      "side": 1,
+      "message": "Thanks for pointing it.\n\nFixed.",
+      "parentUuid": "ebc006b1_67e60e97",
+      "revId": "8cee729998122fa1129dcfaff74cf6590153f36c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
