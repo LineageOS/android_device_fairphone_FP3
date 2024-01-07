@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc006b1_67e60e97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 32181
+      },
+      "writtenOn": "2024-01-07T13:54:39Z",
+      "side": 1,
+      "message": "Wrong author info",
+      "revId": "8cee729998122fa1129dcfaff74cf6590153f36c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
