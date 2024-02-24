@@ -200,3 +200,6 @@ persist.debug.wfd.enable=1
 persist.debug.coresight.config=stm-events
 #property to enable VDS WFD solution
 persist.hwc.enable_vds=1
+
+# Logs
+persist.log.tag.OpenGLRenderer=S
