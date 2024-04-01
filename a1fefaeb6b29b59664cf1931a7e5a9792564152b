@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f28e462_b645f27e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2024-04-01T20:17:54Z",
+      "side": 1,
+      "message": "How does this work for you? Other devices where verity was backported ended up with corrupted userdata.",
+      "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
