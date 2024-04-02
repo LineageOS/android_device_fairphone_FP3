@@ -16,6 +16,24 @@
       "message": "How does this work for you? Other devices where verity was backported ended up with corrupted userdata.",
       "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb73da29_4abb83d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2024-04-02T17:33:00Z",
+      "side": 1,
+      "message": "Shall try out OTA from 20 and confirm.",
+      "parentUuid": "4f28e462_b645f27e",
+      "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
