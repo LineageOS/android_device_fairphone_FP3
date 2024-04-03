@@ -34,6 +34,24 @@
       "parentUuid": "4f28e462_b645f27e",
       "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcce6d02_10bf87c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2024-04-03T06:34:28Z",
+      "side": 1,
+      "message": "Hi,\n\nOTA update went well and I didn\u0027t see any data loss or corruption. Do you suggest checking any other use case?",
+      "parentUuid": "eb73da29_4abb83d6",
+      "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
