@@ -52,6 +52,23 @@
       "parentUuid": "eb73da29_4abb83d6",
       "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "103c04b6_7f25e1cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2024-04-07T11:51:58Z",
+      "side": 1,
+      "message": "How did you test this exactly? Your kernel doesn\u0027t even have fs-verity\n\nhttps://github.com/LineageOS/android_kernel_fairphone_sdm632/tree/lineage-21/fs/verity\nhttps://github.com/search?q\u003drepo%3ALineageOS%2Fandroid_kernel_fairphone_sdm632+FS_VERITY\u0026type\u003dcode",
+      "revId": "a1fefaeb6b29b59664cf1931a7e5a9792564152b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
