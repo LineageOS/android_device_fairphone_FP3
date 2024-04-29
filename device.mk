@@ -699,8 +699,7 @@ PRODUCT_COPY_FILES += \
 
 # Enable vndk-sp Libraries
 PRODUCT_PACKAGES += \
-    libgui_vendor:32 \
-    vndk_package
+    libgui_vendor:32
 
 # Disable Vulkan feature level 1
 TARGET_NOT_SUPPORT_VULKAN_FEATURE_LEVEL_1 := true
