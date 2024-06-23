@@ -210,7 +210,8 @@ PRODUCT_COPY_FILES += \
 # Configstore
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0 \
-    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
+    vendor.qti.hardware.capabilityconfigstore@1.0.vendor \
+    disable_configstore
 
 
 # Dalvik
