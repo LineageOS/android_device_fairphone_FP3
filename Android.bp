@@ -1,3 +1,17 @@
 soong_namespace {
     imports: ["hardware/qcom/bootctrl"],
 }
+
+install_symlink {
+    name: "firmware_WCNSS_qcom_cfg.ini_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/prima/WCNSS_qcom_cfg.ini",
+    symlink_target: "/vendor/etc/wifi/WCNSS_qcom_cfg.ini",
+}
+
+install_symlink {
+    name: "firmware_WCNSS_wlan_dictionary.dat_symlink",
+    vendor: true,
+    installed_location: "firmware/wlan/prima/WCNSS_wlan_dictionary.dat",
+    symlink_target: "/vendor/etc/wifi/WCNSS_wlan_dictionary.dat",
+}
