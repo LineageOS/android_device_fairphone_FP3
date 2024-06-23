@@ -17,6 +17,9 @@
 # Vendor blobs
 $(call inherit-product, vendor/fairphone/FP3/FP3-vendor.mk)
 
+# Add common definitions for Qualcomm
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
+
 # System properties
 TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
