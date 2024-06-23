@@ -30,16 +30,6 @@ include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-WIFI_SYMLINKS := $(TARGET_OUT_VENDOR)/firmware/wlan/prima/
-$(WIFI_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Creating WCNSS Symlinks: $@"
-	@rm -rf $@/*
-	@mkdir -p $(dir $@)
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_qcom_cfg.ini $@/WCNSS_qcom_cfg.ini
-	$(hide) ln -sf /vendor/etc/wifi/WCNSS_wlan_dictionary.dat $@/WCNSS_wlan_dictionary.dat
-
-ALL_DEFAULT_INSTALLED_MODULES += $(WIFI_SYMLINKS)
-
 #A/B builds require us to create the mount points at compile time.
 #Just creating it for all cases since it does not hurt.
 FIRMWARE_MOUNT_POINT := $(TARGET_OUT_VENDOR)/firmware_mnt
