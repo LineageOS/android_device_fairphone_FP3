@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b5bf46_fa332358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 33949
+      },
+      "writtenOn": "2024-07-18T09:26:51Z",
+      "side": 1,
+      "message": "I don\u0027t know if this is the right place, but I just wanted to say thanks for the quick fix! Found this page in the changelog for today\u0027s update after I had been trying to figure out why WiFi was broken since the last update.\n\nAfter seeing that the problem is specifically with WPA2/3 mixed mode, I updated my router settings which let the phone connect again, downloaded the upgrade through that and will now install and revert the router changes :)",
+      "revId": "fb6f72c538aaf59c31b9297256e99d8d10165ab9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ],
   "submitRequirementResults": []
 }
