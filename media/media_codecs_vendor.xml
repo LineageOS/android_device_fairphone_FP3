@@ -181,7 +181,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="12" />
             <Limit name="performance-point-720x480" value="30" />
         </MediaCodec>
-        <MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" >
+        <!--MediaCodec name="OMX.qcom.video.encoder.vp8" type="video/x-vnd.on2.vp8" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
             <Quirk name="requires-loaded-to-idle-after-allocation" />
@@ -193,7 +193,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="concurrent-instances" max="24" />
             <Feature name="intra-refresh" />
             <Limit name="performance-point-1920x1088" value="30" />
-        </MediaCodec>
+        </MediaCodec-->
     </Encoders>
     <Decoders>
         <!-- Video Hardware  -->
