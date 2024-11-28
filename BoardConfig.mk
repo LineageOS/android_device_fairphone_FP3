@@ -271,7 +271,7 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
 
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := "2024-08-05"
+VENDOR_SECURITY_PATCH := "2024-11-05"
 
 
 # Wifi

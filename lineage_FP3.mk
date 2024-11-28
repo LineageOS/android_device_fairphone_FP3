@@ -39,7 +39,7 @@ PRODUCT_SYSTEM_DEVICE := FP3
 # userdebug
 PRODUCT_BUILD_PROP_OVERRIDES += \
         TARGET_DEVICE=FP3 \
-        PRIVATE_BUILD_DESC="FP3-user 13 6.A.030.0-gms-d57debf7 release-keys"
+        PRIVATE_BUILD_DESC="FP3-user 13 6.A.031.5-gms-fa7632b5 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Fairphone/FP3/FP3:13/6.A.030.0/gms-d57debf7:user/release-keys
+BUILD_FINGERPRINT := Fairphone/FP3/FP3:13/6.A.031.5/gms-fa7632b5:user/release-keys
