@@ -612,6 +612,10 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.3.vendor \
     android.hardware.radio.deprecated@1.0.vendor
 
+# RIL dependency
+PRODUCT_PACKAGES += \
+    libsqlite.vendor
+
 # RIL properties
 PRODUCT_VENDOR_PROPERTIES += vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 #vendor prop to disable advanced network scanning
