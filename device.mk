@@ -471,11 +471,7 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
     libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
     libavservices_minijail \
