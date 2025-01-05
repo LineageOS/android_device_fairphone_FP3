@@ -244,10 +244,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 ENABLE_VENDOR_RIL_SERVICE := true
 
 
-# Enable sensor multi HAL
-USE_SENSOR_MULTI_HAL := true
-
-
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
