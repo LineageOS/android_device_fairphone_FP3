@@ -1,17 +1,14 @@
 #!/bin/bash
 #
-# SPDX-FileCopyrightText: 2018-2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2018-2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
 
-# Required!
-export DEVICE=FP3
-export VENDOR=fairphone
-
-export DEVICE_BRINGUP_YEAR=2020
+DEVICE=FP3
+VENDOR=fairphone
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -26,15 +23,15 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# Initialize the helper for common
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
-# Copyright headers and guards
-write_headers "FP3"
+# Warning headers and guards
+write_headers
 
-# The standard common blobs
-write_makefiles "${MY_DIR}/proprietary-files.txt" true
+write_makefiles "${MY_DIR}/proprietary-files.txt"
+
+append_firmware_calls_to_makefiles "${MY_DIR}/proprietary-firmware.txt"
 
 # Finish
 write_footers
-

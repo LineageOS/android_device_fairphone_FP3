@@ -1,23 +1,24 @@
 #!/bin/bash
 #
-# SPDX-FileCopyrightText: 2018-2024 The LineageOS Project
+# SPDX-FileCopyrightText: 2018-2025 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 set -e
 
-# Required!
-export DEVICE=FP3
-export VENDOR=fairphone
-
-export DEVICE_BRINGUP_YEAR=2020
+DEVICE=FP3
+VENDOR=fairphone
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
+
+# If XML files don't have comments before the XML header, use this flag
+# Can still be used with broken XML files by using blob_fixup
+export TARGET_DISABLE_XML_FIXING=true
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -29,25 +30,30 @@ source "${HELPER}"
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
-SECTION=
+ONLY_FIRMWARE=
 KANG=
+SECTION=
+CARRIER_SKIP_FILES=()
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
-        -n | --no-cleanup )
-                CLEAN_VENDOR=false
-                ;;
-        -k | --kang )
-                KANG="--kang"
-                ;;
-        -s | --section )
-                SECTION="${2}"
-                shift
-                CLEAN_VENDOR=false
-                ;;
-        * )
-                SRC="${1}"
-                ;;
+        --only-firmware)
+            ONLY_FIRMWARE=true
+            ;;
+        -n | --no-cleanup)
+            CLEAN_VENDOR=false
+            ;;
+        -k | --kang)
+            KANG="--kang"
+            ;;
+        -s | --section)
+            SECTION="${2}"
+            shift
+            CLEAN_VENDOR=false
+            ;;
+        *)
+            SRC="${1}"
+            ;;
     esac
     shift
 done
@@ -58,26 +64,25 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-
-    # Fix xml version
-    product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
-        [ "$2" = "" ] && return 0
-        sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
-        ;;
-
-    # Change soname for fingerprint.default.so.
-    vendor/lib64/hw/fingerprint.FP3.so)
-        [ "$2" = "" ] && return 0
-        "${PATCHELF}" --set-soname "fingerprint.FP3.so" "${2}"
-        ;;
-
-    vendor/lib/libremosaic_daemon.so)
-        [ "$2" = "" ] && return 0
-        "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v30.so" "${2}"
-        ;;
-        *)
-            return 1
+        # Fix xml version
+        product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
+            [ "$2" = "" ] && return 0
+            sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
             ;;
+
+        # Change soname for fingerprint.default.so.
+        vendor/lib64/hw/fingerprint.FP3.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --set-soname "fingerprint.FP3.so" "${2}"
+            ;;
+
+        vendor/lib/libremosaic_daemon.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v30.so" "${2}"
+            ;;
+            *)
+                return 1
+                ;;
     esac
 
     return 0
@@ -87,9 +92,15 @@ function blob_fixup_dry() {
     blob_fixup "$1" ""
 }
 
+# Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
-        "${KANG}" --section "${SECTION}"
+if [ -z "${ONLY_FIRMWARE}" ]; then
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
+if [ -z "${SECTION}" ]; then
+    extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
+fi
 
 "${MY_DIR}/setup-makefiles.sh"
