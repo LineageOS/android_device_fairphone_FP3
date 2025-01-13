@@ -1,0 +1,14 @@
+# Firmware from FP3-6.A.031.5-gms-fa7632b5-user-fastbootimage
+
+emmc_appsboot.mbn:aboot.img;AB
+cmnlib_30.mbn:cmnlib.img;AB
+cmnlib64_30.mbn:cmnlib64.img;AB
+devcfg.mbn:devcfg.img;AB
+adspso.bin:dsp.img;AB
+km4.mbn:keymaster.img;AB
+lksecapp.mbn:lksecapp.img;AB
+mdtp.img:mdtp.img;AB
+NON-HLOS.bin:modem.img;AB
+rpm.mbn:rpm.img;AB
+sbl1.mbn:sbl1.img;AB
+tz.mbn:tz.img;AB
