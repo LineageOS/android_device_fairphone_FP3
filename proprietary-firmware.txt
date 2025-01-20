@@ -1,4 +1,4 @@
-# Firmware from FP3-6.A.030.0-gms-d57debf7-user-fastbootimage
+# Firmware from FP3-6.A.031.5-gms-fa7632b5-user-fastbootimage
 
 emmc_appsboot.mbn:aboot.img;AB
 cmnlib_30.mbn:cmnlib.img;AB
