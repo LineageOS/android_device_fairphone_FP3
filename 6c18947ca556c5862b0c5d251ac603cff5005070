@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c72bd6a_854b97bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2025-01-20T21:02:09Z",
+      "side": 1,
+      "message": "Is this really necessary? Can\u0027t you just fast-forward? It\u0027s very odd to see merges in device trees...",
+      "revId": "6c18947ca556c5862b0c5d251ac603cff5005070",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
