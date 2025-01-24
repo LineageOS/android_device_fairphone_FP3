@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab0828a_e49e3994",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 10067
+      },
+      "writtenOn": "2025-01-24T11:03:44Z",
+      "side": 1,
+      "message": "isn\u0027t fsg a motorola thing",
+      "revId": "2898a49fd18ec647e481586ee9d36cf4ed107a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
