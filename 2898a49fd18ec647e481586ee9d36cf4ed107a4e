@@ -16,6 +16,24 @@
       "message": "isn\u0027t fsg a motorola thing",
       "revId": "2898a49fd18ec647e481586ee9d36cf4ed107a4e",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9f9402_f14cc996",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2025-01-25T09:37:24Z",
+      "side": 1,
+      "message": "Thanks. Dropping it now.",
+      "parentUuid": "cab0828a_e49e3994",
+      "revId": "2898a49fd18ec647e481586ee9d36cf4ed107a4e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
