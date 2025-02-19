@@ -52,11 +52,8 @@ AB_OTA_POSTINSTALL_CONFIG += \
 $(call soong_config_set,QTI_GPT_UTILS,USE_BSG_FRAMEWORK,false)
 
 PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-impl.recovery \
-    android.hardware.boot@1.0-service \
-    bootctrl.msm8953 \
-    bootctrl.msm8953.recovery \
+    android.hardware.boot-service.qti \
+    android.hardware.boot-service.qti.recovery \
     otapreopt_script \
     update_engine \
     update_engine_sideload \
