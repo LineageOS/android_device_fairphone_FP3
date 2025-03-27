@@ -1295,11 +1295,11 @@ vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 -vendor/lib/libperfgluelayer.so;DISABLE_DEPS
 -vendor/lib/libperfioctl.so;DISABLE_DEPS
 -vendor/lib/libperipheral_client.so;DISABLE_DEPS
--vendor/lib/libpn547_fw.so;DISABLE_DEPS
--vendor/lib/libpn548ad_fw.so;DISABLE_DEPS
--vendor/lib/libpn551_fw.so;DISABLE_DEPS
--vendor/lib/libpn553_fw.so;DISABLE_DEPS
--vendor/lib/libpn557_fw.so;DISABLE_DEPS
+-vendor/lib/libpn547_fw.so:vendor/lib64/libpn547_fw.so;DISABLE_DEPS
+-vendor/lib/libpn548ad_fw.so:vendor/lib64/libpn548ad_fw.so;DISABLE_DEPS
+-vendor/lib/libpn551_fw.so:vendor/lib64/libpn551_fw.so;DISABLE_DEPS
+-vendor/lib/libpn553_fw.so:vendor/lib64/libpn553_fw.so;DISABLE_DEPS
+-vendor/lib/libpn557_fw.so:vendor/lib64/libpn557_fw.so;DISABLE_DEPS
 -vendor/lib/libpvr.so;DISABLE_DEPS
 -vendor/lib/libqcbor.so;DISABLE_DEPS
 -vendor/lib/libqcc_file_agent.so;DISABLE_DEPS
@@ -1368,7 +1368,7 @@ vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 -vendor/lib/libslimclient.so;DISABLE_DEPS
 -vendor/lib/libsmemlog.so;DISABLE_DEPS
 -vendor/lib/libsmwrapper.so;DISABLE_DEPS
--vendor/lib/libsn100u_fw.so;DISABLE_DEPS
+-vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so;DISABLE_DEPS
 -vendor/lib/libsoc_helper.so;DISABLE_DEPS
 -vendor/lib/libssc_default_listener.so;DISABLE_DEPS
 -vendor/lib/libssd.so;DISABLE_DEPS
