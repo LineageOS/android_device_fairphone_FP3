@@ -62,12 +62,6 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        # Fix xml version
-        product/etc/permissions/vendor.qti.hardware.data.connection-V1.0-java.xml | product/etc/permissions/vendor.qti.hardware.data.connection-V1.1-java.xml)
-            [ "$2" = "" ] && return 0
-            sed -i 's/xml version="2.0"/xml version="1.0"/' "${2}"
-            ;;
-
         # Change soname for fingerprint.default.so.
         vendor/lib64/hw/fingerprint.FP3.so)
             [ "$2" = "" ] && return 0
