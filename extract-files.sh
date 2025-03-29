@@ -74,13 +74,9 @@ function blob_fixup() {
             "${PATCHELF}" --set-soname "fingerprint.FP3.so" "${2}"
             ;;
 
-        vendor/lib/libremosaic_daemon.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v30.so" "${2}"
+        *)
+            return 1
             ;;
-            *)
-                return 1
-                ;;
     esac
 
     return 0
