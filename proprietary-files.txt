@@ -252,7 +252,6 @@ system_ext/lib/vendor.nxp.hardware.nfc@1.0.so
 system_ext/lib/vendor.nxp.hardware.nfc@1.1.so
 system_ext/lib/vendor.nxp.hardware.nfc@2.0.so
 system_ext/lib/vendor.nxp.nxpnfclegacy@1.0.so
-system_ext/lib/vendor.qti.data.factory@1.0.so
 system_ext/lib/vendor.qti.data.factory@2.0.so
 system_ext/lib/vendor.qti.data.factory@2.1.so
 system_ext/lib/vendor.qti.data.factory@2.2.so
@@ -372,6 +371,10 @@ system_ext/lib64/libdpmctmgr.so
 system_ext/lib64/libdpmfdmgr.so
 system_ext/lib64/libdpmframework.so
 system_ext/lib64/libdpmtcm.so
+system_ext/lib64/libembmsmmosal.so
+system_ext/lib64/libembmsmmparser_lite.so
+system_ext/lib64/libembmssqlite.so
+system_ext/lib64/libembmstinyxml.so
 system_ext/lib64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/libjnihelpers.so
@@ -415,7 +418,6 @@ system_ext/lib64/vendor.nxp.hardware.nfc@1.0.so
 system_ext/lib64/vendor.nxp.hardware.nfc@1.1.so
 system_ext/lib64/vendor.nxp.hardware.nfc@2.0.so
 system_ext/lib64/vendor.nxp.nxpnfclegacy@1.0.so
-system_ext/lib64/vendor.qti.data.factory@1.0.so
 system_ext/lib64/vendor.qti.data.factory@2.0.so
 system_ext/lib64/vendor.qti.data.factory@2.1.so
 system_ext/lib64/vendor.qti.data.factory@2.2.so
@@ -527,7 +529,6 @@ vendor/bin/SoterProvisioningTool
 vendor/bin/adpl
 vendor/bin/adsprpcd
 vendor/bin/athdiag
-vendor/bin/audioflacapp
 vendor/bin/btnvtool
 vendor/bin/cnd
 vendor/bin/cnss-daemon
@@ -1157,6 +1158,7 @@ vendor/lib/libhal_dbg.so
 vendor/lib/libhdcpsrm.so
 vendor/lib/libhdr_tm.so
 vendor/lib/libidl.so
+vendor/lib/libizat_core.so
 vendor/lib/libjnihelper.so
 vendor/lib/libjni_burstpmk.so
 vendor/lib/libjpegdhw.so
@@ -1648,6 +1650,7 @@ vendor/lib64/libgsl.so
 vendor/lib64/libhdcpsrm.so
 vendor/lib64/libhdr_tm.so
 vendor/lib64/libidl.so
+vendor/lib64/libizat_core.so
 vendor/lib64/libjnihelper.so
 vendor/lib64/libjni_burstpmk.so
 vendor/lib64/libkeymasterdeviceutils.so
