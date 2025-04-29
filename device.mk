@@ -333,6 +333,10 @@ PRODUCT_VENDOR_PROPERTIES += \
     persist.backup.ntpServer=0.pool.ntp.org
 
 
+# Health
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery/battery_charging_enabled)
+$(call soong_config_set,lineage_health,charging_control_supports_toggle,true)
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
