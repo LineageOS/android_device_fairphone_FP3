@@ -16,6 +16,24 @@
       "message": "All appears to run smoothly with the new blobs, just the \"[E/ATFWD-daemon]\nlibminijail[]: blocked syscall: gettid\" persists. What about adopting https://review.lineageos.org/c/LineageOS/android_device_fairphone_FP4/+/396937 or is there any other fix?",
       "revId": "07b891668252bb09a170646c39360b7cb492bc37",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce4ac884_1e804fe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2025-06-11T15:03:57Z",
+      "side": 1,
+      "message": "No, I\u0027ll get this fixed for the next version. This requires a change in one of the proprietary files.",
+      "parentUuid": "6d08dfc9_b4d7e8c6",
+      "revId": "07b891668252bb09a170646c39360b7cb492bc37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
