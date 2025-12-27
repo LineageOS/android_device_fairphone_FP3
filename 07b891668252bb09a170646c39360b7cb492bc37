@@ -34,6 +34,24 @@
       "parentUuid": "6d08dfc9_b4d7e8c6",
       "revId": "07b891668252bb09a170646c39360b7cb492bc37",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa539fb_7cd0a4ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28232
+      },
+      "writtenOn": "2025-12-27T15:20:25Z",
+      "side": 1,
+      "message": "Sorry, it took time but should now be fixed. I got it fixed and updated from stock.",
+      "parentUuid": "ce4ac884_1e804fe5",
+      "revId": "07b891668252bb09a170646c39360b7cb492bc37",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ],
   "submitRequirementResults": []
