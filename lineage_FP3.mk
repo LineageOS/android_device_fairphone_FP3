@@ -40,5 +40,5 @@ PRODUCT_SYSTEM_DEVICE := FP3
 PRODUCT_BUILD_PROP_OVERRIDES += \
         DeviceName=FP3 \
         SystemName=FP3 \
-        BuildDesc="FP3-user 13 6.A.039.7-gms-44ba459b release-keys" \
-        BuildFingerprint = Fairphone/FP3/FP3:13/6.A.039.7/gms-44ba459b:user/release-keys
+        BuildDesc="FP3-user 13 6.A.040.2-gms-d33dc62f release-keys" \
+        BuildFingerprint = Fairphone/FP3/FP3:13/6.A.040.2/gms-d33dc62f:user/release-keys
